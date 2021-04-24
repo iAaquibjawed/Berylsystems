@@ -55,41 +55,15 @@
 
 
 7. Push the file to remote repo.
-	admin@admins-iMac Project % git commit origin main
-	Username for 'https://github.com': iAaquibjawed
-	  Password for 'https://aaquib@berylsystems.com': 
-	  Counting objects: 3, done.
-	  Delta compression using up to 4 threads.
-	  Compressing objects: 100% (2/2), done.
-	  Writing objects: 100% (3/3), 1.29 KiB | 660.00 KiB/s, done.
-	  Total 3 (delta 0), reused 0 (delta 0)
-	  To https://github.com/0agautam/Proj1.git
-	  * [new branch]      main -> main
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	[main 6daa8ee] Git Commands
+ 	1 file changed, 95 insertions(+)
+ 	create mode 100644 GitCommand.txt
+	admin@admins-iMac Project % git push
+	Enumerating objects: 4, done.
+	Counting objects: 100% (4/4), done.
+	Delta compression using up to 4 threads
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 1.20 KiB | 1.20 MiB/s, done.
+	Total 3 (delta 0), reused 0 (delta 0)
+	To https://github.com/iAaquibjawed/Berylsystems.git
+   	54f9a6b..6daa8ee  main -> main
