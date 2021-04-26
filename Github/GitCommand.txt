@@ -218,13 +218,13 @@
 	Saved working directory and index state WIP on testFeature: beee029 Merge branch 'master' of https://github.com/iAaquibjawed/Training.git 
 	admin@admins-iMac Project %  git status -s
 	admin@admins-iMac Project % git status 
-	On branch testFeature
-	Your branch is up to date with 'origin/testFeature'.
+	On branch main
+	Your branch is up to date with 'origin/master'.
 
 	nothing to commit, working tree clean
 	admin@admins-iMac Project %  git checkout master 
-	Switched to branch 'master'
-	Your branch is up to date with 'origin/master'.
+	Switched to branch 'main'
+	Your branch is up to date with 'origin/main'.
 	admin@admins-iMac Project %  git stash list
 	stash@{0}: WIP on testFeature: beee029 Merge branch 'master' of https://github.com/iAaquibjawed/Training.git	
 
