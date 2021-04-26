@@ -82,3 +82,47 @@
 	admin@admins-iMac Project % 
 9. Branching in Git.
 	1.create a local branch
+	admin@admins-iMac new % git branch local 
+	admin@admins-iMac Github % git branch temp
+	admin@admins-iMac Github % git checkout temp
+	M	Github/GitCommand.txt
+	Switched to branch 'temp'
+	admin@admins-iMac Github % git branch -v
+ 	 main bb376ab update
+	* temp bb376ab update
+	admin@admins-iMac Github % git push -u origin temp
+	Total 0 (delta 0), reused 0 (delta 0)
+	remote: This repository moved. Please use the new location:
+	remote:   https://github.com/iAaquibjawed/Training.git
+	remote: 
+	remote: Create a pull request for 'temp' on GitHub by visiting:
+	remote:      https://github.com/iAaquibjawed/Training/pull/new/temp
+	remote: 
+	To https://github.com/iAaquibjawed/Berylsystems.git
+	 * [new branch]      temp -> temp
+	Branch 'temp' set up to track remote branch 'temp' from 'origin'.
+	admin@admins-iMac Github % git branch -a
+	 main
+	* temp
+  	remotes/origin/main
+  	remotes/origin/temp
+	admin@admins-iMac Github % git branch -a
+ 	 main
+	* temp
+ 	 remotes/origin/main
+ 	 remotes/origin/temp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
