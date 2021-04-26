@@ -67,3 +67,18 @@
 	Total 3 (delta 0), reused 0 (delta 0)
 	To https://github.com/iAaquibjawed/Berylsystems.git
    	54f9a6b..6daa8ee  main -> main
+8. Get the information from the remote.
+	admin@admins-iMac Project % git remote show origin 
+	* remote origin
+  	Fetch URL: https://github.com/iAaquibjawed/Berylsystems.git
+  	Push  URL: https://github.com/iAaquibjawed/Berylsystems.git
+ 	 HEAD branch: main
+  	Remote branch:
+  	  main tracked
+ 	 Local branch configured for 'git pull':
+  	  main merges with remote main
+ 	 Local ref configured for 'git push':
+ 	   main pushes to main (up to date)
+	admin@admins-iMac Project % 
+9. Branching in Git.
+	1.create a local branch
