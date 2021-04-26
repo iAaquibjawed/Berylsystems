@@ -210,7 +210,7 @@
 	Unpacking objects: 100% (63/63), done.
 	admin@admins-iMac new % ls 
 	Training	hello.txt	text.txt
-13. 9. Stashing in git: saves your uncommited changes(staged and unstaged) for later use, and pull new changes from the remote repository and change the branch to work on something else :>
+13. Stashing in git: saves your uncommited changes(staged and unstaged) for later use, and pull new changes from the remote repository and change the branch to work on something else :>
 
 	admin@admins-iMac Project %  git status -s
 	 M text.txt
