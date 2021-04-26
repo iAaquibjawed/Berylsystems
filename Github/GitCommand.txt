@@ -200,7 +200,16 @@
 	admin@admins-iMac Project %  git push origin :Release_0.1                                                                                                      
 	To https://github.com/0agautam/GitTest.git
 	 - [deleted]         Release_0.1
-
+12. Clone the remote repo.
+	admin@admins-iMac new % git clone https://github.com/iAaquibjawed/Training.git
+	Cloning into 'Training'...
+	remote: Enumerating objects: 63, done.
+	remote: Counting objects: 100% (63/63), done.
+	remote: Compressing objects: 100% (41/41), done.
+	remote: Total 63 (delta 13), reused 60 (delta 10), pack-reused 0
+	Unpacking objects: 100% (63/63), done.
+	admin@admins-iMac new % ls 
+	Training	hello.txt	text.txt
 
 
 
