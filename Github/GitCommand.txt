@@ -122,6 +122,7 @@
 	remote:   https://github.com/iAaquibjawed/Training.git
 	To https://github.com/iAaquibjawed/Berylsystems.git
 
+10. Merege the branch
 
 
 
