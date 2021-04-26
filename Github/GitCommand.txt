@@ -123,6 +123,59 @@
 	To https://github.com/iAaquibjawed/Berylsystems.git
 
 10. Merege the branch
+	admin@admins-iMac new % git branch tempo
+	admin@admins-iMac new % git checkout tempo
+	Switched to branch 'tempo'
+	admin@admins-iMac new % git add hello.txt
+	admin@admins-iMac new % git commit -m "new"
+	On branch tempo
+	Changes not staged for commit:
+		modified:   text.txt
+
+	no changes added to commit
+	admin@admins-iMac new % git add text.txt
+	admin@admins-iMac new % git commit --m "add"
+	[tempo 4bf7d71] add
+	 1 file changed, 1 insertion(+)
+	admin@admins-iMac new % git push 
+	fatal: The current branch tempo has no upstream branch.
+	To push the current branch and set the remote as upstream, use
+
+    	git push --set-upstream origin tempo
+
+	admin@admins-iMac new % git push -u origin tempo
+	Enumerating objects: 8, done.
+	Counting objects: 100% (8/8), done.
+	Delta compression using up to 4 threads
+	Compressing objects: 100% (4/4), done.
+		Writing objects: 100% (6/6), 572 bytes | 572.00 KiB/s, done.
+	Total 6 (delta 0), reused 0 (delta 0)
+	remote: 
+	remote: Create a pull request for 'tempo' on GitHub by visiting:
+	remote:      https://github.com/iAaquibjawed/Practice/pull/new/tempo
+	remote: 
+	To https://github.com/iAaquibjawed/Practice.git
+	 * [new branch]      tempo -> tempo
+	Branch 'tempo' set up to track remote branch 'tempo' from 'origin'.
+	admin@admins-iMac new % git checkout master 
+	Switched to branch 'master'
+	admin@admins-iMac new % git branch --merged 
+	* master
+	admin@admins-iMac new % git merge tempo
+	Updating 32a0882..4bf7d71
+	Fast-forward
+	 text.txt | 1 +
+	 1 file changed, 1 insertion(+)
+	admin@admins-iMac new % git push    
+	fatal: The current branch master has no upstream branch.
+	To push the current branch and set the remote as upstream, use
+
+    	git push --set-upstream origin master
+
+	admin@admins-iMac new % git push origin master
+	Total 0 (delta 0), reused 0 (delta 0)
+	To https://github.com/iAaquibjawed/Practice.git
+  	 ba0cf9b..4bf7d71  master -> master
 
 
 
