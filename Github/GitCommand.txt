@@ -177,6 +177,30 @@
 	To https://github.com/iAaquibjawed/Practice.git
   	 ba0cf9b..4bf7d71  master -> master
 
+11.Git tag. Tags are ref's that point to specific points fi Git history. Taggins is generally used to 		capture a point in history that is used for a marked versions release.
+
+	admin@admins-iMac Project %  git tag -a "Release_0.1" -m "Starting of design method" 			e09f3ee
+	admin@admins-iMac Project %  git tag -l
+	Release_0.1
+	admin@admins-iMac Project %  git push origin tag Release_0.1
+	Enumerating objects: 1, done.
+	Counting objects: 100% (1/1), done.
+	Writing objects: 100% (1/1), 177 bytes | 177.00 KiB/s, done.
+	Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+	To https://github.com/0agautam/GitTest.git
+	 * [new tag]         Release_0.1 -> Release_0.1
+	admin@admins-iMac Project % git tag -l
+	Release_0.1
+	admin@admins-iMac Project %  git tag --help
+	admin@admins-iMac Project %  git tag -d Release_0.1 
+	Deleted tag 'Release_0.1' (was 85bd799)
+	admin@admins-iMac Project %  git push origin Release_0.1
+	error: src refspec Release_0.1 does not match any
+	error: failed to push some refs to 'https://github.com/iAaquibjawed/Training/blob/main/Github/		GitCommand.txt'
+	admin@admins-iMac Project %  git push origin :Release_0.1                                                                                                      
+	To https://github.com/0agautam/GitTest.git
+	 - [deleted]         Release_0.1
+
 
 
 
