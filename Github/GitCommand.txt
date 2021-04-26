@@ -111,6 +111,16 @@
 	* temp
  	 remotes/origin/main
  	 remotes/origin/temp
+9. Delete Branch
+	1. delete locally 
+	admin@admins-iMac Github % git branch -d temp
+	error: The branch 'temp' is not fully merged.
+	If you are sure you want to delete it, run 'git branch -D temp'.
+	2. delete remotely
+	admin@admins-iMac Github % git push origin --delete temp
+	remote: This repository moved. Please use the new location:
+	remote:   https://github.com/iAaquibjawed/Training.git
+	To https://github.com/iAaquibjawed/Berylsystems.git
 
 
 
