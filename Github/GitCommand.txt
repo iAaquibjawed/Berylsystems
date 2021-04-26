@@ -177,7 +177,7 @@
 	To https://github.com/iAaquibjawed/Practice.git
   	 ba0cf9b..4bf7d71  master -> master
 
-11.Git tag. Tags are ref's that point to specific points fi Git history. Taggins is generally used to 	capture a point in history that is used for a marked versions release.
+11.Git tag. Tags are ref's that point to specific points fi Git history. Taggins is generally used to capture a point in history that is used for a marked versions release.
 
 	admin@admins-iMac Project %  git tag -a "Release_0.1" -m "Starting of design method" 		e09f3ee
 	admin@admins-iMac Project %  git tag -l
