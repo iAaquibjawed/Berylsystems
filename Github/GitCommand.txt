@@ -213,16 +213,16 @@
 13. 9. Stashing in git: saves your uncommited changes(staged and unstaged) for later use, and pull new changes from the remote repository and change the branch to work on something else :>
 
 	admin@admins-iMac Project %  git status -s
-	 M README.md
+	 M text.txt
 	admin@admins-iMac Project %  git stash
 	Saved working directory and index state WIP on testFeature: beee029 Merge branch 'master' of https://github.com/iAaquibjawed/Training.git 
 	admin@admins-iMac Project %  git status -s
 	admin@admins-iMac Project % git status 
 	On branch main
-	Your branch is up to date with 'origin/master'.
+	Your branch is up to date with 'origin/main'.
 
 	nothing to commit, working tree clean
-	admin@admins-iMac Project %  git checkout master 
+	admin@admins-iMac Project %  git checkout main 
 	Switched to branch 'main'
 	Your branch is up to date with 'origin/main'.
 	admin@admins-iMac Project %  git stash list
