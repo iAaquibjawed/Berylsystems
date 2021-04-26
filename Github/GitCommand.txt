@@ -223,6 +223,7 @@
 
 	nothing to commit, working tree clean
 	admin@admins-iMac Project %  git checkout main 
+
 	Switched to branch 'main'
 	Your branch is up to date with 'origin/main'.
 	admin@admins-iMac Project %  git stash list
@@ -297,6 +298,19 @@
 	git rm --cached 'file name'
 	git commit -m "message"
 	git push -u origin branch
+
+15. SSH- stand for secure shell 
+	 -> use ssh to connect your computer to remote server
+		
+		Use command "SSH-Keygen"
+		it will give you two file one with pub extension and one is for private 
+		Use command pb <and the the path for the public key>
+		it will copy the content 
+		OR
+		use cat command to open the file on terminal and copy the key 
+		and paste in the ssh column 
+	 -> you need to generate a two key one is for public and one is for private 
+	 -> add your public key 
 
 
 
