@@ -210,6 +210,23 @@
 	Unpacking objects: 100% (63/63), done.
 	admin@admins-iMac new % ls 
 	Training	hello.txt	text.txt
+13. 9. Stashing in git: saves your uncommited changes(staged and unstaged) for later use, and pull new changes from the remote repository and change the branch to work on something else :>
+
+	admin@admins-iMac Project %  git status -s
+	 M README.md
+	admin@admins-iMac Project %  git stash
+	Saved working directory and index state WIP on testFeature: beee029 Merge branch 'master' of https://github.com/iAaquibjawed/Training.git 
+	admin@admins-iMac Project %  git status -s
+	admin@admins-iMac Project % git status 
+	On branch testFeature
+	Your branch is up to date with 'origin/testFeature'.
+
+	nothing to commit, working tree clean
+	admin@admins-iMac Project %  git checkout master 
+	Switched to branch 'master'
+	Your branch is up to date with 'origin/master'.
+	admin@admins-iMac Project %  git stash list
+	stash@{0}: WIP on testFeature: beee029 Merge branch 'master' of https://github.com/iAaquibjawed/Training.git	
 
 
 
