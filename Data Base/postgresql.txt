@@ -64,7 +64,11 @@
 	(6 rows)
 
 	(END)
-
+5.Connect to your database
+	admin=# \c text
+	You are now connected to database "text" as user "admin".
+	text=# 
+6.
 
 
 
