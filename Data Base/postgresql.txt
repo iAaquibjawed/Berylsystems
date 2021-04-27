@@ -7,7 +7,7 @@
 -> it runs on all major operating systems 
 -> it uses SQL to deal with it’s data
 -> SQL is used to insert, update, and delete database records. 
- 
+-> 
 
 1.installation of postgresql
  ->Go on https://www.postgresql.org this website
@@ -86,7 +86,24 @@
 
 	(END)
 
+7.Create Table 
+	test=# CREATE TABLE customer(
+	test(# id int,
+	test(# first_name VARCHAR(50),
+	test(# last_name VARCHAR(50),
+	test(# gender VARCHAR(7),
+	test(# date_of_birth date);
+	CREATE TABLE
+	test=# 
+8.Show the list of all the available table in the current database
+	test=# \d
+         List of relations
+	 Schema |   Name   | Type  | Owner 
+	--------+----------+-------+-------
+	 public | customer | table | admin
+	(1 row)
 
+	test=# 
 
 
 
