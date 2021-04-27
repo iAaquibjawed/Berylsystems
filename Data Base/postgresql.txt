@@ -110,7 +110,21 @@
 	test=# \d
 	Did not find any relations.
 	test=# 
-
+10.Create table using constraint
+	test=# CREATE TABLE customer(
+	test(# id BIGSERIAL NOT NULL PRIMARY KEY,
+	test(# first_name VARCHAR(50),
+	test(# last_name VARCHAR(50) NOT NULL,
+	test(# gender VARCHAR(7),
+	test(# date_of_birth DATE NOT NULL);
+	CREATE TABLE
+	test=# \d
+	              List of relations
+	 Schema |      Name       |   Type   | Owner 
+	--------+-----------------+----------+-------
+	 public | customer        | table    | admin
+	 public | customer_id_seq | sequence | admin
+	(2 rows)
 
 
 
