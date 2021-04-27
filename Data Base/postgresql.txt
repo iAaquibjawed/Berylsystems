@@ -125,8 +125,25 @@
 	 public | customer        | table    | admin
 	 public | customer_id_seq | sequence | admin
 	(2 rows)
+11.Insert date into table
+	test=# SELECT * FROM customer;
+	 id | first_name | last_name | gender | date_of_birth 
+	----+------------+-----------+--------+---------------
+	(0 rows)
+	test=# INSERT INTO customer (first_name,
+	last_name,
+	gender,
+	date_of_birth)
+	VALUES ('Jake', 'Smith', 'MALE', date '1998-12-02');
+	INSERT 0 1
+	test=# SELECT * FROM customer;
+                         test
+ 	id | first_name | last_name | gender | date_of_birth 
+	----+------------+-----------+--------+---------------
+ 	 1 | Jake       | Smith     | MALE   | 1998-12-02
+	(1 row)
 
-
+	test=# 
 
 
 
