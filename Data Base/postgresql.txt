@@ -1,0 +1,12 @@
+               						-------------POSTGRESQL-------------
+
+
+
+
+-> Postgresql is open source database. it’s an object-relational database management system.
+-> it runs on all major operating systems 
+-> it uses SQL to deal with it’s data
+-> SQL is used to insert, update, and delete database records. 
+ 
+
+installation of postgresql
