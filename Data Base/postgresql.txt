@@ -43,3 +43,44 @@
 	Type "help" for help.
 
 	admin=# 
+3. Create Database
+	admin=# CREATE DATABASE test;
+	CREATE DATABASE
+	admin=# 
+
+4.List all the database
+	admin=# \l
+                                  List of databases
+  	 Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+	-----------+----------+----------+-------------+-------------+-----------------------
+ 	admin     | admin    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+	 postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ 	template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ 	template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ 	test      | admin    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+	 text      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+	(6 rows)
+
+	(END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
