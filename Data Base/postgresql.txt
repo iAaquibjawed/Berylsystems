@@ -68,7 +68,23 @@
 	admin=# \c text
 	You are now connected to database "text" as user "admin".
 	text=# 
-6.
+6.Delete database
+	admin=# DROP DATABASE test;
+	DROP DATABASE
+	admin=# \l
+                                  List of databases
+	   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+	-----------+----------+----------+-------------+-------------+-----------------------
+	 admin     | admin    | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+	 postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ 	template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ 	template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ 	text      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+	(5 rows)
+
+	(END)
 
 
 
