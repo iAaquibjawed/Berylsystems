@@ -302,7 +302,7 @@
 15. SSH- stand for secure shell 
 	 -> use ssh to connect your computer to remote server
 		
-		Use command "SSH-Keygen"
+		Use command "SSH-Keygen -t rsa -b 4096 -C "aaquib@berylsystems.com"
 		it will give you two file one with pub extension and one is for private 
 		Use command pb <and the the path for the public key>
 		it will copy the content 
