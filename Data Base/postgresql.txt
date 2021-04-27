@@ -68,7 +68,7 @@
 	admin=# \c text
 	You are now connected to database "text" as user "admin".
 	text=# 
-6.Delete database
+6.Drop database
 	admin=# DROP DATABASE test;
 	DROP DATABASE
 	admin=# \l
@@ -103,6 +103,12 @@
 	 public | customer | table | admin
 	(1 row)
 
+	test=# 
+9.Drop table
+	test=# DROP TABLE customer;
+	DROP TABLE
+	test=# \d
+	Did not find any relations.
 	test=# 
 
 
