@@ -1,4 +1,4 @@
-               						-------------POSTGRESQL-------------
+               				-------------POSTGRESQL-------------
 
 
 
@@ -6,8 +6,7 @@
 -> Postgresql is open source database. it’s an object-relational database management system.
 -> it runs on all major operating systems 
 -> it uses SQL to deal with it’s data
--> SQL is used to insert, update, and delete database records. 
--> 
+-> SQL is used to insert, update, and delete database records.  
 
 1.installation of postgresql
  ->Go on https://www.postgresql.org this website
@@ -160,16 +159,16 @@
  	id | first_name |   last_name   | gender | date_of_birth 
 	----+------------+---------------+--------+---------------
 	  1 | Christiana | Claypoole     | Male   | 2020-05-03
-  	2 | Jeddy      | Imore         | Male   | 2020-11-09
- 	 3 | Osmund     | Bygraves      | Male   | 2020-07-26
- 	 4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+  	  2 | Jeddy      | Imore         | Male   | 2020-11-09
+ 	  3 | Osmund     | Bygraves      | Male   | 2020-07-26
+ 	  4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
 	  5 | Alvera     | Drohan        | Male   | 2021-02-09
- 	 6 | Alfy       | Dungey        | Male   | 2021-03-06
- 	 7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
-  		8 | Cathrin    | Peevor        | Male   | 2020-08-14
-  	9 | Charmion   | Gaish         | Male   | 2021-03-03
- 	10 | Ellie      | Reese         | Male   | 2021-03-11
-	(10 rows)
+ 	  6 | Alfy       | Dungey        | Male   | 2021-03-06
+ 	  7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+  	  8 | Cathrin    | Peevor        | Male   | 2020-08-14
+  	  9 | Charmion   | Gaish         | Male   | 2021-03-03
+ 	 10 | Ellie      | Reese         | Male   | 2021-03-11
+	 (10 rows)
 
 
 
