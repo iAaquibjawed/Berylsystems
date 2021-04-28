@@ -170,6 +170,21 @@
  	 10 | Ellie      | Reese         | Male   | 2021-03-11
 	 (10 rows)
 
+13.Order by (sort the result in ascending or descending order)
+	test=# SELECT * FROM customer ORDER BY first_name DESC;
+ 	id | first_name |   last_name   | gender | date_of_birth 
+	----+------------+---------------+--------+---------------
+	  4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+	  3 | Osmund     | Bygraves      | Male   | 2020-07-26
+	  2 | Jeddy      | Imore         | Male   | 2020-11-09
+	  7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+	 10 | Ellie      | Reese         | Male   | 2021-03-11
+	  1 | Christiana | Claypoole     | Male   | 2020-05-03
+	  9 | Charmion   | Gaish         | Male   | 2021-03-03
+ 	  8 | Cathrin    | Peevor        | Male   | 2020-08-14
+ 	  5 | Alvera     | Drohan        | Male   | 2021-02-09
+ 	  6 | Alfy       | Dungey        | Male   | 2021-03-06
+	 (10 rows)
 
 
 
