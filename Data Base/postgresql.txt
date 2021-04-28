@@ -186,9 +186,210 @@
  	  6 | Alfy       | Dungey        | Male   | 2021-03-06
 	 (10 rows)
 
+14.Dictinct function
+	->Used to fetch distinct values from table
+	test=# SELECT DISTINCT first_name FROM customer ORDER BY first_name DESC;
+	 first_name 
+	------------
+ 	Rudd
+ 	Osmund
+ 	Jeddy
+	 Henderson
+ 	Ellie
+ 	Christiana
+ 	Charmion
+ 	Cathrin
+ 	Alvera
+ 	Alfy
+	(10 rows)
+15.WHERE clause
+	Used to filter the records on the basics of conditions.
+	test=# SELECT * FROM customer WHERE gender= 'Male';
+	 id | first_name |   last_name   | gender | date_of_birth 
+	----+------------+---------------+--------+---------------
+ 	 1 | Christiana | Claypoole     | Male   | 2020-05-03
+ 	 2 | Jeddy      | Imore         | Male   | 2020-11-09
+ 	 3 | Osmund     | Bygraves      | Male   | 2020-07-26
+ 	 4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+  	 5 | Alvera     | Drohan        | Male   | 2021-02-09
+  	 6 | Alfy       | Dungey        | Male   | 2021-03-06
+         7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+  	 8 | Cathrin    | Peevor        | Male   | 2020-08-14
+  	 9 | Charmion   | Gaish         | Male   | 2021-03-03
+ 	10 | Ellie      | Reese         | Male   | 2021-03-11
+	(10 rows)
+
+	SELECT * FROM customer WHERE date_of_birth >'2020-06-03';
+ 	id | first_name |   last_name   | gender | date_of_birth 
+	----+------------+---------------+--------+---------------
+	  2 | Jeddy      | Imore         | Male   | 2020-11-09
+	  3 | Osmund     | Bygraves      | Male   | 2020-07-26
+ 	  4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+ 	  5 | Alvera     | Drohan        | Male   | 2021-02-09
+ 	  6 | Alfy       | Dungey        | Male   | 2021-03-06
+ 	  7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+  	  8 | Cathrin    | Peevor        | Male   | 2020-08-14
+  	  9 | Charmion   | Gaish         | Male   | 2021-03-03
+	 10 | Ellie      | Reese         | Male   | 2021-03-11
+	 (9 rows)
+
+	test=# SELECT * FROM customer WHERE date_of_birth >'2020-06-03' AND gender='Male';
+	 id | first_name |   last_name   | gender | date_of_birth 
+	----+------------+---------------+--------+---------------
+ 	 2 | Jeddy      | Imore         | Male   | 2020-11-09
+ 	 3 | Osmund     | Bygraves      | Male   | 2020-07-26
+ 	 4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+ 	 5 | Alvera     | Drohan        | Male   | 2021-02-09
+ 	 6 | Alfy       | Dungey        | Male   | 2021-03-06
+ 	 7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+ 	 8 | Cathrin    | Peevor        | Male   | 2020-08-14
+ 	 9 | Charmion   | Gaish         | Male   | 2021-03-03
+ 	10 | Ellie      | Reese         | Male   | 2021-03-11
+	(9 rows)
+
+	test=# SELECT * FROM customer WHERE date_of_birth >'2020-06-03' OR gender='Male';
+	 id | first_name |   last_name   | gender | date_of_birth 
+	----+------------+---------------+--------+---------------
+	  1 | Christiana | Claypoole     | Male   | 2020-05-03
+ 	 2 | Jeddy      | Imore         | Male   | 2020-11-09
+ 	 3 | Osmund     | Bygraves      | Male   | 2020-07-26
+ 	 4 | Rudd       | Grzegorzewski | Male   | 2020-10-08
+ 	 5 | Alvera     | Drohan        | Male   | 2021-02-09
+ 	 6 | Alfy       | Dungey        | Male   | 2021-03-06
+	 7 | Henderson  | Wilcinskis    | Male   | 2020-10-30
+ 	 8 | Cathrin    | Peevor        | Male   | 2020-08-14
+  	 9 | Charmion   | Gaish         | Male   | 2021-03-03
+	10 | Ellie      | Reese         | Male   | 2021-03-11
+	(10 rows)
+
+	test=# SELECT * FROM customer WHERE first_name LIKE '%n';
+	 id | first_name | last_name  | gender | date_of_birth 
+	----+------------+------------+--------+---------------
+	  7 | Henderson  | Wilcinskis | Male   | 2020-10-30
+	  8 | Cathrin    | Peevor     | Male   | 2020-08-14
+ 	 9 | Charmion   | Gaish      | Male   | 2021-03-03
+	(3 rows)
+
+	test=# SELECT * FROM customer WHERE first_name LIKE '%e%';
+ 	id | first_name | last_name  | gender | date_of_birth 
+	----+------------+------------+--------+---------------
+ 	 2 | Jeddy      | Imore      | Male   | 2020-11-09
+	 5 | Alvera     | Drohan     | Male   | 2021-02-09
+ 	 7 | Henderson  | Wilcinskis | Male   | 2020-10-30
+ 	10 | Ellie      | Reese      | Male   | 2021-03-11
+	(4 rows)
+
+	test=# SELECT * FROM CUSTO WHERE salary BETWEEN 50000 AND 90000;
+ 	id | first_name | last_name |   gender    | salary |  country  
+	----+------------+-----------+-------------+--------+-----------
+ 	 6 | Olia       | Roselli   | Female      |  75699 | Colombia
+ 	 9 | Mame       | Gorries   | Male        |  57819 | Indonesia
+ 	11 | Adelheid   | Clewley   | Female      |  83710 | Russia
+	 12 | Burnard    | Perche    | Genderqueer |  83220 | China
+	(5 rows)
 
 
+	test=# SELECT * FROM CUSTO WHERE salary NOT IN (50000,80000);
+	 id | first_name | last_name  |   gender    | salary |  country  
+	----+------------+------------+-------------+--------+-----------
+ 	 1 | Laurena    | Trase      | Female      |  32569 | Iran
+ 	 2 | Ingemar    | Syrad      | Polygender  |  30468 | Syria
+ 	 3 | Anton      | Asple      | Female      |  90025 | Portugal
+ 	 4 | Marti      | Higounet   | Non-binary  |  70710 | Poland
+ 	 5 | Townsend   | Spollen    | Female      |  95714 | Indonesia
+  	 6 | Olia       | Roselli    | Female      |  75699 | Colombia
+ 	 7 | Allis      | Witheridge | Male        |  20494 | France
+ 	 8 | Kelbee     | Braben     | Non-binary  |  97507 | Mexico
+ 	 9 | Mame       | Gorries    | Male        |  57819 | Indonesia
+ 	10 | Claire     | Terram     | Female      |  42183 | China
+ 	11 | Adelheid   | Clewley    | Female      |  83710 | Russia
+ 	12 | Burnard    | Perche     | Genderqueer |  83220 | China
 
+	test=# SELECT * FROM CUSTO WHERE EXISTS (SELECT * FROM CUSTO WHERE salary<90000);
+ 	id | first_name | last_name  |   gender    | salary |  country  
+	----+------------+------------+-------------+--------+-----------
+  	1 | Laurena    | Trase      | Female      |  32569 | Iran
+  	2 | Ingemar    | Syrad      | Polygender  |  30468 | Syria
+ 	3 | Anton      | Asple      | Female      |  90025 | Portugal
+  	4 | Marti      | Higounet   | Non-binary  |  70710 | Poland
+  	5 | Townsend   | Spollen    | Female      |  95714 | Indonesia
+  	6 | Olia       | Roselli    | Female      |  75699 | Colombia
+  	7 | Allis      | Witheridge | Male        |  20494 | France
+  	8 | Kelbee     | Braben     | Non-binary  |  97507 | Mexico
+  	9 | Mame       | Gorries    | Male        |  57819 | Indonesia
+       10 | Claire     | Terram     | Female      |  42183 | China
+       11 | Adelheid   | Clewley    | Female      |  83710 | Russia
+       12 | Burnard    | Perche     | Genderqueer |  83220 | China
+	(12 rows)
+
+16.Aggregate functions in postgresql
+
+	test=# SELECT COUNT(*) FROM CUSTO;
+	count 
+	-------
+  	  12
+	test=# SELECT MAX(salary) FROM CUSTO;
+	  max  
+	-------
+	 97507
+
+	test=# SELECT SUM(salary) FROM CUSTO;
+	  sum   
+	--------
+	 780118
+
+	test=# SELECT AVG(salary) FROM CUSTO;
+        avg         
+	--------------------
+	 65009.833333333333
+
+	test=# SELECT MIN(salary) FROM CUSTO;
+  	min  
+	-------
+	 20494
+
+17.Group by statement
+	test=# SELECT COUNT(*), country FROM CUSTO GROUP BY country;
+ 	count |  country  
+	-------+-----------
+     	2 | Indonesia
+     	1 | Portugal
+     	1 | Colombia
+     	1 | France
+     	1 | Syria
+     	2 | China
+     	1 | Iran
+     	1 | Russia
+     	1 | Mexico
+     	1 | Poland
+	(10 rows)
+
+17.Having clause in postgresql
+	test=# SELECT COUNT(*), country FROM CUSTO GROUP BY country HAVING 			country='Indonesia';
+ 	count |  country  
+	-------+-----------
+     	2 | Indonesia
+	(1 row)
+
+18.Limit clause
+	test=# SELECT * FROM CUSTO LIMIT 5;
+ 	id | first_name | last_name |   gender   | salary |  country  
+	----+------------+-----------+------------+--------+-----------
+  	1 | Laurena    | Trase     | Female     |  32569 | Iran
+  	2 | Ingemar    | Syrad     | Polygender |  30468 | Syria
+  	3 | Anton      | Asple     | Female     |  90025 | Portugal
+  	4 | Marti      | Higounet  | Non-binary |  70710 | Poland
+  	5 | Townsend   | Spollen   | Female     |  95714 | Indonesia
+
+	test=# SELECT * FROM CUSTO OFFSET 5 LIMIT 3;
+ 	id | first_name | last_name  |   gender   | salary | country  
+	----+------------+------------+------------+--------+----------
+  	6 | Olia       | Roselli    | Female     |  75699 | Colombia
+  	7 | Allis      | Witheridge | Male       |  20494 | France
+  	8 | Kelbee     | Braben     | Non-binary |  97507 | Mexico
+	(3 rows)
+	(5 rows)
+19.Like clause
 
 
 
