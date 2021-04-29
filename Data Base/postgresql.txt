@@ -389,13 +389,83 @@
   	8 | Kelbee     | Braben     | Non-binary |  97507 | Mexico
 	(3 rows)
 	(5 rows)
-19.Like clause
+19.Indexes
 
+	test=# explain select * from custo;
+                        QUERY PLAN                        
+	----------------------------------------------------------
+ 	Seq Scan on custo  (cost=0.00..11.50 rows=150 width=508)
 
+	test=# CREATE INDEX row ON custo(id);
+	CREATE INDEX
+	test=# EXPLAIN SELECT * FROM custo where id=4;
+                      QUERY PLAN                       
+	-------------------------------------------------------
+	 Seq Scan on custo  (cost=0.00..1.15 rows=1 width=508)
+ 	  Filter: (id = 4)
+	(2 rows)
 
+20.Join
+	->INNER JOIN
+	test=# SELECT emp_id, name, dept FROM company INNER JOIN department
+        ON company.id = department.emp_d;
+	 emp_id | name  | dept
+	--------+-------+------------
+     	 1 | Paul  | IT Billing
+     	 2 | Allen | Engineering
 
+	->LEFT OUTER JOIN
+	test=# SELECT emp_id, name, dept FROM company LEFT OUTER JOIN department
+   	ON company.id = department.emp_d;
+	emp_id | name  | dept
+	--------+-------+------------
+     	 1 | Paul  | IT Billing
+     	 2 | Allen | Engineering
+      	   | James |
+      	   | David |
+      	   | Paul  |
+       	   | Mark  |
+       	   | Teddy |
+       	   | James |
+	->RIGHT OUTER JOIN
+	test=# SELECT emp_id, name, dept FROM company RIGHT OUTER JOIN department
+   	ON company.id = department.emp_d;
+	emp_id | name  | dept
+	--------+-------+--------
+     	 1 | Paul  | IT Billing
+     	 2 | Allen | Engineering
+      	 7 |       | Finance
 
+	->FULL OUTER JOIN
+	test=# SELECT emp_id, name, dept FROM company FULLOUTER JOIN department
+   	ON company.id = department.emp_d;
+	emp_id | name  | dept
+	--------+-------+---------------
+	      1 | Paul  | IT Billing
+	      2 | Allen | Engineering
+	      7 |       | Finance
+	        | James |
+	        | David |
+ 	        | Paul  |
+ 	        | Mark  |
+ 	        | Teddy |
+ 	        | James |
 
-
+21.UNONS
+	test=# SELECT emp_id, name, dept FROM company INNER JOIN department
+        ON company.id = department.emp_d;
+   UNION
+      test=# SELECT emp_id, name, dept FROM company LEFT OUTER JOIN department
+   	ON company.id = department.emp_d;
+	 emp_id | name  |  dept
+	--------+-------+--------------
+	      5 | David | Engineering
+	      6 | Kim   | Finance
+	      2 | Allen | Engineering
+ 	      3 | Teddy | Engineering
+ 	      4 | Mark  | Finance
+ 	      1 | Paul  | IT Billing
+ 	      7 | James | Finance
+	 (7 rows)
 
 
