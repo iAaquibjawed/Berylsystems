@@ -279,6 +279,78 @@ test=# \d Book;
 Indexes:
     "book_pkey" PRIMARY KEY, btree (isbn)
 
-test=# 
+test=# alter table Book add Quantity int not null;
+ALTER TABLE
+test=# \d Book
+                        Table "public.book"
+  Column   |         Type          | Collation | Nullable | Default 
+-----------+-----------------------+-----------+----------+---------
+ isbn      | integer               |           | not null | 
+ book_name | character varying(50) |           | not null | 
+ autor     | character varying(50) |           | not null | 
+ quantity  | integer               |           | not null | 
+Indexes:
+    "book_pkey" PRIMARY KEY, btree (isbn)
 
+test=# insert into Book values(101,'Data_base','Micheal_j',50);
+INSERT 0 1
+test=# select * from Book
+test-# ;
+ isbn | book_name |   autor   | quantity 
+------+-----------+-----------+----------
+  101 | Data_base | Micheal_j |       50
+(1 row)
+test=# update Book set quantity=5;
+UPDATE 1
+test=# select * from Book;
+ isbn | book_name |   autor   | quantity 
+------+-----------+-----------+----------
+  101 | Data_base | Micheal_j |        5
+(1 row)
+test=# insert into Book values(102,'Linux','brain_ward',3),(102,'Linux','Daniel_J',2); 
+ERROR:  duplicate key value violates unique constraint "book_pkey"
+DETAIL:  Key (isbn)=(102) already exists.
+test=# insert into Book values(102,'Linux','brain_ward',3),(103,'Linux','Daniel_J',2); 
+INSERT 0 2
+test=# insert into Book values(104,'Linux','William_E',6),(105,'Python','AI_sweigart',2),(106,'Python','Zed_Shaw',4);
+INSERT 0 3
+test=# select * from Book;
+ isbn | book_name |    autor    | quantity 
+------+-----------+-------------+----------
+  101 | Data_base | Micheal_j   |        5
+  102 | Linux     | brain_ward  |        3
+  103 | Linux     | Daniel_J    |        2
+  104 | Linux     | William_E   |        6
+  105 | Python    | AI_sweigart |        2
+  106 | Python    | Zed_Shaw    |        4
+(6 rows)
+
+test=# inert into Book values(107,'MySql','Derek_j',5),values(108,'Jon_Duckett',6);
+ERROR:  syntax error at or near "inert"
+LINE 1: inert into Book values(107,'MySql','Derek_j',5),values(108,'...
+        ^
+test=# insert into Book values(107,'MySql','Derek_j',5),values(108,'Jon_Duckett',6);
+ERROR:  syntax error at or near "values"
+LINE 1: insert into Book values(107,'MySql','Derek_j',5),values(108,...
+                                                         ^
+test=# insert into Book values(107,'MySql','Derek_j',5),(108,'Jon_Duckett',6);
+ERROR:  VALUES lists must all be the same length
+LINE 1: insert into Book values(107,'MySql','Derek_j',5),(108,'Jon_D...
+                                                          ^
+test=# insert into Book values(107,'MySql','Derek_j',5),(108,'MySql','Jon_Duckett',6); 
+INSERT 0 2
+test=# select * from Book;
+ isbn | book_name |    autor    | quantity 
+------+-----------+-------------+----------
+  101 | Data_base | Micheal_j   |        5
+  102 | Linux     | brain_ward  |        3
+  103 | Linux     | Daniel_J    |        2
+  104 | Linux     | William_E   |        6
+  105 | Python    | AI_sweigart |        2
+  106 | Python    | Zed_Shaw    |        4
+  107 | MySql     | Derek_j     |        5
+  108 | MySql     | Jon_Duckett |        6
+(8 rows)
+
+test=# 
 
