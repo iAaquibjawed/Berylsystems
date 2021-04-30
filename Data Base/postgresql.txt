@@ -454,8 +454,8 @@
 21.UNONS
 	test=# SELECT emp_id, name, dept FROM company INNER JOIN department
         ON company.id = department.emp_d;
-   UNION
-      test=# SELECT emp_id, name, dept FROM company LEFT OUTER JOIN department
+   	UNION
+        test=# SELECT emp_id, name, dept FROM company LEFT OUTER JOIN department
    	ON company.id = department.emp_d;
 	 emp_id | name  |  dept
 	--------+-------+--------------
