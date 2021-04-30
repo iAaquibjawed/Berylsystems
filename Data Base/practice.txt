@@ -1,0 +1,176 @@
+Last login: Fri Apr 30 14:44:27 on ttys000
+admin@admins-iMac ~ % psql
+psql (13.2)
+Type "help" for help.
+
+admin=# \c test
+You are now connected to database "test" as user "admin".
+test=# \d
+              List of relations
+ Schema |      Name       |   Type   | Owner 
+--------+-----------------+----------+-------
+ public | custo           | table    | admin
+ public | customer        | table    | admin
+ public | customer_id_seq | sequence | admin
+(3 rows)
+
+test=# select * from custo;
+ id | first_name | last_name  |   gender    | salary |  country  
+----+------------+------------+-------------+--------+-----------
+  1 | Laurena    | Trase      | Female      |  32569 | Iran
+  2 | Ingemar    | Syrad      | Polygender  |  30468 | Syria
+  3 | Anton      | Asple      | Female      |  90025 | Portugal
+  4 | Marti      | Higounet   | Non-binary  |  70710 | Poland
+  5 | Townsend   | Spollen    | Female      |  95714 | Indonesia
+  6 | Olia       | Roselli    | Female      |  75699 | Colombia
+  7 | Allis      | Witheridge | Male        |  20494 | France
+  8 | Kelbee     | Braben     | Non-binary  |  97507 | Mexico
+  9 | Mame       | Gorries    | Male        |  57819 | Indonesia
+ 10 | Claire     | Terram     | Female      |  42183 | China
+ 11 | Adelheid   | Clewley    | Female      |  83710 | Russia
+ 12 | Burnard    | Perche     | Genderqueer |  83220 | China
+(12 rows)
+
+test=# select first_name, last_name from custo where salary=(select max(salary) from custo);
+ first_name | last_name 
+------------+-----------
+ Kelbee     | Braben
+(1 row)
+
+test=# select * from custo where salary=(select max(salary) from custo);
+ id | first_name | last_name |   gender   | salary | country 
+----+------------+-----------+------------+--------+---------
+  8 | Kelbee     | Braben    | Non-binary |  97507 | Mexico
+(1 row)
+
+test=# select count(*) from custo group by avg(salary);
+ERROR:  aggregate functions are not allowed in GROUP BY
+LINE 1: select count(*) from custo group by avg(salary);
+                                            ^
+test=# select avg(salary) from custo group by gender;
+        avg         
+--------------------
+ 83220.000000000000
+ 39156.500000000000
+ 84108.500000000000
+ 30468.000000000000
+ 69983.333333333333
+(5 rows)
+
+test=# select gender, avg(salary) from custo group by gender;
+   gender    |        avg         
+-------------+--------------------
+ Genderqueer | 83220.000000000000
+ Male        | 39156.500000000000
+ Non-binary  | 84108.500000000000
+ Polygender  | 30468.000000000000
+ Female      | 69983.333333333333
+(5 rows)
+
+test=# select first_name, avg(salary) from custo group by first_name;
+ first_name |        avg         
+------------+--------------------
+ Ingemar    | 30468.000000000000
+ Anton      | 90025.000000000000
+ Laurena    | 32569.000000000000
+ Adelheid   | 83710.000000000000
+ Allis      | 20494.000000000000
+ Burnard    | 83220.000000000000
+ Claire     | 42183.000000000000
+ Olia       | 75699.000000000000
+ Mame       | 57819.000000000000
+ Kelbee     | 97507.000000000000
+ Townsend   | 95714.000000000000
+ Marti      | 70710.000000000000
+(12 rows)
+
+test=# select count(*), gender from custo group by gender;
+ count |   gender    
+-------+-------------
+     1 | Genderqueer
+     2 | Male
+     2 | Non-binary
+     1 | Polygender
+     6 | Female
+(5 rows)
+
+test=# select gender, country, count(*) from custo group by country;
+ERROR:  column "custo.gender" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select gender, country, count(*) from custo group by country...
+               ^
+test=# select country, count(*) from custo group by country;
+  country  | count 
+-----------+-------
+ Mexico    |     1
+ Syria     |     1
+ Indonesia |     2
+ Poland    |     1
+ Russia    |     1
+ China     |     2
+ Portugal  |     1
+ Iran      |     1
+ Colombia  |     1
+ France    |     1
+(10 rows)
+
+test=# select gender, avg(salary) from custo group by gender;
+   gender    |        avg         
+-------------+--------------------
+ Genderqueer | 83220.000000000000
+ Male        | 39156.500000000000
+ Non-binary  | 84108.500000000000
+ Polygender  | 30468.000000000000
+ Female      | 69983.333333333333
+(5 rows)
+
+test=# select gender, avg(salary) from custo group by gender having vg(salary)>80000;
+ERROR:  function vg(numeric) does not exist
+LINE 1: ...er, avg(salary) from custo group by gender having vg(salary)...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+test=# select gender, avg(salary) from custo group by gender having avg(salary)>80000;
+   gender    |        avg         
+-------------+--------------------
+ Genderqueer | 83220.000000000000
+ Non-binary  | 84108.500000000000
+(2 rows)
+
+test=# test=# create table practice(roll_no int primary key,
+test(# frist_name varchar(50) not null,
+test(# last_name varchar(50) not null, 
+test(# branch varchar(50) not null);
+CREATE TABLE
+test=# \d
+              List of relations
+ Schema |      Name       |   Type   | Owner 
+--------+-----------------+----------+-------
+ public | custo           | table    | admin
+ public | customer        | table    | admin
+ public | customer_id_seq | sequence | admin
+ public | practice        | table    | admin
+(4 rows)
+
+test=# drop table pracitice;
+ERROR:  table "pracitice" does not exist
+test=# drop table practice;
+DROP TABLE
+test=# \d
+              List of relations
+ Schema |      Name       |   Type   | Owner 
+--------+-----------------+----------+-------
+ public | custo           | table    | admin
+ public | customer        | table    | admin
+ public | customer_id_seq | sequence | admin
+(3 rows)
+test=#
+test=# \d student
+                                        Table "public.student"
+   Column   |         Type          | Collation | Nullable |                 Default                  
+------------+-----------------------+-----------+----------+------------------------------------------
+ roll_no    | bigint                |           | not null | nextval('student_roll_no_seq'::regclass)
+ first_name | character varying(50) |           | not null | 
+ last_name  | character varying(50) |           | not null | 
+ branch     | character varying(50) |           | not null | 
+Indexes:
+    "student_pkey" PRIMARY KEY, btree (roll_no)
+
