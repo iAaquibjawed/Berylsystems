@@ -174,3 +174,111 @@ test=# \d student
 Indexes:
     "student_pkey" PRIMARY KEY, btree (roll_no)
 
+
+
+
+
+
+
+library management system
+
+
+
+
+
+admin=# \c test
+You are now connected to database "test" as user "admin".
+test=# \d 
+                List of relations
+ Schema |        Name         |   Type   | Owner 
+--------+---------------------+----------+-------
+ public | custo               | table    | admin
+ public | customer            | table    | admin
+ public | customer_id_seq     | sequence | admin
+ public | student             | table    | admin
+ public | student_roll_no_seq | sequence | admin
+(5 rows)
+
+test=# \d student
+                                        Table "public.student"
+   Column   |         Type          | Collation | Nullable |                 Default                  
+------------+-----------------------+-----------+----------+------------------------------------------
+ roll_no    | bigint                |           | not null | nextval('student_roll_no_seq'::regclass)
+ first_name | character varying(50) |           | not null | 
+ last_name  | character varying(50) |           | not null | 
+ branch     | character varying(50) |           | not null | 
+Indexes:
+    "student_pkey" PRIMARY KEY, btree (roll_no)
+
+test=# insert into student values('sam', 'malik', 'CSE');
+ERROR:  invalid input syntax for type bigint: "sam"
+LINE 1: insert into student values('sam', 'malik', 'CSE');
+                                   ^
+test=# insert into student values(1,'sam','malik', 'CSE');
+INSERT 0 1
+test=# select * from student;
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       1 | sam        | malik     | CSE
+(1 row)
+
+test=# insert into student values(2, 'sahil', 'malik', 'CSE'),(3,'aman','raj','CIVIL');
+INSERT 0 2
+test=# insert into student values(4,'akash','singh','CSE'),(5,'ayush','mithal','CSE'), (6,'Divyang','tanver','CSE');
+INSERT 0 3
+test=# select * from student;
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       1 | sam        | malik     | CSE
+       2 | sahil      | malik     | CSE
+       3 | aman       | raj       | CIVIL
+       4 | akash      | singh     | CSE
+       5 | ayush      | mithal    | CSE
+       6 | Divyang    | tanver    | CSE
+(6 rows)
+
+test=# insert into student vaues(7,'Rahul','Kumar','MEC'),(8,'Junaid','anwer','CSE');
+ERROR:  syntax error at or near "vaues"
+LINE 1: insert into student vaues(7,'Rahul','Kumar','MEC'),(8,'Junai...
+                            ^
+test=# insert into student values(7,'Rahul','Kumar','MEC'),(8,'Junaid','anwer','CSE');
+INSERT 0 2
+test=# insert into studnet values(9,'Divya', 'Pratap','CSE'),(10,'Harsh','Ksann','CSE');
+ERROR:  relation "studnet" does not exist
+LINE 1: insert into studnet values(9,'Divya', 'Pratap','CSE'),(10,'H...
+                    ^
+test=# insert into student values(9,'Divya', 'Pratap','CSE'),(10,'Harsh','Ksann','CSE');
+INSERT 0 2
+test=# select * from student;
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       1 | sam        | malik     | CSE
+       2 | sahil      | malik     | CSE
+       3 | aman       | raj       | CIVIL
+       4 | akash      | singh     | CSE
+       5 | ayush      | mithal    | CSE
+       6 | Divyang    | tanver    | CSE
+       7 | Rahul      | Kumar     | MEC
+       8 | Junaid     | anwer     | CSE
+       9 | Divya      | Pratap    | CSE
+      10 | Harsh      | Ksann     | CSE
+(10 rows)
+
+test=# create table Book(
+test(# ISBN int primary key,
+test(# Book_name varchar(50) not null,
+test(# Autor varchar(50) not null);
+CREATE TABLE
+test=# \d Book;
+                        Table "public.book"
+  Column   |         Type          | Collation | Nullable | Default 
+-----------+-----------------------+-----------+----------+---------
+ isbn      | integer               |           | not null | 
+ book_name | character varying(50) |           | not null | 
+ autor     | character varying(50) |           | not null | 
+Indexes:
+    "book_pkey" PRIMARY KEY, btree (isbn)
+
+test=# 
+
+
