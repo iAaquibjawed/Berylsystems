@@ -203,3 +203,15 @@ airlines=# select (select avg(salary) from employees where pilot='Yes')-(select 
 (1 row)
 Noted(i have take salary value less that's why output comes negative)
 
+
+k. Print the name and salary of every nonpilot whose salary is more than the average salary for pilots.
+
+airlines=# select ename,salary from employees where salary>(select avg(salary) from employees where pilot='Yes') and pilot='No';
+   ename   | salary 
+-----------+--------
+ Akash     |  80000
+ Rahul     |  87000
+ Harshit   |  67000
+ Divyanshu |  67000
+(4 rows)
+
