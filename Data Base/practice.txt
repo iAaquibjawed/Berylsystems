@@ -470,5 +470,18 @@ test=# select * from student where roll_no in (select roll_no from Book_issue wh
       10 | Harsh      | Ksann     | CSE
 (6 rows)
 
-test=# 
+test=# test=# select * from student where roll_no in ( select roll_no from Book_issue);
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       1 | sam        | malik     | CSE
+       3 | aman       | raj       | CIVIL
+       5 | ayush      | mithal    | CSE
+       6 | Divyang    | tanver    | CSE
+       7 | Rahul      | Kumar     | MEC
+       8 | Junaid     | anwer     | CSE
+       9 | Divya      | Pratap    | CSE
+      10 | Harsh      | Ksann     | CSE
+(8 rows)
+
+
 
