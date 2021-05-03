@@ -193,3 +193,13 @@ f. Find the aids of all aircraft that can be used on routes from Los Angeles to 
  207
 (3 rows)
 
+j. Compute the difference between the average salary of a pilot and the average salary of all employees (including pilots).
+
+
+airlines=# select (select avg(salary) from employees where pilot='Yes')-(select avg(salary) from employees) as "Difference of avg salary of pilot and emp";
+ Difference of avg salary of pilot and emp 
+-------------------------------------------
+                        -2700.000000000000
+(1 row)
+Noted(i have take salary value less that's why output comes negative)
+
