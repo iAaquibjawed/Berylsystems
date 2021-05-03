@@ -154,4 +154,14 @@ airlines=# select aname from aircraft where aid in (select aid from certified wh
  Boeing
 (5 rows)
 
+b. For each pilot who is certified for more than three aircraft, find the eid and the maximum cruisingrange of the aircraft for which she or he is certified.
+
+
+airlines=# select C.eid, MAX(A.cruising_range) from certified C, aircraft A where C.aid =A.aid                         group by C.eid having count(*)>3;
+ eid | max  
+-----+------
+ 107 | 3200
+(1 row)
+
+
 
