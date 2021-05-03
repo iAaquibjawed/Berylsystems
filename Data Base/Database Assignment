@@ -163,5 +163,12 @@ airlines=# select C.eid, MAX(A.cruising_range) from certified C, aircraft A wher
  107 | 3200
 (1 row)
 
+c. Find the names of pilots whose salary is less than the price of the cheapest route from Los Angeles to Honolulu.
 
+airlines=# select ename from employees where salary < (select min(price) from flights where flight_from='Los Angeles' and flight_to = 'Honolulu') and pilot='Yes';
+ ename 
+-------
+ Sam
+ Ayush
+(2 rows)
 
