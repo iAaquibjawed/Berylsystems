@@ -172,3 +172,24 @@ airlines=# select ename from employees where salary < (select min(price) from fl
  Ayush
 (2 rows)
 
+
+
+
+e. Find the names of pilots certified for some Boeing aircraft.
+
+airlines=# select ename from employees where eid in (select eid from certified where aid in (select aid from aircraft where aname like 'Boeing%'));
+ ename 
+-------
+ Sam
+ Divya
+(2 rows)
+
+f. Find the aids of all aircraft that can be used on routes from Los Angeles to Chicago.
+
+ aid 
+-----
+ 203
+ 206
+ 207
+(3 rows)
+
