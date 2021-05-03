@@ -137,8 +137,9 @@ airlines=# select * from flights;
  1007 | Los Angeles | Dallas    |      600 | 13:00:00 | 21:00:00 | 25000
  1008 | Charlotte   | Mandison  |     1000 | 06:00:00 | 14:00:00 | 78000
  1009 | Los Angeles | Mandison  |      800 | 08:00:00 | 15:00:00 | 57000
- 1100 | Delhi      +| Canada    |     1400 | 12:00:00 | 08:00:00 | 50000
+ 1010 | Delhi      +| Canada    |     1400 | 12:00:00 | 08:00:00 | 50000
       |             |           |          |          |          | 
 (9 rows)
+
 
 
