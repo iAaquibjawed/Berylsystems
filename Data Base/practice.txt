@@ -353,4 +353,122 @@ test=# select * from Book;
 (8 rows)
 
 test=# 
+You are now connected to database "test" as user "admin".
+test=# \d
+                  List of relations
+ Schema |          Name           |   Type   | Owner 
+--------+-------------------------+----------+-------
+ public | book                    | table    | admin
+ public | book_issue              | table    | admin
+ public | book_issue_issue_id_seq | sequence | admin
+ public | custo                   | table    | admin
+ public | customer                | table    | admin
+ public | customer_id_seq         | sequence | admin
+ public | student                 | table    | admin
+ public | student_roll_no_seq     | sequence | admin
+(8 rows)
+
+test=# select * from Book_issue;
+ issue_id | isbn | roll_no | issued_date | return_date 
+----------+------+---------+-------------+-------------
+      201 |  101 |       1 | 2021-04-02  | 
+      202 |  108 |       9 | 2021-03-21  | 2021-04-15
+      203 |  101 |       7 | 2021-02-11  | 
+      204 |  104 |       5 | 2021-03-19  | 2021-05-01
+      205 |  107 |       3 | 2020-12-07  | 2021-02-23
+(5 rows)
+
+test=# insert into Book_issue values(206,103,6,'2020-09-12','2020-12-07');
+INSERT 0 1
+test=# insert into Book_isse(issue_id, isbn, roll_no, issued_date)values(207,102,8,'2021-04-16');
+ERROR:  relation "book_isse" does not exist
+LINE 1: insert into Book_isse(issue_id, isbn, roll_no, issued_date)v...
+                    ^
+test=# insert into Book_issue(issue_id, isbn, roll_no, issued_date)values(207,102,8,'2021-04-16');
+INSERT 0 1
+test=# select * from Book_issue;
+ issue_id | isbn | roll_no | issued_date | return_date 
+----------+------+---------+-------------+-------------
+      201 |  101 |       1 | 2021-04-02  | 
+      202 |  108 |       9 | 2021-03-21  | 2021-04-15
+      203 |  101 |       7 | 2021-02-11  | 
+      204 |  104 |       5 | 2021-03-19  | 2021-05-01
+      205 |  107 |       3 | 2020-12-07  | 2021-02-23
+      206 |  103 |       6 | 2020-09-12  | 2020-12-07
+      207 |  102 |       8 | 2021-04-16  | 
+(7 rows)
+
+test=# insert into Book_issue(issue_id,isbn,roll_no,issue_date)values(208,105,10,'2021-05-02');
+ERROR:  column "issue_date" of relation "book_issue" does not exist
+LINE 1: insert into Book_issue(issue_id,isbn,roll_no,issue_date)valu...
+                                                     ^
+test=# insert into Book_issue(issue_id,isbn,roll_no,issued_date)values(208,105,10,'2021-05-02');
+INSERT 0 1
+test=# select * from Book_issue;                                                 issue_id | isbn | roll_no | issued_date | return_date 
+----------+------+---------+-------------+-------------
+      201 |  101 |       1 | 2021-04-02  | 
+      202 |  108 |       9 | 2021-03-21  | 2021-04-15
+      203 |  101 |       7 | 2021-02-11  | 
+      204 |  104 |       5 | 2021-03-19  | 2021-05-01
+      205 |  107 |       3 | 2020-12-07  | 2021-02-23
+      206 |  103 |       6 | 2020-09-12  | 2020-12-07
+      207 |  102 |       8 | 2021-04-16  | 
+      208 |  105 |      10 | 2021-05-02  | 
+(8 rows)
+
+test=# select first_name, last_name from student where roll_no in(select roll_nofrom Book_issued where isbn in (select isbn from book where book_name='Linux'));
+ERROR:  column "roll_nofrom" does not exist
+LINE 1: ...e, last_name from student where roll_no in(select roll_nofro...
+                                                             ^
+test=# select first_name, last_name from student where roll_no in(select roll_no from Book_issued where isbn in (select isbn from book where book_name='Linux'));
+ERROR:  relation "book_issued" does not exist
+LINE 1: ...from student where roll_no in(select roll_no from Book_issue...
+                                                             ^
+test=# select first_name, last_name from student where roll_no in(select roll_no from Book_issue where isbn in (select isbn from book where book_name='Linux'));
+ first_name | last_name 
+------------+-----------
+ ayush      | mithal
+ Divyang    | tanver
+ Junaid     | anwer
+(3 rows)
+
+test=# select first_name, last_name from student where roll_no in (select roll_no from Book_issue where return_date is null);
+ERROR:  syntax error at or near ")"
+LINE 1: select sue where return_date is null);
+                                            ^
+test=# select * from Book_issue where return_date is null;
+ issue_id | isbn | roll_no | issued_date | return_date 
+----------+------+---------+-------------+-------------
+      201 |  101 |       1 | 2021-04-02  | 
+      203 |  101 |       7 | 2021-02-11  | 
+      207 |  102 |       8 | 2021-04-16  | 
+      208 |  105 |      10 | 2021-05-02  | 
+(4 rows)
+
+test=# select first_name, last_name from student where roll_no in (select roll_no from Book_issue where return_date is null):
+test-# ;
+ERROR:  syntax error at or near ":"
+LINE 1: ... (select roll_no from Book_issue where return_date is null):
+                                                                      ^
+test=# select first_name, last_name from student where roll_no in (select roll_no from Book_issue where return_date is null);
+ first_name | last_name 
+------------+-----------
+ sam        | malik
+ Rahul      | Kumar
+ Junaid     | anwer
+ Harsh      | Ksann
+(4 rows)
+
+test=# select * from student where roll_no in (select roll_no from Book_issue where issued_date>date '2021-01-01');
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       1 | sam        | malik     | CSE
+       5 | ayush      | mithal    | CSE
+       7 | Rahul      | Kumar     | MEC
+       8 | Junaid     | anwer     | CSE
+       9 | Divya      | Pratap    | CSE
+      10 | Harsh      | Ksann     | CSE
+(6 rows)
+
+test=# 
 
