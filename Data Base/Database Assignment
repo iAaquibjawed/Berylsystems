@@ -69,4 +69,76 @@ airlines=# \d
  public | flights   | table | admin
 (4 rows)
 
+airlines=# \d
+         List of relations
+ Schema |   Name    | Type  | Owner 
+--------+-----------+-------+-------
+ public | aircraft  | table | admin
+ public | certified | table | admin
+ public | employees | table | admin
+ public | flights   | table | admin
+(4 rows)
+
+airlines=# select * from aircraft;
+ aid |     aname     | cruising_range 
+-----+---------------+----------------
+ 201 | Boeing        |            700
+ 202 | Alliance Air  |            800
+ 203 | TruJet        |           2100
+ 204 | CathayPacific |           1200
+ 205 | KoreanAir     |            500
+ 206 | QatarAriways  |           2000
+ 208 | JapanAirlines |            700
+ 209 | Spice         |            400
+ 207 | Emirates      |           3200
+ 210 | GoAir         |           1200
+(10 rows)
+
+airlines=# select * from certified;
+ eid | aid 
+-----+-----
+ 101 | 201
+ 101 | 204
+ 103 | 203
+ 103 | 204
+ 105 | 206
+ 107 | 201
+ 107 | 209
+ 107 | 208
+ 107 | 207
+ 109 | 204
+ 109 | 205
+ 109 | 205
+(12 rows)
+
+airlines=# select * from employees;
+ eid |   ename   | salary 
+-----+-----------+--------
+ 101 | Sam       |  25000
+ 102 | Divyang   |  12000
+ 103 | Ayush     |  18000
+ 104 | Akash     |  80000
+ 105 | Aditya    |  95000
+ 106 | Rahul     |  87000
+ 107 | Divya     |  92000
+ 108 | Harshit   |  67000
+ 109 | Ankit     |  56000
+ 110 | Divyanshu |  67000
+(10 rows)
+
+airlines=# select * from flights;
+ flno | flight_from | flight_to | distance | departs  | arrives  | price 
+------+-------------+-----------+----------+----------+----------+-------
+ 1002 | Los Angeles | Honolulu  |      800 | 05:00:00 | 10:00:00 | 45000
+ 1003 | Los Angeles | Chicago   |     1200 | 10:00:00 | 17:00:00 | 36000
+ 1004 | Mandison    | New York  |     1800 | 13:00:00 | 20:00:00 | 65000
+ 1005 | Dallas      | New York  |      900 | 12:00:00 | 17:00:00 | 35000
+ 1006 | Mandsion    | Dallas    |      900 | 05:00:00 | 11:00:00 | 30000
+ 1007 | Los Angeles | Dallas    |      600 | 13:00:00 | 21:00:00 | 25000
+ 1008 | Charlotte   | Mandison  |     1000 | 06:00:00 | 14:00:00 | 78000
+ 1009 | Los Angeles | Mandison  |      800 | 08:00:00 | 15:00:00 | 57000
+ 1100 | Delhi      +| Canada    |     1400 | 12:00:00 | 08:00:00 | 50000
+      |             |           |          |          |          | 
+(9 rows)
+
 
