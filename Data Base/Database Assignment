@@ -111,19 +111,20 @@ airlines=# select * from certified;
  109 | 205
 (12 rows)
 
-airlines=# select * from employees;
- eid |   ename   | salary 
------+-----------+--------
- 101 | Sam       |  25000
- 102 | Divyang   |  12000
- 103 | Ayush     |  18000
- 104 | Akash     |  80000
- 105 | Aditya    |  95000
- 106 | Rahul     |  87000
- 107 | Divya     |  92000
- 108 | Harshit   |  67000
- 109 | Ankit     |  56000
- 110 | Divyanshu |  67000
+airlines=# select * from employees
+airlines-# ;
+ eid |   ename   | salary | pilot 
+-----+-----------+--------+-------
+ 101 | Sam       |  25000 | Yes
+ 102 | Divyang   |  12000 | No
+ 103 | Ayush     |  18000 | Yes
+ 104 | Akash     |  80000 | No
+ 105 | Aditya    |  95000 | Yes
+ 106 | Rahul     |  87000 | No
+ 107 | Divya     |  92000 | Yes
+ 108 | Harshit   |  67000 | No
+ 109 | Ankit     |  56000 | Yes
+ 110 | Divyanshu |  67000 | No
 (10 rows)
 
 airlines=# select * from flights;
@@ -141,5 +142,16 @@ airlines=# select * from flights;
       |             |           |          |          |          | 
 (9 rows)
 
+a. Find the names of aircraft such that all pilots certified to operate them earn more than $80,000.
+
+airlines=# select aname from aircraft where aid in (select aid from certified where eid in (select eid from employees where salary>80000 and Pilot='Yes'));
+     aname     
+---------------
+ Emirates
+ QatarAriways
+ Spice
+ JapanAirlines
+ Boeing
+(5 rows)
 
 
