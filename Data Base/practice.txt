@@ -482,6 +482,13 @@ test=# test=# select * from student where roll_no in ( select roll_no from Book_
        9 | Divya      | Pratap    | CSE
       10 | Harsh      | Ksann     | CSE
 (8 rows)
+test=# select * from student where roll_no not in (select roll_no from Book_issue);
+ roll_no | first_name | last_name | branch 
+---------+------------+-----------+--------
+       2 | sahil      | malik     | CSE
+       4 | akash      | singh     | CSE
+(2 rows)
+
 
 
 
