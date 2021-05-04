@@ -215,3 +215,14 @@ airlines=# select ename,salary from employees where salary>(select avg(salary) f
  Divyanshu |  67000
 (4 rows)
 
+l. Print the names of employees who are certified only on aircrafts with cruising range longer than 1000 miles.
+
+airlines=# select ename from employees where eid in(select eid from certified where aid in (select aid from aircraft where cruising_range>1000));
+ ename  
+--------
+ Sam
+ Ayush
+ Aditya
+ Divya
+ Ankit
+(5 rows)
