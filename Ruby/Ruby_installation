@@ -29,3 +29,26 @@ installation of ruby.
 	->source ~/.rvm/scripts/rvm 
 	->save that file using cmd+s (⌘+s)
 	->quit the terminal or run source ~/.bash_profile
+
+	command to list the all ruby version
+	->rvm list rubies
+
+
+->on Windows
+	installing ruby using the rubyinstaller tool
+	
+	step 1: Download the Rubyinstaller tool
+		https://rubyinstaller.org/downloads/
+		download from WITH DEVKIT
+	step 2: Run the Rubyinstaller
+		->accept the license
+		->choose the path for the installation
+		->click on install
+		->the system prompts to select components.Leave the default settings, and click NEXT
+		->when finished it prompts to "run risk install to setup MSYS2 and development toolchain". leave this checked and click finish.
+		->A black command-line-style window shows, Display RubyInstaller2 for Windows. Select the components to install. Press Enter to install the default tools.
+		->once it finish press enter
+		->close the terminal window 
+		->open a new one
+		->to verify the ruby installation 
+	step 3: ruby -v
