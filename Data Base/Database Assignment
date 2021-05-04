@@ -193,6 +193,16 @@ f. Find the aids of all aircraft that can be used on routes from Los Angeles to 
  207
 (3 rows)
 
+
+h. Print the enames of pilots who can operate planes with cruisingrange greater than 3000 miles but are not certified on any Boeing aircraft.
+
+airlines=# select ename from employees where eid in(select eid from certified where aid in ( select aid from aircraft where cruising_range>3000 and aname not like 'Boeing%'));
+ ename 
+-------
+ Divya
+(1 row)
+
+
 j. Compute the difference between the average salary of a pilot and the average salary of all employees (including pilots).
 
 
@@ -233,4 +243,6 @@ airlines=# select ename from employees where eid in (select eid from certified w
  ename 
 -------
 (0 rows)
+
+
 
