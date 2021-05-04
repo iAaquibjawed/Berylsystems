@@ -1,0 +1,70 @@
+Ruby
+->It is a open-source programming language 
+->It is truly object-oriented programming language 
+->It is interpreted language not complied 
+->It required a interpreter 
+->It's code is easily readable 
+->It's white space independent 
+->No semicolons
+->It's a multipurpose language
+->It has clean and easy syntax
+->It has a rich set of built-in functions
+
+
+
+We can run ruby command using this following ways
+1. Single command-> It means ruby run one command at one time from terminal 
+	ex-admin@admins-iMac ~ % ruby -e 'puts 123'
+	   123
+	-e -> it stand for execute 
+	   -> what ever the command is in single quotes ruby execute this
+2.Ruby file-> In this we save a lots commands of ruby and save it with ".rb" extension
+	      and it run.
+	ex- admin@admins-iMac Desktop % ruby me.rb
+	    123
+  	    234
+	    456
+	 or
+	ex- admin@admins-iMac ~ % ruby /Users/admin/Desktop/me.rb
+	    123
+	    234
+	    456
+3IRB. Stand for interactive ruby shell, we interact with our code in realtime.
+
+	-> To launch IRB 
+	->rib
+	  ex- admin@admins-iMac ~ % irb
+	      3.0.1 :001 >1+1
+	      => 2 
+	      3.0.1 :002 > puts 123
+	      123
+	      => nil 
+	Note. Every line in ruby has a return value and here put command not return any things it just print the result no terminal 	      that's why it give a return as nil
+	 ex-> 3.0.1 :001 > 2+2
+ 	      => 4 
+  	      3.0.1 :002 > 4+3-3
+	      => 4 
+	      3.0.1 :003 > 1+8/8+4-9
+ 	      => -3 
+	      3.0.1 :004 > 
+	-> To exit from rib 
+	   type quit or exit
+	ex- 3.0.1 :004 > quit
+	    admin@admins-iMac ~ % irb
+	    3.0.1 :001 > exit
+	    admin@admins-iMac ~ %  
+
+4.How to put comments in Ruby
+	->put pound or hash symbol (#), ruby ignore the line starting with this sign.
+
+5.For more you can visit 
+	-> https://www.ruby-lang.org/en/documentation/ 
+	for detail meaning of particular methods and class 
+
+	OR 
+	You can do this with you terminal
+	->ri "class name"
+	->ri calssname.method
+	->to exit form this type 'Q' or enter
+
+
