@@ -1,0 +1,31 @@
+installation of ruby.
+-> On Mac
+	->Mac already come with ruby to check the version of your mac 
+	type the command "ruby -v"
+	-> if you want to upgrade your ruby version 
+	->install RVM 
+	RVM-rvm is command line tool for managing multiple ruby versions and also uses a 	separate gemset for each rails app. 
+
+	To install rvm 
+	
+	->curl -L https://get.rvm.io | bash -s stable
+
+	To install the latest version of Ruby	
+
+	->rvm install ruby-[version]
+	in my case this was
+	rvm install ruby-3.0.1
+
+
+	Set the latest version of Ruby as the one you want to use
+	->rvm use ruby-3.0.1
+	->rvm --default use 3.0.1
+
+
+	If you want to run the rvm command anywhere from terminal use this
+	-> open ~/.bash_profile (it open a text editor for you)
+	->go to end of the line
+	->create a line break type the below command
+	->source ~/.rvm/scripts/rvm 
+	->save that file using cmd+s (⌘+s)
+	->quit the terminal or run source ~/.bash_profile
