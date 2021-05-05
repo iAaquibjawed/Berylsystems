@@ -1,0 +1,56 @@
+IN ruby Numbers are divided into two categories
+
+1. INTEGER
+
+2. FLOAT-POINT NUMBERS ("FLOATS")
+
+
+
+1.INTEGER
+
+-> Integers are the combinations of zero, natural numbers and their additive inverse.
+	ex- 1,2,34,456,0,-98,6,-54
+
+MATH OPERATOIONS
+
+-> we can perform basics math operations on integers
+1.Addition
+3.0.1 :001 > 8+9
+ => 17 
+
+2.Subtraction
+3.0.1 :002 > 32-9
+ => 23 
+
+3.Division
+3.0.1 :003 > 64/8
+ => 8 
+
+4.Multiplication
+3.0.1 :004 > 8*5
+ => 40 
+
+5.exponent
+
+3.0.1 :005 > 5**9
+ => 1953125 
+
+6.Assignment Operators
+
+x=4
+3.0.1 :006 > x=4
+ => 4 
+x+=7
+3.0.1 :007 > x+=7
+ => 11 
+
+To know the class use ".class" methods
+
+3.0.1 :008 > 4.class
+ => Integer
+
+Use ".abs" method to get the absolute value
+3.0.1 :009 > x=-8
+ => -8 
+3.0.1 :010 > x.abs
+ => 8 
