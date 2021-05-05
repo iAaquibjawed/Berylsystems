@@ -133,3 +133,260 @@ STRING INTERPOLATION -> insert something of different nature inside something el
  => nil 
 
 Note- This interpolation can not work with single quote
+
+SOME MORE METHODS IN STRING
+
+1.Strip method-> it remove leading and trailing white space in string
+
+	ex- 3.0.1 :001 > x ="     My name is Aaquib    "
+	 => "     My name is Aaquib    " 
+	3.0.1 :002 > x.strip
+	 => "My name is Aaquib" 
+	
+	-> Use can also use string in place of x like
+	3.0.1 :006 > "       My name is Aaquib           ".strip()
+ 	=> "My name is Aaquib" 
+
+2.strip! -> this method remove leading and trailing whitespace from the object or nill if no any changes made 
+
+	ex-3.0.1 :007 > "       My name is Aaquib           ".strip!()
+ 	=> "My name is Aaquib" 
+	3.0.1 :008 > "My name is Aaquib".strip!()
+ 	=> nil 
+	3.0.1 :009 > 
+
+3.Index -> This will give you a integer index of the character you passed inside the parenthesis
+
+	ex-3.0.1 :009 > x= "Hello"
+	 => "Hello" 
+	3.0.1 :010 > x.index("H")
+	 => 0 
+
+	-> 
+4.include?-> This take a substring as argument and return true if that substring is present in the string else return false
+
+	ex-3.0.1 :013 > x.include?"He"
+ 	=> true 
+	3.0.1 :014 > x.include?"Hm"
+ 	=> false 
+
+5.replace -> this take a string as argument and replace with the another string.
+	ex- 3.0.1 :015 > x
+ 	=> "Hello" 
+	3.0.1 :016 > x.replace "Replaced"
+	 => "Replaced" 
+	3.0.1 :017 > x
+	 => "Replaced" 
+
+6.insert -> this take two argument one is index at which string has to insert and the other is substring
+
+	ex-3.0.1 :018 > x.insert(1, "new string")
+ 	=> "Rnew stringeplaced" 
+
+7.lstrp -> this will remove the leading whitespace from string
+ 
+	ex- 3.0.1 :019 > y = "       check        "
+ 	=> "       check        " 
+	3.0.1 :021 > y.lstrip
+ 	=> "check        " 
+8.rstrip -> this will remove the trailing whitespace from string
+
+	ex-3.0.1 :022 > y = "       check        "
+ 	=> "       check        " 
+	3.0.1 :023 > y.rstrip
+	 => "       check" 
+9.chr -> returns a one-character string at the beginning of the string
+
+	ex-3.0.1 :024 > x= "Hello"
+ 	=> "Hello" 
+	3.0.1 :025 > x.chr
+ 	=> "H" 
+10.clear -> it make a string empty
+	ex-3.0.1 :026 > x
+	 => "Hello" 
+	3.0.1 :027 > x.clear
+	 => "" 
+	3.0.1 :028 > x
+	=> "" 
+
+11.try_convert -> 
+	-> If object is a String object, returns object.
+	ex-
+
+
+
+
+
+
+12.string*integer -> it give a new string contains integer copies 
+	ex-3.0.1 :036 > "world "*3
+ 	=> "world world world " 
+
+13.string <=> other_string ->
+	-> 0 if other_string are equal
+
+	ex- 3.0.1 :039 > "world"<=>"world"
+	 => 0 
+
+	->-1 if other_string is smaller
+
+	ex-3.0.1 :045 > 'Hello' <=> 'Wor'
+ 	=> -1 
+
+	-> 1 if other_string is larger
+
+	ex-3.0.1 :046 > 'Hello' <=> 'Helllloooo'
+	 => 1 
+
+	-> nil if the two are incomparable 
+
+	ex-3.0.1 :047 > 'Hello' <=> 3
+ 	=> nil 
+
+14.string == object -> return true if object has the same length and content else false 
+
+	ex-3.0.1 :048 > x= "Hello"
+	 => "Hello" 
+	3.0.1 :049 > y= "Hello"
+	 => "Hello" 
+	3.0.1 :050 > x==y
+ 	=> true 
+	3.0.1 :051 > y = "helo"
+	 => "helo" 
+	3.0.1 :052 > x==y
+ 	=> false 
+
+15.string =~ regex -> it take a substring and return the index of first substring else nil
+
+	-> 3.0.1 :054 > x =~/H/
+ 	=> 0 
+	3.0.1 :055 > x =~/Hell/
+	3.0.1 :056 > x =~/Helloooo/
+ 	=> nil 
+16.stirng[index]-> it give you a new substring or nil
+
+	ex- 3.0.1 :058 > 'Hello' [1]
+	 => "e" 
+	3.0.1 :060 > x
+ 	=> "Hello" 
+	3.0.1 :061 > x[0]
+ 	=> "H" 
+Note-> if we give a negative value as index it start counting from end "start from -1"
+	ex- => "H" 
+	3.0.1 :062 > x[-2]
+ 	=> "l" 
+Note-> if we pass an index out of range it return nil
+	ex-3.0.1 :063 > x[8]
+ 	=> nil
+
+17.center(width, padstr='') -> if width is greater than the length of string, retrurn a new string of length width with string centered and padded with pastor, otherwise, returns str
+
+	ex-3.0.1 :066 > z.length
+	 => 5 
+	3.0.1 :072 > z.center(8)
+ 	=> " Hello  " 
+	3.0.1 :073 > z.center(5)
+	 => "Hello" 
+	3.0.1 :074 > z.center(10,'123')
+ 	=> "12Hello123" 
+
+18.delet_prefix -> it return copy of string with leading prefix deleted
+
+	ex- 3.0.1 :078 > x ="Hello"
+ 	=> "Hello" 
+	3.0.1 :079 > x.delete_prefix("Hel")
+ 	=> "lo" 
+	3.0.1 :080 > x.delete_prefix("lo")
+ 	=> "Hello"
+19.delete_suffix -> Delete trailing string from the string and return the copy of string
+
+	ex- 3.0.1 :082 > x.delete_suffix("lo")
+ 	=> "Hel" 
+
+20.empty? -> Used to check where string is or not
+	-> return true if length is zero else false
+
+	ex- 3.0.1 :086 > x
+	 => "Hello" 
+	3.0.1 :087 > x.empty?
+	 => false 
+	3.0.1 :088 > x = ""
+	 => "" 
+	3.0.1 :089 > x.empty?
+	 => true 
+
+
+21.match(pattern, offset=0) -> returns a matchdata object or nil based on self and the given pattern
+
+	ex-3.0.1 :092 > x
+ 	=> "Hello" 
+	3.0.1 :093 > x.match("H")
+	 => #<MatchData "H"> 
+	3.0.1 :094 > x.match("W")
+	 => nil
+
+ -> if integer argument offset is given, the search begins at index offset
+
+	ex-3.0.1 :095 > x.match("H",1)
+ 	=> nil 
+	3.0.1 :096 > x.match("H",0)
+ 	=> #<MatchData "H"> 
+
+22.ord -> Return the integer ordinal of a one-character string.
+
+	ex-3.0.1 :097 > "a".ord
+ 	=> 97 
+	3.0.1 :098 > "A".ord
+ 	=> 65 
+
+23.string[range]-> it return a sub string of range length
+
+	ex-3.0.1 :099 > x = "Hello World"
+ 	=> "Hello World" 
+	3.0.1 :100 > x[0, 6]
+	 => "Hello " 
+	3.0.1 :101 > x[2,9]
+	 => "llo World" 
+
+24.slice -> Deletes the specified portion from string, and returns the deleted portion.
+
+	ex- 3.0.1 :102 > x = "slice the text accordingly"
+	 => "slice the text accordingly" 
+	3.0.1 :103 > x.slice!(6)
+	 => "t" 
+	3.0.1 :104 > x.slice!(6...12)
+	 => "he tex" 
+	3.0.1 :106 > x
+	 => "slice t accordingly" 
+	3.0.1 :107 > x.slice!("the")
+	 => nil 
+	3.0.1 :108 > x
+	 => "slice t accordingly" 
+	3.0.1 :109 > x.slice!("s")
+ 	=> "s" 
+	3.0.1 :110 > x
+ 	=> "lice t accordingly" 
+25.split(pattern=nil, [limit]) -> if pattern is string its contents are used as the delimiter(seprator) when splitting string. if pattern is white space string split on white space, with leading and trailing whitespace runs of contagious white space character ignored
+
+	ex- 3.0.1 :111 > x = "Let's practice with split"
+ 	=> "Let's practice with split" 
+	3.0.1 :112 > x.split(" ")
+	 => ["Let's", "practice", "with", "split"] 
+	3.0.1 :113 > x.split("a")
+	 => ["Let's pr", "ctice with split"] 
+	3.0.1 :114 > x.split("z")
+	 => ["Let's practice with split"] 
+	3.0.1 :115 > x.split("m")
+	 => ["Let's practice with split"] 
+	3.0.1 :117 > x = "1,2,3,4,5,6,7,,,,,"
+	 => "1,2,3,4,5,6,7,,,,," 
+	3.0.1 :118 > x.split(",")
+	 => ["1", "2", "3", "4", "5", "6", "7"] 
+	3.0.1 :119 > x.split(",",4)
+	 => ["1", "2", "3", "4,5,6,7,,,,,"] 
+	3.0.1 :120 > x.split(",",-7)
+	=> ["1", "2", "3", "4", "5", "6", "7", "", "", "", "", ""] 
+	
+
+
+
