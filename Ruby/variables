@@ -36,4 +36,113 @@ Instance -> @variable
 Local -> variable 
 Block -> variable 
 
+MORE ABOUT VARIABLES:
+
+
+->Variables are identifiers. They store the reference of object that we assigned to it.
+->variables act like object but it's not an object 
+->Bascially the method that we apply on variables is replace by the object that we assign to it
+3.0.1 :003 > x
+ => "Hello" 
+3.0.1 :004 > x= "Hello"
+ => "Hello" 
+3.0.1 :005 > x.upcase
+ => "HELLO" 
+Note - Here x is replace by the string hello in backside 
+
+
+SCOPES OF VARIABLES-> It's mean access of variables in the process, so we have to type of access.
+
+1.LOCAL VARIABLES-> These are the variables that are assigned within a method or functions. it means they can only access within the methods and functions
+
+	ex-
+
+	def hello()
+		x= 0
+		while x<5
+		p x
+		x +=1
+		end
+	end	
+Note -> The arguments that we pass in a method is also a local variables
+
+2.GLOBAL VARIBLES-> These are the variables that can be access by any of methods in particular process.
+
+-> it is declared using dollar symbol "$"
+	ex- $global = "Hello"
+
+
+	$global = 4
+
+
+	def world()
+		while global<10
+		p global
+		p +=1
+		end
+	end
+
+
+VARIABLES IN RUBY:
+
+1. Instance variables-> These variables only used in instance methods within a class
+
+->An instance variable in ruby has a name starting with "@" symbol
+class Hello
+  
+       
+       def initialize() 
+        
+         @Name = "R2J"
+       end   
+  
+       def displayDetails() 
+           puts "Here #@Name"
+       end    
+  
+end
+  
+obj=Hello.new()
+  
+obj.displayDetails()
+
+
+2.Class variables -> These variables are dotted by double @ sign as "@@"
+-> it can be used by both instance method and class methods within a class.
+
+3.0.1 :001 > class User
+3.0.1 :002 >   @@name = "Aaquib"
+3.0.1 :003 >   
+3.0.1 :004 >   def self.greet
+3.0.1 :005 >     "Hello #{@@name}"
+3.0.1 :006 >   end
+3.0.1 :007 > end
+ => :greet 
+3.0.1 :009 > User.greet
+ => "Hello Aaquib" 
+3.0.1 :010 > 
+
+
+
+3. Class Instance Variables-> These variables are a combination of instance variables and class variables.
+
+3.0.1 :029 > class People
+3.0.1 :030 >   def self.username(name)
+3.0.1 :031 >     @name=name
+3.0.1 :032 >   end
+3.0.1 :033 >   
+3.0.1 :034 >   def self.greet
+3.0.1 :035 >     "Hello #{@name}"
+3.0.1 :036 >   end
+3.0.1 :037 > end
+ => :greet 
+3.0.1 :038 > People.username("Aaquib")
+ => "Aaquib" 
+3.0.1 :039 > People.greet
+ => "Hello Aaquib" 
+3.0.1 :040 > 
+
+
+
+
 
