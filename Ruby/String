@@ -1,0 +1,73 @@
+String
+
+->it is a sequence of character, lines paragraphs, tab, whitespace, etc
+
+We use either double quotes ("string") or single quotes ('string') to represent the string
+
+
+STRING: CONCATENATION- adding one string with other 
+
+1.By using "+" operator
+
+3.0.1 :022 > x= "Ruby"
+ => "Ruby" 
+3.0.1 :023 > y= "String"
+ => "String" 
+3.0.1 :024 > x+" "+y
+ => "Ruby String" 
+3.0.1 :025 > 
+
+2.Appending methods- Here we append one string to other by using two less than symbol"<<"
+3.0.1 :025 > x
+ => "Ruby" 
+3.0.1 :026 > x<<" String"
+ => "Ruby String" 
+3.0.1 :027 > x
+ => "Ruby String" 
+3.0.1 :028 > 
+
+STRING MULTIPLICATION - We use multiplication operator to get numbers of same string from that string
+
+3.0.1 :028 > "Hello World "*3
+ => "Hello World Hello World Hello World " 
+
+METHODS IN STRING
+
+1. to_s -> convert into string
+3.0.1 :034 > x=3
+ => 3 
+3.0.1 :035 > x.class
+ => Integer 
+3.0.1 :036 > x= x.to_s
+ => "3" 
+3.0.1 :037 > x.class
+ => String 
+
+2.to_i -> convert to integer
+3.0.1 :038 > m = "5"
+ => "5" 
+3.0.1 :039 > m.class
+ => String 
+3.0.1 :040 > m= m.to_i
+ => 5 
+3.0.1 :041 > m.class
+ => Integer 
+
+4. Reverse -> reverse the string
+3.0.1 :042 > x= "Hello World"
+ => "Hello World" 
+3.0.1 :043 > x.reverse
+ => "dlroW olleH" 
+
+5.Capitalize -> Make first character of sting capital
+3.0.1 :044 > x= "hello world"
+ => "hello world" 
+3.0.1 :045 > x.capitalize
+ => "Hello world" 
+
+6. Upcase -> Convert every character of string to uppercase
+3.0.1 :046 > x.upcase
+ => "HELLO WORLD" 
+3.0.1 :047 > 
+
+
