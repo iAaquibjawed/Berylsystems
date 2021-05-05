@@ -132,4 +132,4 @@ STRING INTERPOLATION -> insert something of different nature inside something el
  olleH World
  => nil 
 
-Note- This special control character not work with single quote
+Note- This interpolation can not work with single quote
