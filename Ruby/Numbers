@@ -54,3 +54,44 @@ Use ".abs" method to get the absolute value
  => -8 
 3.0.1 :010 > x.abs
  => 8 
+
+FLOAT
+
+-> It's a number with precision or number with decimal
+	ex- 2.333, 546.6603, 0.6767
+
+3.0.1 :011 > 13.87.class
+ => Float 
+
+Note-
+Additon of float give you float but adding float with integer give you float
+
+3.0.1 :012 > 13.76+89.6
+ => 103.36 
+3.0.1 :013 > 103.36.class
+ => Float 
+3.0.1 :014 > 12+7.9
+ => 19.9 
+3.0.1 :015 > 19.9.class
+ => Float 
+
+
+Few methods in floats
+
+1.abs - stand for absolute
+3.0.1 :016 > x=-2.3
+ => -2.3 
+3.0.1 :017 > x.abs
+ => 2.3 
+
+2.Round- round the float to the nearest number
+3.0.1 :019 > 2.6.round
+ => 3 
+
+3. floor- round the float to downward
+3.0.1 :020 > 2.8.floor
+ => 2 
+
+4.Ceil- round the float to upward 
+3.0.1 :021 > 2.3.ceil
+ => 3 
