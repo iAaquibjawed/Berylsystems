@@ -172,6 +172,19 @@ airlines=# select ename from employees where salary < (select min(price) from fl
  Ayush
 (2 rows)
 
+d. For all aircraft with cruisingrange over 1000 miles, find the name of the aircraft and the average salary of all pilots certified for this aircraft.
+
+airlines=# select query.name, query.avgsalary from ( select A.aid, A.aname as name, avg(E.salary) as avgsalary from aircraft A, certified C, employees E where A.aid= C.aid and C.eid =E.eid and A.cruising_range >100 group by A.aid, A.aname) as query;
+     name      |       avgsalary        
+---------------+------------------------
+ Spice         |     92000.000000000000
+ KoreanAir     |     56000.000000000000
+ Boeing        |     58500.000000000000
+ Emirates      |     92000.000000000000
+ QatarAriways  |     95000.000000000000
+ JapanAirlines |     92000.000000000000
+ CathayPacific |     33000.000000000000
+ TruJet        | 18000.0000000000000000
 
 
 
@@ -193,6 +206,23 @@ f. Find the aids of all aircraft that can be used on routes from Los Angeles to 
  207
 (3 rows)
 
+g. Identify the routes that can be piloted by every pilot who makes more than $100,000.
+
+airlines=# select distinct F.flight_from, F.flight_to from flights F where not exists (select * from employees                                                                                                        > F.distance and E.eid = C.eid and A.aid = C.aid));
+ flight_from | flight_to 
+-------------+-----------
+ Charlotte   | Mandison
+ Dallas      | New York
+ Delhi      +| Canada
+             | 
+ Los Angeles | Chicago
+ Los Angeles | Dallas
+ Los Angeles | Honolulu
+ Los Angeles | Mandison
+ Mandison    | New York
+ Mandsion    | Dallas
+(9 rows)
+
 
 h. Print the enames of pilots who can operate planes with cruisingrange greater than 3000 miles but are not certified on any Boeing aircraft.
 
@@ -201,6 +231,13 @@ airlines=# select ename from employees where eid in(select eid from certified wh
 -------
  Divya
 (1 row)
+
+i. A customer wants to travel from Madison to New York with no more than two changes of flight. List the choice of departure times from Madison if the customer wants to arrive in New York by 6 p.m.
+
+airlines=# (select f.departs from flights f where f.flight_from= 'Madison' and f.flight_to= 'New York' and f.arrives< '18:00:00') union (select f1.departs from flights f1 inner join flights f2 on f1.flight_to = f2.flight_from where f1.flight_from= 'Mandison' and f2.flight_to = 'New York' and f1.arrives < f2.departs and f2.arrives < '18:00:00') union (select f1.departs from flights f1 inner join flights f2 on f1.flight_to = f2.flight_from inner join flights f3 on f2.flight_to = f3.flight_from where f1.flight_from= 'Madison' and f3.flight_to = 'New York' and f1.arrives < f2.departs and f2.arrives < f3.departs and f3.arrives < '18:00:00');
+ departs 
+---------
+(0 rows)
 
 
 j. Compute the difference between the average salary of a pilot and the average salary of all employees (including pilots).
@@ -236,6 +273,10 @@ airlines=# select ename from employees where eid in(select eid from certified wh
  Divya
  Ankit
 (5 rows)
+
+m. Print the names of employees who are certified only on aircrafts with cruising range longer than 1000 miles, but on at least two such aircrafts.
+
+
 
 n. Print the names of employees who are certified only on aircrafts with cruising range longer than 1000 miles and who are certified on some Boeing aircraft.
 
