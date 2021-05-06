@@ -92,6 +92,21 @@ sam
 please enter your age
 21
 
+puts "Enter the first number "
+
+num1 = gets.chomp().to_i()
+
+puts "Enter the second number "
+
+num2 = gets.chomp().to_i()
+
+puts(num1 + num2)
+Enter the first number
+4
+Enter the second number
+8
+12 
+
 
 
 
