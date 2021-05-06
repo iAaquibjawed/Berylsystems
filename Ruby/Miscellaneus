@@ -1,0 +1,56 @@
+
+Please note - I am using atom editor so some of commands outputs are not from terminal 
+
+
+-> To print something on scene we have to functions
+
+1.puts
+2.print
+
+1.puts -> it prints what ever you pass into it and also print new line
+
+	ex- 3.0.1 :075 > puts "hello world"
+	hello world
+ 	=> nil 
+	3.0.1 :076 > puts "new"
+	new
+ 	=> nil 
+2.print -> it print two things next to each other
+
+	ex-3.0.1 :077 > print "Hello World"
+	Hello World => nil 
+	3.0.1 :078 > print "new"
+	new => nil 
+
+  Note- on puts nil come on next line But with print nil come on same line
+
+->how puts function work
+
+puts "     / |"
+puts "    /  |"
+puts "   /   |"
+puts "  /    |"
+puts " /     |"
+puts "/______|"
+
+     / |
+    /  |
+   /   |
+  /    |
+ /     |
+/______|
+
+-> print with variables
+
+	ex- name = "Sam"
+
+age ="21"
+
+	puts ("Hello my is " +name+ " Thank you")
+	puts ("i am " + age +" years old" )
+
+ 	Hello my is Sam Thank you
+	i am 21 years old
+
+  Note - if you printing a string with variable inside it enclose it in parentheses, else   
+         get an error
