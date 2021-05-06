@@ -387,6 +387,128 @@ Note-> if we pass an index out of range it return nil
 	3.0.1 :120 > x.split(",",-7)
 	=> ["1", "2", "3", "4", "5", "6", "7", "", "", "", "", ""] 
 	
+26.chars -> convert a string t a character array
+
+	ex-3.0.1 :001 > x = "Hello world"
+	 => "Hello world" 
+	3.0.1 :002 > x.chars
+ 	=> ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"] 
+
+27.count -> Get the count of characters of a string, The str.count takes one or more sets of characters as parameters. After that we take the intersection of these sets to get the final characters set.
+
+	ex- 3.0.1 :004 > x= "aabbcccdddeee"
+	 => "aabbcccdddeee" 
+	3.0.1 :005 > x.count("a-c")
+	 => 7 
+	3.0.1 :006 > x.count("a")
+	 => 2 
+	3.0.1 :007 > x.count("a-b")
+
+  -> we can use it for counting multiple characters, 
+
+	ex- 3.0.1 :008 > x = "Umberalla"
+ 	=> "Umberalla" 
+	3.0.1 :009 > x.count("aeiou")
+ 	=> 3 
+	
+  -> ^ we use this to negate the character.
+
+	ex- 3.0.1 :010 > x.count("^aeiou")
+ 	=> 6 
+
+  ->we can also count different character symbol 
+
+	ex- 3.0.1 :011 > x = "hello*&^ my name is"
+ 	=> "hello*&^ my name is" 
+	3.0.1 :012 > x.count("^a")
+ 	=> 18 
+
+  ->if we want more explicit about the allowed character set, we can use 
+
+	ex-3.0.1 :014 > x.count("^aeiou")
+ 	=> 13 
+	NOTE- Here if we want to count the consonants it count special character too, to 	      over come this 
+
+	ex- 3.0.1 :016 > x.count("a-z", "^aeiou")
+	 => 6 
+
+  ->if we want to count ^ and - we have to use escape character 
+
+	ex- 3.0.1 :018 > x.count("\\^\\-0-9")
+ 	=> 7 
+
+28.prepend -> Add a string before another string, append one or more characters to a string at the beginning of a string
+
+	ex-3.0.1 :020 > x
+	 => "World" 
+	3.0.1 :021 > x.prepend("Hello ")
+ 	=> "Hello World" 
+	3.0.1 :022 > x
+	 => "Hello World" 
+
+29.Trim a string -> the st.trim will remove any of the following leading and trailing characters(\x00"), horizontal tab("\t"), linefeed(\n), vertical tab("\v")carriage return space (" ")
+
+	ex-3.0.1 :023 > x = "hello world \n\t\v\r  "
+	 => "hello world \n\t\v\r  " 
+	3.0.1 :024 > x.strip
+ 	=> "hello world" 
+	3.0.1 :025 > 
+
+30.swapcase -> The swap case method transforms the uppercase letters in a string to lowercase and the lowercase letters to uppercase
+
+	ex-3.0.1 :026 > x =" HELLo WOrld"
+ 	=> " HELLo WOrld" 
+	3.0.1 :027 > x.swapcase
+	 => " hellO woRLD" 
+
+31.concatenation. Ruby implements some methods to concatenate two strings together.
+
+	-> concate method 
+
+	ex- 3.0.1 :001 > x = "Hello "
+ 	=> "Hello " 
+	3.0.1 :002 > x.concat "World"
+	 => "Hello World" 
+	3.0.1 :003 > x
+ 	=> "Hello World" 
+
+32.chomp -> This method removes the last character in a string, only if it's a carriage return or newline (\r,\n).
+	
+	ex- 3.0.1 :004 > x = "Hello world\r"
+	 => "Hello world\r" 
+	3.0.1 :005 > x.chomp
+	 => "Hello world" 
+	3.0.1 :006 > x<<"\r"
+	 => "Hello world\r\r" 
+	3.0.1 :007 > x<<"\n"
+	 => "Hello world\r\r\n" 
+	3.0.1 :008 > x.chomp
+	 => "Hello world" 
+
+
+33.chop -> it remove the last character of the string
+
+	ex- .0.1 :016 > x = "Hello world"
+ 	=> "Hello world" 
+	3.0.1 :017 > x.chop
+ 	=> "Hello worl" 
+
+34.gsub -> it replace every reference of the first parameter for the second parameter on a string.
+
+	ex-3.0.1 :024 > x
+ 	=> " Hello world" 
+	3.0.1 :025 > x.gsub("world", "Aaquib")
+ 	=> " Hello Aaquib" 
+
+
+35 To integer -> it converts a string to an integer
+
+	ex -> 3.0.1 :026 > x = "12"
+ 	=> "12" 
+	3.0.1 :027 > x.to_i
+ 	=> 12 
+
+
 
 
 
