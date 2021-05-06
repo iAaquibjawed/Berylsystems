@@ -508,7 +508,73 @@ Note-> if we pass an index out of range it return nil
 	3.0.1 :027 > x.to_i
  	=> 12 
 
+36.size() -> it returns the number of elements in the set 
+
+	ex-3.0.1 :036 > x = "hello"
+	 => "hello" 
+	3.0.1 :037 > x.size
+
+	 => 5
+37.Convert an array to a string- This method is used to convert an array to string 
+
+	ex- 3.0.1 :040 > arr = ['q','f','g','t']
+	 => ["q", "f", "g", "t"] 
+	3.0.1 :041 > y = arr.join
+	 => "qfgt" 
+	3.0.1 :042 > y
+ 	=> "qfgt" 
+
+   -> We can also pass an argument as a separator 
+
+	ex-3.0.1 :043 > arr
+	 => ["q", "f", "g", "t"] 
+	3.0.1 :044 > y = arr.join("+")
+	 => "q+f+g+t" 
+	3.0.1 :045 > y
+ 	=> "q+f+g+t" 
+
+38.Crate a Multiline strings->there is two ways to do this 
+
+  1.%Q -> 3.0.1 :043 > arr
+	 => ["q", "f", "g", "t"] 
+	3.0.1 :044 > y = arr.join("+")
+ 	=> "q+f+g+t" 
+	3.0.1 :045 > y
+	 => "q+f+g+t" 
+ 
+  2.using heredocs ->3.0.1 :060"> X = <<-STRING
+	3.0.1 :061"> hello 
+	3.0.1 :062"> world 
+	3.0.1 :063"> this 
+	3.0.1 :064"> is 
+	3.0.1 :065 > STRING
+	 => "hello \nworld \nthis \nis \n" 
+
+39.How to change string encodings -> Strings are stored as a sequence of bytes, they are turned into the characters that you can see based on their encoding.
+
+	ex-3.0.1 :066 > x = 'Hello'
+	 => "Hello" 
+	3.0.1 :067 > x.encoding
+ 	=> #<Encoding:UTF-8> 
+
+  -> to change the encoding we pass a arguments 
+
+	ex- x.force_encoding("UTF-8")
+
+40.casecmp?(other_string) -> It returns true if self string and other_string are equal after unicode case folding, otherwise false.
+
+	UNICODE - ASCII have only 256 character to represent in computer system 
+		and there are so many language in the world to overcome this Scinetis 			introduce UNICODE which supports unto 65535 character
 
 
+	CASE FOLDING - It is defined as a process applied to a sequence of characters, in 	which those identified as non-uppercase are replaced by their uppercase 		equivalents.
 
 
+	ex - 3.0.1 :069 > 'food'.casecmp?('foo')
+ 	=> false 
+	3.0.1 :070 > 'Food'.casecmp?('food')
+ 	=> true 
+	3.0.1 :071 > 'foo'.casecmp?('Food')
+ 	=> false 
+	3.0.1 :072 > 'FOO'.casecmp?('Foo')
+ 	=> true 
