@@ -54,3 +54,48 @@ age ="21"
 
   Note - if you printing a string with variable inside it enclose it in parentheses, else   
          get an error
+
+
+->Data types in Ruby as beginners 
+
+1.String
+2.Numbers- 2.1-Integers 
+	   2.2-Floats
+3.Boolean- it's either true or false 
+
+
+->get input from user
+
+puts "Please enter your name "
+ name = gets
+
+ puts ("Hello "+ name)
+dmin@admins-iMac Ruby % ruby practice.rb
+Hello my is Sam Thank you
+i am 21 years old
+Please enter your name
+sam
+Hello sam
+
+#puts ("Hello my is " +name+ " Thank you")
+#puts ("i am " + age +" years old" )
+puts "please enter your name "
+name = gets.chomp()
+puts "please enter your age"
+age =gets.chomp()
+
+ puts ("Hello "+ name + " you are "+age+"old")
+
+dmin@admins-iMac Ruby % ruby practice.rb
+please enter your name
+sam
+please enter your age
+21
+
+
+
+
+
+
+
+
