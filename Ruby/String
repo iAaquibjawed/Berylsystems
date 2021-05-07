@@ -211,12 +211,14 @@ SOME MORE METHODS IN STRING
 
 11.try_convert -> 
 	-> If object is a String object, returns object.
-	ex-
-
-
-
-
-
+	ex-3.0.1 :038 > x
+	=> "Hello" 
+	3.0.1 :039 > String.try_convert(x)
+	 => "Hello" 
+	3.0.1 :041 > String.try_convert(11)
+	 => nil 
+	3.0.1 :042 > x = 112
+ 	=> 112 
 
 12.string*integer -> it give a new string contains integer copies 
 	ex-3.0.1 :036 > "world "*3
@@ -578,3 +580,224 @@ Note-> if we pass an index out of range it return nil
  	=> false 
 	3.0.1 :072 > 'FOO'.casecmp?('Foo')
  	=> true 
+METHOD OF CREATING A STRING	
+41. ::new -> String.new(string,enconding:encoding,capacity:size)
+
+	-> use to make a new string with different and capacity
+	0.1 :027 > s = String.new("world")
+	 => "world" 
+	3.0.1 :028 > s
+	 => "world"
+	.0.1 :029 > x = String.new("Hello", encoding: 'ASCII')
+ 	=> "Hello"
+	3.0.1 :031 > x.encoding
+	 => #<Encoding:US-ASCII> 
+	3.0.1 :032 > 
+
+42.String =~regexp -> integer or nil
+
+	3.0.1 :054 > s
+ 	=> "world" 
+	3.0.1 :055 > s =~/o/
+	 => 1 
+	3.0.1 :056 > s =~/d/
+	 => 4 
+	3.0.1 :057 > s =~/r/
+	 => 2 
+	3.0.1 :058 > s =~/w/
+	=> 0 
+	3.0.1 
+	3.0.1 :059 > s =~/q/
+ 	=> nil 
+43.ascii_only? -> it return true for a string which has only ASCII character
+	 ex->3.0.1 :060 > s
+ 	=> "world" 
+	3.0.1 :061 > s.ascii_only?
+ 	=> true 
+	3.0.1 :066 > s.ascii_only?
+	 => true 
+	3.0.1 :067 > s = "Hello©"
+	 => "Hello©" 
+	3.0.1 :068 > s.ascii_only?
+ 	=> false 	
+44.capitaliz! -> It return a string by converting first character to uppercase and the 			remainder lowercase
+	 
+	 ex- .0.1 :081 > s.capitalize
+	 => "Hello" 
+	3.0.1 :082 > s
+	 => "hello" 
+	3.0.1 :083 > s.capitalize!
+	 => "Hello" 
+	3.0.1 :
+45.chars -> Returns an array of characters in str.
+
+	ex->3.0.1 :085 > s
+	=> "Hello" 
+	3.0.1 :086 > s.chars
+	 => ["H", "e", "l", "l", "o"] 
+	3.0.1 :087 > 
+
+46.chop -> Returns a new string with the last character removed.
+	Note - if the string ends with \r\n, both characters are removed.
+
+	ex-3.0.1 :089 > x = "Hello world"
+	 => "Hello world" 
+	3.0.1 :090 > x.chop
+ 	=> "Hello worl" 
+	3.0.1 :092 > x = "Hello world\r\n"
+	 => "Hello world\r\n" 
+	3.0.1 :093 > x.chop
+ 	=> "Hello world" 
+	3.0.1 :095 > x = "hello\n\r"
+ 	=> "hello\n\r" 
+	3.0.1 :096 > x.chop
+ 	=> "hello\n"
+
+47.chop! -> it returns a self chop string
+
+	ex -3.0.1 :106 > x.chop!
+	 => "hello\n" 
+	3.0.1 :107 > x.chop!
+	 => "hello" 
+	3.0.1 :108 > x
+	 => "hello
+
+48.delete -> Returns a string after deleting all the character from string that is listed 	given in arguments
+
+	ex - 3.0.1 :109 > x
+	 => "hello" 
+	3.0.1 :110 > x.delete "l"
+ 	=> "heo"
+	3.0.1 :121 > x.delete "el", "lo"
+ 	=> "heo" 
+49.delete! ->
+	ex- 3.0.1 :122 > x
+	 => "hello" 
+	3.0.1 :123 > x.delete! "el", "lo"
+ 	=> "heo" 
+	3.0.1 :124 > x
+ 	=> "heo" 
+
+50.delete_prefix -> delete a leading character from string
+
+	ex - 3.0.1 :125 > x
+	 => "heo" 
+	3.0.1 :126 > x.delete_prefix "h"
+ 	=> "eo" 
+
+51.delete_suffix -> delete trailing character from string
+
+	ex - 3.0.1 :133 > x
+	 => "hello" 
+	3.0.1 :134 > x.delete_suffix("lo")
+ 	=> "hel" 
+
+52.delete_prefix!-> Delete leading character from string and return string if no changes 	made it return nil
+
+	ex -3.0.1 :131 > x.delete_prefix! "lo"
+	 => nil 
+
+53. delete_suffix! -> Delete trailing character form string and return string if no 		changes made it return
+
+ 	ex - 3.0.1 :136 > x.delete_suffix!("he")
+ 	=> nil 
+
+54.end_with? -> Returns true or false if strings end with given suffixes.
+
+	ex - 3.0.1 :141 > x.end_with?("He")
+	 => false 
+	3.0.1 :142 > x.end_with?("ld")
+	 => true 
+	3.0.1 :143 > x.end_with?("world")
+	 => true 
+
+	3.0.1 :14
+55.eql? - Returns true if object has same length and contents else false
+
+	ex - 3.0.1 :144 > x
+ 	=> "Hello world" 
+	3.0.1 :145 > x.eql?("Hello world")
+	 => true 
+	3.0.1 :148 > x.eql?("Hello")
+	 => false 
+
+56.force_encoding(encoding) -> change the encoding to encoding and return 
+
+	 ex - 3.0.1 :150 > x.encoding
+	 => #<Encoding:UTF-8> 
+	3.0.1 :151 > x.force_encoding(UNICODE)
+
+57.inspect -> return a string with surrounded by quote marks, and escaped
+
+	ex - .0.1 :159 > x
+	 => "hemlo" 
+	3.0.1 :160 > x.inspect
+	 => "\"hemlo\"" 
+	3.0.1 :161 > x[3]="\b"
+	 => "\b" 
+	3.0.1 :162 > x
+	 => "hem\bo" 
+	3.0.1 :163 > x.inspect
+	 => "\"hem\\bo\"" 
+
+58.ljust(integer,padstr=') -> if the integer is greater than the length of string return a string of length integer with string left justified with padstr, otherwise return string
+
+	ex - 3.0.1 :164 > x = "leftright"
+ 	=> "leftright" 
+	3.0.1 :165 > x.ljust(14, pdstr='12')
+ 	=> "leftright12121" 
+
+59.succ -> return the successor to self. it is calculated by incrementing characters.
+
+	ex - 3.0.1 :169 > x= "a"
+ 	=> "a" 
+	3.0.1 :170 > x.succ
+	 => "b" 
+	3.0.1 :171 > x.succ!
+	 => "b" 
+	3.0.1 :172 > x
+	 => "b" 
+	3.0.1 :173 > x.succ!
+ 	=> "c" 
+
+60.reverse! -> Reverse string in place
+
+	ex - 3.0.1 :174 > x = "Hello"
+ 	=> "Hello" 
+	3.0.1 :175 > x.reverse!
+	 => "olleH" 
+	3.0.1 :176 > x
+ 	=> "olleH" 
+
+
+61.rindex -> return the index of the last occurance of the given string, else nil
+
+	ex - 3.0.1 :177 > x = "Hello"
+	 => "Hello" 
+	3.0.1 :178 > x.rindex('H')
+	 => 0 
+	3.0.1 :179 > x.rindex('Hel')
+	 => 0 
+	3.0.1 :180 > x.rindex('Hpl')
+ 	=> nil 
+62.rjust -> if the integer is greater than the length of string, returns a new string of length integer with string right justified and padded with padstr,otherwise returns string
+
+	ex -3.0.1 :181 > x
+ 	=> "Hello" 
+	3.0.1 :182 > x.rjust(13,padstr= '87')
+ 	=> "87878787Hello" 
+
+63.valid_encoding? -> return true for a string if it encoded correctly
+
+	ex - 3.0.1 :185 > "\xc2\xa1".force_encoding("UTF-8").valid_encoding?
+	 => true 
+	3.0.1 :186 > "\xc2".force_encoding("UTF-8").valid_encoding?
+ 	=> false 
+64.tr(from_str,to_str) -> returns a string with the character in from _str replace by the corresponding characters in to_str, if to_str is shorter than from_str, it is padded with its last character in order to maintain the correspondence.
+
+	ex - 3.0.1 :187 > x
+ 	=> "Hello" 
+	3.0.1 :188 > x.tr('ei','lh')
+	 => "Hlllo" 
+	3.0.1 :189 > x.tr('ei','&')
+ 	=> "H&llo"
