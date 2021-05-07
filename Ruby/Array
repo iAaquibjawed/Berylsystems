@@ -1,0 +1,382 @@
+Array -> Array is a collectios of elements put together inside a container.
+
+	-> it's an ordered, integer-indexed collections of any object 
+
+	-> it can hold an object like string, integer, float, hash, symbol, and other ruby 	object 
+
+
+How to create an array in ruby 
+
+	-> name_of_aray = Array.new
+
+	ex-3.0.1 :197 > c = Array.new
+ 	=> [] 
+	3.0.1 :198 > c.class
+	 => Array 
+
+	-> you can also set the length of an array at time of creating an array
+	   name_of_array = Array.new(15)
+
+	ex- 3.0.1 :200 > af = Array.new(12)
+ 	=> [nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil] 
+	->name_of_array = []
+
+	ex - 3.0.1 :195 > ab =[]
+	=> [] 
+	3.0.1 :196 > ab.class
+	 => Array 
+
+To check the length of an Array
+
+1. Length -> it will give you the size of an array
+	ex-3.0.1 :202 > af.length
+ => 12 
+		
+2. Size -> it will give you the size of an array 
+
+	ex-3.0.1 :201 > af.size
+ 	=> 12 
+
+
+Indexing in an array
+	-> in Ruby array array elements strat with zero index from right side 
+	-> But if start from left side it start with negative index "-1"
+
+
+	ex - 3.0.1 :204 > a = ["sam", "man", "can","lan","wan"]
+	 => ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :205 > a[0]
+	 => "sam" 
+	3.0.1 :206 > a[4]
+ 	=> "wan" 
+	3.0.1 :207 > a[9]
+	 => nil 
+	3.0.1 :208 > a[-1]
+	 => "wan" 
+	3.0.1 :209 > a[-5]
+	 => "sam" 
+
+   -> we can also access a range of elements from an array 
+
+	 ex - 3.0.1 :210 > a[0,3]
+	 => ["sam", "man", "can"] 
+	3.0.1 :211 > a[2,5]
+	 => ["can", "lan", "wan"] 
+	3.0.1 :212 > a[-1,-4]
+	 => nil 
+	3.0.1 :213 > a[-4,5]
+ 	=> ["man", "can", "lan", "wan"] 
+  Note- it start with accessing from first arguments index but not include the index of 	last arguments 
+
+METHODS IN ARRAY
+
+1.first -> the first method access the first element of the array, the element at index 0.
+
+	ex - 3.0.1 :215 > a
+	 => ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :216 > a.first
+	 => "sam" 
+	3.0.1 :217 > a[0]
+ 	=> "sam" 
+
+2.last ->the last method accesses the last element of the array 
+
+	ex -  => ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :219 > a.last
+	 => "wan" 
+
+3.take -> the take method returns the first n elements of the array
+
+	ex- 3.0.1 :220 > a
+ 	=> ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :221 > a.take(4)
+	 => ["sam", "man", "can", "lan"] 
+	3.0.1 :222 > a.take(2)
+	 => ["sam", "man"] 
+	3.0.1 :223 > a.take(5)
+ 	=> ["sam", "man", "can", "lan", "wan"] 
+
+4.drop -> the drop method returns the elements after n elements of the array 
+
+	ex - 3.0.1 :224 > a
+	 => ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :225 > a.drop(3)
+	 => ["lan", "wan"] 
+	3.0.1 :226 > a.drop(2)
+ 	=> ["can", "lan", "wan"] 
+
+5.pop -> the pop method will permanently remove the last elements of an array
+
+	ex - 3.0.1 :227 > a
+ 	=> ["sam", "man", "can", "lan", "wan"] 
+	3.0.1 :228 > a.pop
+ 	=> "wan" 
+	3.0.1 :229 > a.pop
+ 	=> "lan" 
+	3.0.1 :231 > a
+ 	=> ["sam", "man", "can"] 
+
+6.shift -> the shift method will permantently remove the first element of an array and 	
+	return this element 
+
+	ex - 3.0.1 :231 > a
+ 	=> ["sam", "man", "can"] 
+	3.0.1 :232 > a.shift
+	 => "sam" 
+	3.0.1 :233 > a.shift
+	 => "man" 
+	3.0.1 :234 > a
+ 	=> ["can"] 
+
+7.push -> the push method will allow you to add an element to the end of an array
+
+	ex - 3.0.1 :234 > a
+	 => ["can"] 
+	3.0.1 :235 > a.push("sam")
+	 => ["can", "sam"] 
+	3.0.1 :236 > a.push("man")
+	 => ["can", "sam", "man"] 
+	3.0.1 :237 > a.push("lan")
+	 => ["can", "sam", "man", "lan"] 
+	3.0.1 :238 > a
+ 	=> ["can", "sam", "man", "lan"] 
+
+8.unshift -> the unshift method will allow you to add an element to the beginning of an array
+
+	ex - 3.0.1 :238 > a
+	 => ["can", "sam", "man", "lan"] 
+	3.0.1 :239 > a.unshift("first")
+	 => ["first", "can", "sam", "man", "lan"] 
+	3.0.1 :240 > a.unshift("again first")
+	 => ["again first", "first", "can", "sam", "man", "lan"] 
+	3.0.1 :241 > a
+	=> ["again first", "first", "can", "sam", "man", "lan"] 
+
+9.delete -> the delete method remove a specified element from an array permanently
+
+	ex - 3.0.1 :241 > a
+	 => ["again first", "first", "can", "sam", "man", "lan"] 
+	3.0.1 :242 > a.delete("can")
+	 => "can" 
+	3.0.1 :243 > a
+	 => ["again first", "first", "sam", "man", "lan"] 
+	3.0.1 :244 > a.delete("again first")
+	 => "again first" 
+	3.0.1 :245 > a
+	=> ["first", "sam", "man", "lan"] 
+
+10.delete_at -> the delete_at method allows you to permanently remove an element of an array 	at a specified index
+
+	ex - 3.0.1 :245 > a
+ 	=> ["first", "sam", "man", "lan"] 
+	3.0.1 :246 > a.delete_at(1)
+	 => "sam" 
+	3.0.1 :247 > a.delete_at(4)
+ 	=> nil 
+	3.0.1 :248 > a.delete_at(3)
+	 => nil 
+	3.0.1 :249 > a.delete_at(2)
+	 => "lan" 
+	3.0.1 :250 > a
+	 => ["first", "man"] 
+	3.0.1 :251 > 
+
+11.reverse -> The .reverse method reverses the array but does not mutate it (the original 	array stays as is)
+
+	ex - 3.0.1 :252 > a
+	 => ["first", "man"] 
+	3.0.1 :253 > a.unshift("sam")
+	 => ["sam", "first", "man"] 
+	3.0.1 :254 > a.push("ham")
+	 => ["sam", "first", "man", "ham"] 
+	3.0.1 :255 > a
+	 => ["sam", "first", "man", "ham"] 
+	3.0.1 :256 > a.reverse
+	 => ["ham", "man", "first", "sam"] 
+	3.0.1 :257 > a
+	 => ["sam", "first", "man", "ham"] 
+	3.0.1 :258 > a.revers
+	3.0.1 :259 > a.reverse
+ 	=> ["ham", "man", "first", "sam"] 
+
+12.include? ->  the include method checks to see if the argument given is included in the array
+
+	ex - 3.0.1 :260 > a.include?"sa"
+	 => false 
+	3.0.1 :261 > a.include?"sam"
+	 => true 
+
+13.join -> the join method returns a string of all the elements of the array separated by a 	separator parameter. if the separator parameter is nil, the method uses an empty 	string as separator between strings. 
+
+	ex - 3.0.1 :262 > a
+	 => ["sam", "first", "man", "ham"] 
+	3.0.1 :263 > a.join
+	 => "samfirstmanham" 
+	3.0.1 :265 > a.join('&')
+ 	=> "sam&first&man&ham" 
+	3.0.1 :266 > a.join('%')
+	 => "sam%first%man%ham" 
+14.each -> the each method iterates over each element of the array , allowing you to perform 	actions no them.
+
+	ex - 3.0.1 :267 > a.each do |name|
+	3.0.1 :268 >   puts name
+	3.0.1 :269 > end
+	sam
+	first
+	man
+	ham
+ 	=> ["sam", "first", "man", "ham"] 
+
+15.uniq -> the uniq methods takes in an array containing duplicate elements, and returns a 	copy of the array containing only unique elements, any duplicate elements are removed 	from the array.
+
+	ex - 3.0.1 :270 > b = ['a','s','d','a','f','s','g','f']
+	 => ["a", "s", "d", "a", "f", "s", "g", "f"] 
+	3.0.1 :271 > b.uniq
+ 	=> ["a", "s", "d", "f", "g"] 
+
+16.concat -> the .concat method appends the elements from an array to the original array. 	the .concat method can take in multiple arrays as an argument, which will in turn 	append multiple arrays to the original array.
+
+	ex - 3.0.1 :274 > a.concat(["he","oo"],["ki","li"])
+	 => ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+	3.0.1 :275 > a
+ 	=> ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+
+17.sort -> this method will sort an array alphabatically and gives us back
+
+	ex - 3.0.1 :276 > a
+	 => ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+	3.0.1 :278 > a.sort
+	 => ["first", "ham", "he", "ki", "li", "man", "oo", "sam"] 
+
+18.count -> this method will count the total number of elements inside an array
+
+	ex - 3.0.1 :279 > a
+	 => ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+	3.0.1 :280 > a.count
+ 	=> 8 
+
+19.empty? -> this method is used to check whether array has element or not, this method 	return true or false
+
+	ex - 3.0.1 :281 > a
+ 	=> ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+	3.0.1 :282 > a.empty?
+	 => false 
+	3.0.1 :283 > g = []
+	 => [] 
+	3.0.1 :284 > g.empty?
+	 => true 
+
+20. << -> this is used to add element inside an array at the end
+
+	ex - 3.0.1 :285 > a
+	 => ["sam", "first", "man", "ham", "he", "oo", "ki", "li"] 
+	3.0.1 :286 > a << "add"
+	 => ["sam", "first", "man", "ham", "he", "oo", "ki", "li", "add"] 
+	3.0.1 :287 > a << "again"
+ 	=> ["sam", "first", "man", "ham", "he", "oo", "ki", "li", "add", "again"] 
+
+
+21.insert -> this method is used to add multiple elements at any position 
+
+	ex - 3.0.1 :288 > a = [1,2,3,4,5,"hi","ki","gu"]
+	 => [1, 2, 3, 4, 5, "hi", "ki", "gu"] 
+	3.0.1 :289 > a.insert(3,"hello")
+	 => [1, 2, 3, "hello", 4, 5, "hi", "ki", "gu"] 
+	3.0.1 :290 > a.insert(5,"hello",4,8,10)
+	 => [1, 2, 3, "hello", 4, "hello", 4, 8, 10, 5, "hi", "ki", "gu"] 
+
+22.compact -> this method is used to remove nil elements from an array
+
+	ex - 3.0.1 :291 > a = Array.new
+	 => [] 
+	3.0.1 :292 > a[1]= "sam"
+	 => "sam" 
+	3.0.1 :293 > a[5] = 8
+	 => 8 
+	3.0.1 :294 > a
+ 	=> [nil, "sam", nil, nil, nil, 8] 
+	3.0.1 :295 > a.compact
+ 	=> ["sam", 8] 
+
+23.compact! -> this will remove will elements permeantlly form an array
+
+	ex - 3.0.1 :291 > a = Array.new
+	 => [] 
+	3.0.1 :292 > a[1]= "sam"
+	 => "sam" 
+	3.0.1 :293 > a[5] = 8
+	 => 8 
+	3.0.1 :294 > a
+	 => [nil, "sam", nil, nil, nil, 8] 
+	3.0.1 :295 > a.compact
+	 => ["sam", 8] 
+	3.0.1 :296 > a
+	 => [nil, "sam", nil, nil, nil, 8] 
+	3.0.1 :297 > a.compact!
+	 => ["sam", 8] 
+	 :298 > a
+	 => ["sam", 8] 
+
+24.flatten -> the flatter method is used to take an array that contains nested arrays and 	create a one dimensional array
+
+	ex - 3.0.1 :299 > a = [1,2,3,[12,14,15,44],["hp","lo"]]
+ 	=> [1, 2, 3, [12, 14, 15, 44], ["hp", "lo"]] 
+	3.0.1 :300 > a.flatten
+	=> [1, 2, 3, 12, 14, 15, 44, "hp", "lo"] 
+
+25.product -> the product method can be used to combine two array in an interesting way.it 	returns an array that is a combination of all elements from all arrays.
+
+	ex - 3.0.1 :301 > a = [1,2,3,5]
+	 => [1, 2, 3, 5] 
+	3.0.1 :302 > b = [7,8,9,4]
+	 => [7, 8, 9, 4] 
+	3.0.1 :303 > a.product(b)
+	 => 
+	 [[1, 7],
+	 [1, 8],
+	 [1, 9],
+	 [1, 4],
+	 [2, 7],
+	 [2, 8],
+	 [2, 9],
+	 [2, 4],
+	 [3, 7],
+	 [3, 8],
+	 [3, 9],
+	 [3, 4],
+	 [5, 7],
+	 [5, 8],
+	 [5, 9],
+	 [5, 4]] 
+
+26.sample -> this method is use to grab a random answer from an array 
+
+	ex - 3.0.1 :304 > a
+ 	=> [1, 2, 3, 5] 
+	3.0.1 :305 > a.sample
+	 => 5 
+	3.0.1 :306 > a.sample
+	 => 2 
+	3.0.1 :307 > a.sample
+	 => 5 
+	3.0.1 :308 > a.sample
+ 	=> 5 
+
+27.shuffle -> this method will shuffle the elements inside the array
+
+	ex - 3.0.1 :309 > a
+	 => [1, 2, 3, 5] 
+	3.0.1 :310 > a.shuffle
+	 => [5, 2, 1, 3] 
+	3.0.1 :311 > a.shuffle
+	 => [3, 2, 5, 1] 
+	3.0.1 :312 > 
+
+
+
+
+
+
+
+
+
