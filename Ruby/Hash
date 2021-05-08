@@ -159,4 +159,144 @@ Hash Methods
 	3.0.1 :057 > ani<=ani
  	=> true 
 
-3.
+3.hash==object -> return true if the following are true
+
+	>object is a hash object.
+	>hash and other object have the same keys (regardless of order in hash).
+	>for each key in hash and object are equal hash[key] == object[key]
+	>otherwise returns false.
+
+	ex-  => {:minute=>"kitten", :tall=>"giraffe"} 
+	3.0.1 :061 > animals == mals
+	 => true 
+	3.0.1 :062 > animals
+	 => {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :063 > mals
+	 => {:minute=>"kitten", :tall=>"giraffe"} 
+	3.0.1 :064 > animals == mals
+ 	=> true 
+	3.0.1 :064 > animals == mals
+ 	=> true 
+	3.0.1 :065 > ani
+ 	=> {:tall=>"giraffe"} 
+	3.0.1 :066 > animals == ani
+ 	=> false 
+
+4.hash[key] -> return the value associated with the given key, if found.
+
+	ex - 3.0.1 :067 > animals
+ 	=> {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :068 > animals[:tall]
+ 	=> "giraffe" 
+	3.0.1 :069 > color
+ 	=> 
+	{"Rose"=>"red",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :070 > color["Rose"]
+ 	=> "red" 
+
+5.hash[key] = value -> if the given key exists, replace its value with the given value; the ordering is not affected.
+
+	ex - 3.0.1 :071 > color
+ 	=> 
+	{"Rose"=>"red",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :072 > color["Rose"] = "mango"
+	 => "mango" 
+	3.0.1 :073 > color
+ 	=> 
+	{"Rose"=>"mango",
+	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+
+6..store -> replace the value of that key with given value
+
+	ex -  => {:tall=>"giraffe"} 
+	3.0.1 :075 > ani.store(:tall, "good")
+	=> "good" 
+	3.0.1 :076 > ani
+ 	=> {:tall=>"good"} 
+
+7.any? -> return true if any element statisfies a given criterion; otherwise false.
+
+	ex -  => {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :078 > animals.any?([:tall,"giraffe"])
+	 => true 
+	3.0.1 :079 > animals.any?([:tall,"kitten"])
+	 => false 
+	3.0.1 :080 > animals.any?(["tll","kitten"])
+ 	=> false 
+
+8.assoc(key) -> this method return a two elements array containing that key and its value if that key is in that hash.
+
+	ex - 3.0.1 :081 > color
+ 	=> 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :082 > color.assoc("Rose")
+ 	=> ["Rose", "mango"] 
+	3.0.1 :083 > color.assoc("Lily")
+ 	=> ["Lily", "purple"] 
+
+9.clear -> this method remove all hash entries and return self.
+
+	ex - 3.0.1 :084 > ani 
+ 	=> {:tall=>"good"} 
+	3.0.1 :085 > ani.clear
+	 => {} 
+	3.0.1 :086 > ani
+ 	=> {} 
+	.0.1 :08
+
+10.compact -> this method return a copy of self after removing all nil valued associated with the key
+
+	ex - 3.0.1 :086 > ani
+ 	=> {} 
+	3.0.1 :087 > ani = {1=>"he", 2=>nil, 3=>"me", 4=> nil, 5=>nil}
+ 	=> {1=>"he", 2=>nil, 3=>"me", 4=>nil, 5=>nil} 
+	3.0.1 :088 > ani.compact
+ 	=> {1=>"he", 3=>"me"} 
+
+11.compact! -> this method completely remove nil value in place and return self.
+
+	ex - 3.0.1 :087 > ani = {1=>"he", 2=>nil, 3=>"me", 4=> nil, 5=>nil}
+	 => {1=>"he", 2=>nil, 3=>"me", 4=>nil, 5=>nil} 
+	3.0.1 :088 > ani.compact
+ 	=> {1=>"he", 3=>"me"} 
+	3.0.1 :089 > ani
+	 => {1=>"he", 2=>nil, 3=>"me", 4=>nil, 5=>nil} 
+	3.0.1 :090 > ani.compact!
+	 => {1=>"he", 3=>"me"} 
+	3.0.1 :091 > ani
+ 	=> {1=>"he", 3=>"me"}  
+
+12.delete(key) -> delete the entry for the given key and returns its associated value
+
+	ex - 3.0.1 :091 > ani
+ 	=> {1=>"he", 3=>"me"} 
+	3.0.1 :092 > ani.delete(3)
+ 	=> "me" 
+	3.0.1 :093 > ani
+ 	=> {1=>"he"} 
+	3.0.1 :094 > 
+13.empty> -> return true if hash contains no key value pair otherwise false.
+
+	ex - 3.0.1 :093 > ani
+ 	=> {1=>"he"} 
+	3.0.1 :094 > ani.empty?
+	 => false 
+	3.0.1 :095 > ani.clear
+	 => {} 
+	3.0.1 :096 > ani.empty?
+	 => true 
