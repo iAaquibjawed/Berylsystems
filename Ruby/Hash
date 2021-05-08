@@ -413,3 +413,89 @@ Hash Methods
 	 => true 
 	3.0.1 :132 > ani.has_value?("h")
  	=> false 
+
+24.has_key?(key)-> Returns true if key in a member of self, else false
+
+	ex - 3.0.1 :134 > ani
+	 => {"Rose"=>"he"} 
+	3.0.1 :135 > ani.key?("Rose")
+	 => true 
+	3.0.1 :136 > ani.key?("Ros")
+ 	=> false 
+
+25.flatten -> Returns a new Array object that is of one-dimensional
+
+	ex - 3.0.1 :144 > color
+ => 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :145 > color.flatten
+ 	=> 
+	["Rose",
+ 	"mango",
+ 	"Lily",
+ 	"purple",
+ 	"Marigold",
+ 	"Blue",
+ 	"Jasmine",
+ 	"white",
+ 	"Tulip",
+ 	"pink"] 
+
+26.select -> return self, whose entries are satisfied by the block
+
+	ex - 3.0.1 :152 > color.select 
+ 	=> #<Enumerator: ...> 
+	3.0.1 :153 > color.select {|key,value| value == "mango"}
+ 	=> {"Rose"=>"mango"} 
+	3.0.1 :154 > color.select {|key,value| value == "Blue"}
+ 	=> {"Marigold"=>"Blue"} 
+
+27.fetch_vlaues(key) -> return a new array containing the values associated with given keys
+
+	ex - 3.0.1 :155 > color.fetch_values("Rose")
+	 => ["mango"] 
+	3.0.1 :156 > color.fetch_values("Lily")
+	 => ["purple"] 
+	3.0.1 :157 > color.fetch_values("Tulip")
+	 => ["pink"] 
+
+28.fetch_values(key) with enumerate function -> 
+
+	ex - 3.0.1 :163 > helo.fetch_values(:vr){|key| key.to_s}
+ 	=> ["vr"] 
+
+29.eql?object -> return true if
+	-> object is a hash object .
+	->hash and object have the same keys
+	->for each key key, h[key] eql? object[key]
+	->otherwise, return false.
+
+	ex - 3.0.1 :168 > m = {"he"=>2,"h"=>3}
+ 	=> {"he"=>2, "h"=>3} 
+	3.0.1 :169 > color.eql? m
+ 	=> false 
+	3.0.1 :170 > color.eql? color
+ 	=> true 
+
+30.each_value-> enumerate 
+
+	ex - 3.0.1 :173 > color.each_value{|value| puts value}
+	mango
+	purple
+	Blue
+	white
+	pink
+ 	=> 
+
+31.dig(key, identifiers) -> finds and returns the object in nested object 
+
+	ex - 3.0.1 :175 > hm.dig(:ol)
+ 	=> {:ar=>{:sa=>2}} 
+32.values_at(key) -> returns a new array containing values for the given keys.
+
+	ex - 3.0.1 :176 > color.values_at("Rose","Lily")
+	 => ["mango", "purple"]
