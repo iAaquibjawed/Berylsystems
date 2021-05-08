@@ -300,3 +300,116 @@ Hash Methods
 	 => {} 
 	3.0.1 :096 > ani.empty?
 	 => true 
+14.include?(key) -> return true if given key is present in hash 
+
+	ex - 3.0.1 :097 > color
+	 => 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :098 > color.include?("Rose")
+	 => true 
+	3.0.1 :099 > color.include?("helloe")
+ 	=> false 
+
+15.to_s -> return content of hash as string
+
+	ex -  => false 
+	3.0.1 :100 > color
+ 	=> 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :101 > color.to_s
+ 	=> "{\"Rose\"=>\"mango\", \"Lily\"=>\"purple\", \"Marigold\"=>\"Blue\", 			\"Jasmine\"=>\"white\", \"Tulip\"=>\"pink\"}" 
+
+16.to_a -> return an array of 2-elements 
+
+	ex - 3.0.1 :103 > color.to_a
+ 	=> 
+[	["Rose", "mango"],
+	["Lily", "purple"],
+ 	["Marigold", "Blue"],
+ 	["Jasmine", "white"],
+ 	["Tulip", "pink"]]
+
+17.slice(keys) -> return a new hash object containing the entries for the given keys
+
+	ex - 3.0.1 :107 > color
+ 	=> 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :108 > color.slice("Rose", "Lily")
+ 	=> {"Rose"=>"mango", "Lily"=>"purple"}  
+
+18.size -> Returns the count of entries in hash.
+
+	 ex - 3.0.1 :110 > color
+	=> 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :111 > color.size
+ 	=> 5 
+
+19.shift -> removes the first hash entry, returns a 2-elements array containing the removed key and value.
+
+	ex - 3.0.1 :110 > color
+ 	=> 
+	{"Rose"=>"mango",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+	3.0.1 :111 > color.size
+	 => 5 
+	3.0.1 :112 > color.shift
+ 	=> ["Rose", "mango"] 
+	3.0.1 :113 > color
+	 => {"Lily"=>"purple", "Marigold"=>"Blue", "Jasmine"=>"white", "Tulip"=>"pink"}
+
+20.inspect -> returns a new string containing the hash entires.
+
+	 ex - 3.0.1 :114 > color.inspect
+ 	=> "{\"Lily\"=>\"purple\", \"Marigold\"=>\"Blue\", \"Jasmine\"=>\"white\", 		\"Tulip\"=>\"pink\"}" 
+	3.0.1 :115 > animals.inspect
+ 	=> "{:tall=>\"giraffe\", :minute=>\"kitten\"}" 
+
+21/replace(other_has) -> replace the entire contents of self with the contents of other hash 
+
+	ex - 3.0.1 :119 > color.replace({"Rose"=>"he"})
+ 	=> {"Rose"=>"he"} 
+	3.0.1 :120 > color
+ 	=> {"Rose"=>"he"} 
+	3.0.1 :122 > ani = {b:"el", q:"ye"}
+	 => {:b=>"el", :q=>"ye"} 
+	3.0.1 :123 > ani.replace(color)
+	 => {"Rose"=>"he"} 
+	3.0.1 :124 > ani
+	 => {"Rose"=>"he"} 
+
+22.invert -> returns a new hash object with the each key-value pair inverted
+
+	ex - 3.0.1 :124 > ani
+	 => {"Rose"=>"he"} 
+	3.0.1 :125 > ani.invert
+ 	=> {"he"=>"Rose"} 
+	3.0.1 :126 > ani
+
+23.has_value?(value) -> return true if value is a value in self otherwise return false.
+
+	ex - 3.0.1 :130 > ani
+	 => {"Rose"=>"he"} 
+	3.0.1 :131 > ani.has_value?("he")
+	 => true 
+	3.0.1 :132 > ani.has_value?("h")
+ 	=> false 
