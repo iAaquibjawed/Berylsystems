@@ -1,0 +1,162 @@
+-> Hash is an unordered, object collection of objects (or key-value pairs
+
+->It is similar to an Array, except that indexing is done via arbitrary keys of nay object type, not an integer index.
+
+->The order in which you traverse a hash by either key or value 
+
+-> If you attempt to access a hash with a key that does not exist, the method will return nil.
+
+->The only difference between Array and Hash is Array in an order type collection of object where as Hash is an un ordered type collection of an object.
+
+-> it has a unique key.
+
+-> Sometimes Hashes are called associative arrays, dictionaries or maps.
+
+
+CREATING RUBY HASH
+
+-> Ruby hash is created by writing key-value pair within {} curly braces.
+
+	ex - 3.0.1 :001 > color = {   
+	3.0.1 :002 >     "Rose" => "red",   
+	3.0.1 :003 >     "Lily" => "purple",   
+	3.0.1 :004 >     "Marigold" => "yellow",   
+	3.0.1 :005 >     "Jasmine" => "white"   
+	3.0.1 :006 > }   
+	 => {"Rose"=>"red", "Lily"=>"purple", "Marigold"=>"yellow", "Jasmine"=>"wh... 
+	3.0.1 :007 > 
+
+	or
+
+  -> you can also create using symbol 
+
+	ex - 3.0.1 :011 > animals = {:tall => "giraffe", :minute => "kitten"}
+	 => {:tall=>"giraffe", :minute=>"kitten"} 
+
+
+Access values from Hash
+ -> To fetch a hash value, write the required key within [] square bracket.
+
+	ex - 3.0.1 :012 > 3.0.1 :016 > color
+ 	=> {"Rose"=>"red", "Lily"=>"purple", "Marigold"=>"yellow", "Jasmine"=>"white"} 
+	puts color['Rose']   
+	red
+	 => nil 
+	3.0.1 :013 >   puts color['Lily']   
+	purple
+	 => nil 
+	3.0.1 :014 > puts color['Marigold'] 
+	yellow
+	 => nil 
+	3.0.1 :015 >   puts color['Jasmine']  
+	white
+	 => nil 
+
+ -> to fetch a hash value having key as symbol 
+
+	 ex - 3.0.1 :017 > animals 
+ 	=> {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :018 > puts animals[:tall]
+	giraffe
+	 => nil 
+	3.0.1 :019 > puts animals[:minute]
+	kitten
+ 	=> nil 
+
+
+Modify Hash
+ -> A Ruby hash can be modified by adding or removing a key value pair in an already existing hash. 
+
+	ex - 3.0.1 :020 > color
+ 	=> {"Rose"=>"red", "Lily"=>"purple", "Marigold"=>"yellow", "Jasmine"=>"white"} 
+	3.0.1 :021 > color['Tulip'] = "pink"   
+ 	=> "pink" 
+	3.0.1 :022 > color['Marigold'] = 'Blue'
+ 	=> "Blue" 
+	3.0.1 :023 > color
+ 	=> 
+	{"Rose"=>"red",
+ 	"Lily"=>"purple",
+ 	"Marigold"=>"Blue",
+ 	"Jasmine"=>"white",
+ 	"Tulip"=>"pink"} 
+
+Hash Methods
+
+1.Public class methods 
+
+
+1.Hash[] -> create a new empty hash
+	 ex - 3.0.1 :024 > a = Hash[]
+	 => {} 
+	3.0.1 :025 > a
+ 	=> {} 
+
+2.Hash[hash] -> create a new hash from hash
+
+	ex - 3.0.1 :026 > b = Hash[animals]
+	 => {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :027 > b
+ 	=> {:tall=>"giraffe", :minute=>"kitten"} 
+
+3.Hash[[elements_array]] - > create a new hash with give array 
+
+	 ex - 3.0.1 :028 > x = [1,2,3,4]
+ 	=> [1, 2, 3, 4] 
+	3.0.1 :029 > y = ['he','le','lo','mn']
+ 	=> ["he", "le", "lo", "mn"] 
+	3.0.1 :030 > i = Hash[[x],[y]]
+ 	=> {[[1, 2, 3, 4]]=>[["he", "le", "lo", "mn"]]} 
+	3.0.1 :031 > i = Hash[[6],["hello"]]
+ 	=> {[6]=>["hello"]} 
+	3.0.1 :032 > i
+ 	=> {[6]=>["hello"]} 
+
+4.try_convert(obj) -> obj, new hash , or nil
+
+ -> if object is a hash, return obj.
+
+	ex - 3.0.1 :033 > i
+ 	=> {[6]=>["hello"]} 
+	3.0.1 :035 > Hash.try_convert(i)
+ 	=> {[6]=>["hello"]} 
+ -> if obj responds to :to_hash calls obj.to_has and returns the result.
+
+ -> Returns nil if obj not respond to :to_hash
+
+ 	ex - 3.0.1 :040 > m = "Hello"
+	 => "Hello" 
+	3.0.1 :041 > Hash.try_convert(m)
+ 	=> nil 
+
+2.Public class methods 
+
+1.hash<otherHash -> return true if hash is a proper subset of other hash otherwise return false
+
+	ex- 3.0.1 :045 > animals
+ 	=> {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :046 > ani = {:tall=> "giraffe"}
+ 	=> {:tall=>"giraffe"} 
+	3.0.1 :047 > animals<ani
+	 => false 
+	3.0.1 :048 > ani
+ 	=> {:tall=>"giraffe"} 
+	3.0.1 :049 > animals
+	 => {:tall=>"giraffe", :minute=>"kitten"} 
+	3.0.1 :050 > ani<animals
+ 	=> true 
+
+2.hash<=otherHash -> return true if hash is a subset of otherHash ,otherwise false
+
+	ex - 3.0.1 :053 > animals<ani
+ 	=> false 
+	3.0.1 :054 > animals<=ani
+	 => false 
+	3.0.1 :055 > ani<=animals
+	 => true 
+	3.0.1 :056 > ani<ani
+	 => false 
+	3.0.1 :057 > ani<=ani
+ 	=> true 
+
+3.
