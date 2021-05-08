@@ -1,0 +1,158 @@
+Symbol -> symbol are like strings,  symbols are unique identifiers and represent static values, while string represent values that changes,
+
+->one difference between string and symbol is that, if text is a dat then it is a string bu if it is a code it it is a symbol
+
+->it is a object that have some special features and syntax surrounding them to make them a little easier to use and a little lighter on the computers memory.
+
+->like string but cannot be edited 
+	ex- 3.0.1 :190 > x = "first"
+ 	=> "first" 
+	3.0.1 :191 > x
+	 => "first" 
+	3.0.1 :192 > x = "fi"
+	 => "fi" 
+	3.0.1 :193 > x
+ 	=> "fi" 
+	3.0.1 :194 > :first
+	 => :first 
+	3.0.1 :195 > :fi
+ 	=> :fi 
+    -> they both are different 
+
+
+HOW TO CREATE A SYMBOL
+
+->symbols are defined using the colon (:) operator or the to_sym method.
+
+	EX - 3.0.1 :194 > :first
+ 	=> :first 
+	3.0.1 :195 > :fi
+ 	=> :fi 
+
+->it's not delimited(seprated) by quotes("")
+
+->Lowercase, underscore, no spaces
+
+
+WHY WE USE SYMBOL INSTEAD OF STRINGS
+
+-> there's may be many reason but here is most important two reason 
+
+1. it can not be changed or edited
+
+2.it allow to manage the store in better way
+
+  NOTE - if we store the same string ruby treat it as different and give a different object id but it's not in case of Symbol
+
+
+	ex - 3.0.1 :196 > x = "helllo"
+	 => "helllo" 
+	3.0.1 :197 > x.object_id
+	 => 320 
+	3.0.1 :198 > x = "hello"
+	 => "hello" 
+	3.0.1 :199 > x.object_id
+	 => 340 
+	3.0.1 :200 > :fail.object_id 
+	 => 176028 
+	3.0.1 :201 > :fail.object_id 
+	 => 176028 
+
+
+Features of symbols
+
+->symbols are tiny little objects
+->symbols don't have a value, they are placeholders, not variables
+->there can only be one symbol with a particular name, this is managed by ruby. because of this they are not processor or memory intensive.
+->symbols can potentially represent a memory leak if you create a lot of them.
+
+
+USES OF SYMBOLS
+->symbols are most commonly used as placeholder in hashes.
+
+
+Few methods in symbols
+
+1.symbol<=>other_symbol -> 
+	->Return -1 if symbol is less 
+	->return +1 if symbol is greater
+	->return 0 if equal
+	->nil if not comparable
+
+	ex - 3.0.1 :202 > :fo<=>:f
+	 => 1 
+	3.0.1 :203 > :fo<=>:fo
+	 => 0 
+	3.0.1 :204 > :fo<=>:fffff
+	 => 1 
+	3.0.1 :205 > :fo<=>"hello"
+ 	=> nil 
+
+2.sym==obj ->return true if sam and obj are exactly the same symbol else false
+
+	ex - 3.0.1 :206 > :fo==:fo
+	 => true 
+	3.0.1 :207 > :fo==:f
+ 	=> false 
+
+3.capitalize -> this method make first character of symbol to uppercase
+
+	ex - 3.0.1 :209 > :hello.capitalize
+ 	=> :Hello 
+
+4.casecmp(other_symbol) -> make case insensitive and then compare
+
+	->Return -1 if symbol is less 
+	->return +1 if symbol is greater
+	->return 0 if equal
+	->nil if not comparable
+
+	ex - 3.0.1 :210 > :hello.casecmp(:HELLO)
+	 => 0 
+	3.0.1 :211 > :hello.casecmp(:he)
+	 => 1 
+	3.0.1 :212 > :hello.casecmp(:hlloworlde)
+	 => -1 
+	3.0.1 :213 > :hello.casecmp("Hello")
+	 => nil 
+
+
+5.downcase -> return the symbol by making it lowercase
+
+	ex - 3.0.1 :214 > :HELLO.downcase
+ 	=> :hello 
+
+6.empty? -> return true if symbol else false
+
+	ex - 3.0.1 :001 > :hel.empty?
+	 => false 
+
+7.length -> give the length of symbol
+
+	 ex - 3.0.1 :003 > :fllloidfd.length
+	 => 9 
+
+8.swapcase -> it swap the case of character of symbol
+
+	ex - 3.0.1 :004 > :Hleoshf.swapcase
+ 	=> :hLEOSHF
+
+
+10.to_s -> convert symbol to string
+
+	 ex - 3.0.1 :005 > :fllow.to_s 
+ 	=> "fllow" 
+
+11.to_sym -> it return a symbol 
+
+	 ex - 3.0.1 :007 > "hello".to_sym
+	 => :hello 
+
+12.upcase -> make the character of symbol to uppercase
+
+	ex - 3.0.1 :009 > :hello.upcase
+	 => :HELLO 
+
+
+
+
