@@ -1,0 +1,97 @@
+Boolean -> An object that is either true or false 
+
+->Ruby is a bit of an oddball in that while it has explicit values to represent true and false, there is no Boolean data type. Instead, in Ruby truth is represented by the sole instance of TrueClass, and falsehood is represented by the sole instance of FlaseClass. TrueClass and FalseClass are both direct descendants of the object class.
+
+
+How to create Boolean
+->you can actually type true or false or we can write statements that return true or false.
+
+
+-> Boolean operators -> Boolean operators are really methods which means that they have return values. what do they return? true or false of course!
+
+in Ruby there are three main boolean operators:
+
+1.! ("single-bang") which represents "NOT",
+
+3.0.1 :005 > !false
+ => true 
+3.0.1 :006 > !true
+ => false 
+
+
+2. && ("double-ampersand") which represents "AND", and
+
+3.0.1 :002 > true && true
+ => true 
+3.0.1 :003 > true && false
+ => false 
+3.0.1 :004 > false && false 
+ => false 
+3.0.1 :005 > 
+
+
+3.||("double-pipe") which represents "OR"
+
+3.0.1 :007 > false || true
+ => true 
+3.0.1 :008 > true || true
+ => true 
+3.0.1 :009 > true || false
+ => true 
+
+
+
+comparison operators -> Used to compared between two objects
+
+1. == -> if the values of the two operands are equal, then the evaluation is true.
+
+3.0.1 :010 > 2==2
+ => true 
+3.0.1 :011 > 2==3
+ => false 
+3.0.1 :013 > "hell" == "he"
+ => false 
+
+2.!= -> if the values of the two operands are not equal, then the evaluation is true.
+
+.0.1 :014 > 2!=2
+ => false 
+3.0.1 :015 > 3!=2
+ => true 
+3.0.1 :016 > "false"!="false"
+ => false 
+3.0.1 :017 > "fal"!="fa"
+ => true 
+
+
+3.> -> if the value of the left operand is greater than the value of the right operand, then the evaluations true
+
+3.0.1 :018 > 2>3
+ => false 
+3.0.1 :019 > 2>1
+ => true 
+
+4.< -> if the value of the left operand is less than the value of the right operand, then the evaluation is true
+
+3.0.1 :001 > 5<6
+ => true 
+3.0.1 :002 > 5<4
+ => false 
+
+
+5.>= -> if the value of the left operand is greater than or equal to the value of the right operand, then the evaluation is true.
+
+3.0.1 :003 > 3<=35
+ => true 
+3.0.1 :004 > 3<=3
+ => true 
+3.0.1 :005 > 3<=2
+ => false 
+
+
+6.<= -> if the value of the left operand is less than or equal to the value of the right operand, then the evaluation is true
+
+3.0.1 :006 > 4>=5
+ => false 
+3.0.1 :007 > 4>=4
+ => true 
