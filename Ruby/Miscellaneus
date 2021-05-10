@@ -108,9 +108,56 @@ Enter the second number
 12 
 
 
+Function 
+
+3.0.1 :001 > def sayhello(name)
+3.0.1 :002 >   print("Hello " + name)
+3.0.1 :003 > end
+ => :sayhello 
+3.0.1 :005 > sayhello('sam')
+Hello sam => nil 
+3.0.1 :006 > sayhello('veer')
+Hello veer => nil 
+
+Note here function not return any thing that's why it gives us nil
 
 
+3.0.1 :015 > def sum(num1, num2)
+3.0.1 :016 >   return num1+ num2
+3.0.1 :017 > end
+ => :sum 
+3.0.1 :018 > print(sum(1,2))
+3 => nil 
+3.0.1 :019 > sum(1,2)
+ => 3 
 
+if statement
 
+3.0.1 :021 > eat = true
+ => true 
+3.0.1 :022 > not_eat = false
+ => false 
+3.0.1 :023 > 
+3.0.1 :024 > if eat 
+3.0.1 :025 >   puts "i am full"
+3.0.1 :026 > else
+3.0.1 :027 >   puts "i am starving"
+3.0.1 :028 > end
+i am full
 
+function with if statement
 
+3.0.1 :029 > def max(num1,num2,num3)
+3.0.1 :030 >   if num1>=num2 and num1>=num3
+3.0.1 :031 >     return  num1
+3.0.1 :032 >   elsif num2>=num1 and num2>=num3
+3.0.1 :033 >     return num2
+3.0.1 :034 >   else 
+3.0.1 :035 >     return num3
+3.0.1 :036 >   end
+3.0.1 :037 > end
+ => :max 
+3.0.1 :038 > max(5,2,9)
+ => 9 
+3.0.1 :039 > max(7,99,100)
+ => 100 
