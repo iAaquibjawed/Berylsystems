@@ -372,11 +372,301 @@ METHODS IN ARRAY
 	 => [3, 2, 5, 1] 
 	3.0.1 :312 > 
 
+28.zip -> This generates a sequence of ary.size n-elements of self with corresponding elements form each argument.
 
 
+-> it combine every row to row element and put in a separate array of self array element,
+if one or more array size in not equal to other it take a value of nil
 
 
+	ex - 3.0.1 :058 > a = [ 4, 5, 6 ]
+	=> [4, 5, 6] 
+	3.0.1 :059 > b = [ 7, 8, 9 ]
+	 => [7, 8, 9] 
+	3.0.1 :060 > [1, 2, 3].zip(a, b)   
+	 => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]  
+	3.0.1 :061 > a = [ 4, 5, 6 ]
+	 => [4, 5, 6] 
+	3.0.1 :062 > b = [ 7, 8]
+	 => [7, 8] 
+	3.0.1 :063 > [1, 2, 3].zip(a, b)   
+	 => [[1, 4, 7], [2, 5, 8], [3, 6, nil]] 
 
+
+29.values_at -> this will give you a value form an array at specified position 
+	-> the selector may either be indices or ranges
+	-> if indices or ranges is out of range it give a nil value
+
+	ex - 3.0.1 :064 > a = ['hello','wolf','holf','cold','mold']
+	 => ["hello", "wolf", "holf", "cold", "mold"] 
+	3.0.1 :065 > a.values_at(1,4,3,5)
+	 => ["wolf", "mold", "cold", nil] 
+
+30.union (other_array, other_array2,....) -> returns a new array by joining other array with self, excluding any duplicates and preserving the order from the given arrays.
+
+	ex -  => ["wolf", "mold", "cold", nil] 
+	3.0.1 :066 > a
+	 => ["hello", "wolf", "holf", "cold", "mold"] 
+	3.0.1 :067 > b = ["hello", "sam","suja","mold","gold"]
+	 => ["hello", "sam", "suja", "mold", "gold"] 
+	3.0.1 :068 > c = ["Aman","sam","mold","honey"]
+	 => ["Aman", "sam", "mold", "honey"] 
+	3.0.1 :071 > a.union(b,c)
+	 => 
+	["hello",
+	 "wolf",
+	 "holf",
+	 "cold",
+	 "mold",
+	 "sam",
+	 "suja",
+	 "gold",
+	 "Aman",
+	 "honey"]
+
+31.transpose -> this method gives a new array by transpose the rows and coloumns.
+
+	ex. - 3.0.1 :076 > e = a = [[1,2], [3,4], [5,6]]
+	 => [[1, 2], [3, 4], [5, 6]] 
+	3.0.1 :077 > e.transpose
+	 => [[1, 3, 5], [2, 4, 6]] 
+
+32.sum -> Returns the sum of elements. 
+
+	ex - 3.0.1 :078 > f = [1,2,33,34,5,12]
+	 => [1, 2, 33, 34, 5, 12] 
+	3.0.1 :079 > f.sum
+	 => 87 
+
+33.sort! -> sort the array alphabetically at same place
+
+	ex - 3.0.1 :080 > g = ['a','g','e','b','q']
+	 => ["a", "g", "e", "b", "q"] 
+	3.0.1 :081 > g.sort!
+	 => ["a", "b", "e", "g", "q"] 
+	3.0.1 :082 > g
+
+34.slice(index) -> this will give you obj if at that index element is present if not nil.
+
+	ex - 3.0.1 :084 > b
+	 => ["hello", "sam", "suja", "mold", "gold"] 
+	3.0.1 :085 > b.slice(4)
+	 => "gold" 
+	3.0.1 :086 > b.slice(2)
+	 => "suja" 
+	3.0.1 :087 > b.slice(6)
+	=> nil 
+
+35.slice(start, length) -> this will give you obj from start to the length, if length goes out of length of array return nil
+
+
+	ex - 3.0.1 :090 > b.slice(1,3)
+	 => ["sam", "suja", "mold"] 
+	3.0.1 :091 > b.slice(1,4)
+	 => ["sam", "suja", "mold", "gold"] 
+	3.0.1 :092 > 
+	3.0.1 :092 > b.slice(6,10)
+	 => nil 
+
+36.size() -> this will give you the size of an array
+
+	ex - 3.0.1 :093 > a.size
+	 => 3 
+	3.0.1 :094 > b.size
+	 => 5 
+	3.0.1 :095 > c.size
+	 => 4 
+
+37.shuffle! -> this will give you shuffles elements in self in place
+
+	ex - 3.0.1 :096 > b
+	 => ["hello", "sam", "suja", "mold", "gold"] 
+	3.0.1 :097 > c
+	 => ["Aman", "sam", "mold", "honey"] 
+	3.0.1 :098 > b.shuffle!
+	 => ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :099 > b
+	 => ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :100 > c.shuffle!
+	 => ["mold", "Aman", "sam", "honey"] 
+	3.0.1 :101 > c
+ 	=> ["mold", "Aman", "sam", "honey"] 
+
+38.shift(n) -> if a number n is given, returns an array of the first n elements(or less) just like array.slice!(0,) does.
+
+	ex - 3.0.1 :101 > c
+	 => ["mold", "Aman", "sam", "honey"] 
+	3.0.1 :102 > c.shift(3)
+	 => ["mold", "Aman", "sam"] 
+	3.0.1 :103 > c.shift(5)
+	 => ["honey"] 
+
+39.select! -> enumerator it act like enumerator
+
+	ex - 3.0.1 :110 > b
+	 => ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :111 > b.select{|val| val}
+	 => ["gold", "sam", "mold", "suja", "hello"] 
+
+40.rotate(count=1) -> returns a new array by rotating self so that the element at count is the first element of the new array.
+
+
+	-> if count is negative then it rotates n the opposite direction, starting from 	the end of self where 1 is the last element.
+
+
+	ex - 3.0.1 :112 > b
+	 => ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :113 > b.rotate
+	 => ["sam", "mold", "suja", "hello", "gold"] 
+	3.0.1 :114 > b.rotate
+	 => ["sam", "mold", "suja", "hello", "gold"] 
+	3.0.1 :115 > b.rotate(2)
+ 	=> ["mold", "suja", "hello", "gold", "sam"] 
+
+41.rindex(obj) -> Return the index of the last object in self==to obj
+
+	ex - 3.0.1 :119 > b
+ 	=> ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :116 > b.rindex("hello")
+	 => 4 
+	3.0.1 :117 > b.rindex("sam")
+	 => 1 
+	3.0.1 :118 > b.rindex("gold")
+	 => 0 
+
+42.reverse_each -> same as each
+
+	ex - 3.0.1 :121 > b.reverse_each
+ 	=> #<Enumerator: ...> 
+	3.0.1 :122 > b.reverse_each{|x| print x," "}
+	hello suja mold sam gold  => ["gold", "sam", "mold", "suja", "hello"] 
+
+
+43.reverse! -> reverse self in place
+
+	ex - 3.0.1 :124 > b
+ 	=> ["gold", "sam", "mold", "suja", "hello"] 
+	3.0.1 :125 > b.reverse
+ 	=> ["hello", "suja", "mold", "sam", "gold"] 
+	3.0.1 :127 > b.reverse!
+	 => ["hello", "suja", "mold", "sam", "gold"] 
+	3.0.1 :128 > b
+ 	=> ["hello", "suja", "mold", "sam", "gold"] 
+
+44.replace(other_array) -> replaces the contents of self with the contents of other_ary, it increase the size of array of decrease if necessary.
+
+
+	ex -> 3.0.1 :134 > f
+	 => [1, 2, 33, 34, 5, 12] 
+	3.0.1 :135 > f.replace(["hello","world"])
+ 	=> ["hello", "world"] 
+	3.0.1 :136 > f
+	 => ["hello", "world"] 
+
+45.intersection(other_ary1, other_ary2) -> returns a new array containing unique elements common to self and other_arys. order is preserved from the original array.
+
+	ex - 3.0.1 :137 > ary1 = [1,2,4,5,6,33]
+	 => [1, 2, 4, 5, 6, 33] 
+	3.0.1 :138 > ary2 = [1,25,66,43,2]
+ 	=> [1, 25, 66, 43, 2] 
+	3.0.1 :139 > ary3 = [45,21,6,4]
+	 => [45, 21, 6, 4] 
+	3.0.1 :140 > ary1.intersection(ary2,ary3)
+	 => [] 
+	3.0.1 :141 > ary1.intersection([1,3,4])
+	 => [1, 4] 
+	3.0.1 :142 > ary1.intersection(ary2,ary3)
+	 => [] 
+	3.0.1 :143 > ary1.intersection(ary2)
+	 => [1, 2]
+
+46.each -> this method calls the given block once for each element in self, passing that element as a parameter. returns the array itself
+
+	ex - 3.0.1 :145 > b
+	=> ["hello", "suja", "mold", "sam", "gold"] 
+	3.0.1 :146 > b.each
+	=> #<Enumerator: ...> 
+	3.0.1 :147 > b.each{|x| print x, "^"}
+	hello^suja^mold^sam^gold^ => ["hello", "suja", "mold", "sam", "gold"]
+
+47.each_index -> this method is same as each but each gives us a value and each_index gives us a index 
+
+	ex - 3.0.1 :150 > b
+ 	=> ["hello", "suja", "mold", "sam", "gold"] 
+	3.0.1 :151 > b.each_index
+ 	=> #<Enumerator: ...> 
+	3.0.1 :152 > b.each_index{|x| puts "Something different #{x}"}
+	Something different 0
+	Something different 1
+	Something different 2
+	Something different 3
+	Something different 4
+	 => ["hello", "suja", "mold", "sam", "gold"]  
+
+48.drop_while -> drops elements upto, but not including, the first element for which the block returns nil or false and returns an array containing the remaining elements.
+
+	ex - 3.0.1 :160 > h = [1,2,3,4,5,6,7,8]
+ 	=> [1, 2, 3, 4, 5, 6, 7, 8] 
+	3.0.1 :164 > h.drop_while{|i| i<3}
+ 	=> [3, 4, 5, 6, 7, 8] 
+
+49.delete_if -> deletes every elements of self for which block evaluates to true.
+
+	ex - 3.0.1 :165 > b
+ 	=> ["hello", "suja", "mold", "sam", "gold"] 
+	3.0.1 :166 > b.delete_if{|x| x=="gold"}
+ 	=> ["hello", "suja", "mold", "sam"] 
+	3.0.1 :167 > h
+	 => [1, 2, 3, 4, 5, 6, 7, 8] 
+	3.0.1 :168 > h.delete_if{|x| x<=4}
+ 	=> [5, 6, 7, 8] 
+
+50.cycle(n) -> call the object for each element n times or forever if nil is given 
+
+	-> does nothing if a non-positive number is given or the array is empty.
+	-> Returns nil if the loop has finished without getting interrupted.
+	-> if no block is given, an enumerator is returned instead.
+
+
+	ex - 3.0.1 :002 > h = [1,2,3,4,5,6]
+	 => [1, 2, 3, 4, 5, 6] 
+	3.0.1 :003 > h.cycle(2){|x| print x }
+	123456123456 => nil 
+	3.0.1 :004 > h.cycle(10){|x| print x }
+	123456123456123456123456123456123456123456123456123456123456 => nil 
+
+
+  NOTE - if you not provide the value of n it will count for forever
+
+51.clear -> removes all elements from self.
+
+	 ex - 3.0.1 :006 > a
+	 => ["ehh", "ba", "cal", "ma"] 
+	3.0.1 :007 > a.clear
+	 => [] 
+	3.0.1 :008 > a
+	 => [] 
+
+52.collect -> invoke the given block once for each element, create a new array containing the values returned by the block
+
+	ex - 3.0.1 :009 > h
+ 	=> [1, 2, 3, 4, 5, 6] 
+	3.0.1 :010 > h.collect{|y| puts y}
+	1
+	2
+	3
+	4
+	5
+	6
+	 => [nil, nil, nil, nil, nil, nil] 
+	3.0.1 :011 > h.collect{|y| y}
+	 => [1, 2, 3, 4, 5, 6] 
+	3.0.1 :014 > a = ["he","be","le","me"]
+	 => ["he", "be", "le", "me"] 
+	3.0.1 :015 > a.collect{|x| x +" "}
+	 => ["he ", "be ", "le ", "me "]
+
+ 
 
 
 
