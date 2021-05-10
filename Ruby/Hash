@@ -495,7 +495,83 @@ Hash Methods
 
 	ex - 3.0.1 :175 > hm.dig(:ol)
  	=> {:ar=>{:sa=>2}} 
+
 32.values_at(key) -> returns a new array containing values for the given keys.
 
 	ex - 3.0.1 :176 > color.values_at("Rose","Lily")
 	 => ["mango", "purple"]
+
+33.rassoc -> searches through the has comparing obj with the values using==. returns the first key-value(two-element array). that matches. sees also 
+
+
+	ex - 3.0.1 :024 > ai
+ 	=> {1=>"one", 2=>"two", 3=>"three", "ii"=>"two"} 
+	3.0.1 :019 > a.rassoc("two")
+ 	=> nil 
+	3.0.1 :020 > ai.rassoc("two")
+ 	=> [2, "two"] 
+	3.0.1 :021 > ai.rassoc("li")
+ 	=> nil 
+	3.0.1 :022 > ai.rassoc("four")
+	 => nil 
+
+34.member?(key) -> Returns true if the given key is present in hash.
+
+
+	ex - 3.0.1 :029 > ai
+ 	=> {1=>"one", 2=>"two", 3=>"three", "ii"=>"two"} 
+	3.0.1 :026 > ai.member?(1)
+	 => true 
+	3.0.1 :027 > ai.member?(9)
+ 	=> false 
+	3.0.1 :028 > ai.member?(2)
+ 	=> true 
+
+35.h.keys -> Returns a new array populated with the keys from this hash. see also
+
+	ex - 3.0.1 :029 > ai
+ 	=> {1=>"one", 2=>"two", 3=>"three", "ii"=>"two"} 
+	3.0.1 :030 > ai.keys
+ 	=> [1, 2, 3, "ii"] 
+
+36.key? -> Returns true if the given key is present in hsh.
+
+	ex - 3.0.1 :002 > h
+ 	=> {"a"=>100, "b"=>200} 
+	3.0.1 :003 > h.key?("a")
+	 => true 
+	3.0.1 :004 > h.key?("c")
+ 	=> false 
+
+37.filter ->returns a new hash consisting of entires for which the block returns true.
+
+	-> if no block is given, an enumerator is returned instead
+
+
+	ex - 3.0.1 :011 > h
+	 => {"c"=>300, "d"=>400} 
+	3.0.1 :012 > h.filter{|key,value| key>"c"}
+ 	=> {"d"=>400} 
+
+38.each -> calls block once for each key in hash, passing the key-value pair as parameters
+
+
+	-> if no block is given, an enumerator is returned instead.
+
+	ex - 3.0.1 :013 > h
+ 	=> {"c"=>300, "d"=>400} 
+	3.0.1 :014 > h.each
+ 	=> #<Enumerator: ...> 
+	3.0.1 :015 > h.each{|key,value| puts "key is #{key} vlaue is #{value}"}
+	key is c vlaue is 300
+	key is d vlaue is 400
+	 => {"c"=>300, "d"=>400} 
+
+40.merge(other_hash) -> Returns a new hash that combines the contents of the receiver and the contents of the given hashes.
+
+	ex - 3.0.1 :025 > h
+	=> {"c"=>300, "d"=>400} 
+	3.0.1 :026 > h1
+ 	=> {"a"=>100, "b"=>200} 
+	3.0.1 :027 > h.merge(h1)
+ 	=> {"c"=>300, "d"=>400, "a"=>100, "b"=>200} 
