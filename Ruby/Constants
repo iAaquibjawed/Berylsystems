@@ -1,0 +1,24 @@
+Constants -> In ruby constant is not an object but it reference constant object 
+	-> Difference between constant and variable is variable also reference to an 		object but that's values varies time to time where as the value of constant not 	change.
+	->Constants defined within a class or module and be accessed from within that 		class or module, and those defined outside a class or module cane accessed 		globally.
+	
+
+
+How to create constant
+
+-> Naming convention of constant 
+  -> constant always begins with uppercase letter, and underscore
+
+	ex - 3.0.1 :011 > CON_M = 29
+ 	=> 29 
+
+->In ruby you can change the value of constant also but before rub assign another value to constant it show you a warning message
+
+	ex - 3.0.1 :013 > MY_AGE = 21
+ 	=> 21 
+	3.0.1 :014 > MY_AGE = 22
+	(irb):14: warning: already initialized constant MY_AGE
+	(irb):13: warning: previous definition of MY_AGE was here
+	 => 22 
+	3.0.1 :015 > print MY_AGE
+	22 => nil 
