@@ -1,0 +1,70 @@
+Nil -> it is an object in ruby which in nothing 
+	->it is not same thing as false 
+
+	ex - 3.0.1 :022 > x = nil
+ 	=> nil 
+	3.0.1 :023 > x == false
+ 	=> false 
+	->it is a special value that denotes the absence of any value.
+	->Nil is an object of NilClass.
+	->nil is Ruby's way of referring to nothing or void.
+
+
+How to assign Nil value
+
+	ex - 3.0.1 :022 > x = nil
+ 	=> nil 
+	3.0.1 :024 > x
+ 	=> nil 
+->to check class no nil
+
+	ex - 3.0.1 :024 > x
+ 	=> nil 
+	3.0.1 :025 > x.class
+ 	=> NilClass 
+
+->self.nil? -> this method gives you true if self is nil else false
+
+	ex - 3.0.1 :026 > x.nil?
+ 	=> true 
+	3.0.1 :027 > y = 4
+	 => 4 
+	3.0.1 :028 > y.nil?
+ 	=> false
+
+
+->!self -> this method gives you true if self not reference to nil value otherwise false
+
+	ex - 3.0.1 :029 > x
+	 => nil 
+	3.0.1 :030 > !x
+	 => true 
+	3.0.1 :031 > y
+	 => 4 
+	3.0.1 :032 > !y
+	 => false 
+
+->to_a -> always returns an empty array.
+
+	ex - 3.0.1 :033 > nil.to_a
+	 => [] 
+
+->to_i -> always returns zero.
+
+	ex - 3.0.1 :034 > nil.to_i
+	 => 0 
+
+->to_s -> always returns the empty string.
+
+	ex - 3.0.1 :035 > nil.to_s 
+	 => "" 
+
+->to_h -> always returns an empty hash.
+
+	ex - 3.0.1 :036 >  nil.to_h
+ 	=> {} 
+
+to_f -> always returns zero if float form
+
+	ex - 3.0.1 :037 > nil.to_f
+	 => 0.0 
