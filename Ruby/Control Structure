@@ -1,0 +1,132 @@
+Control structure -> control structure add dynamism to the code
+		  -> it determine circumstances when code executes 
+		  -> we use condition under which if this condition meets execute this line of code 
+		  -> we use loops by which we decide how many times the code should execute
+		  -> we also use condition in loops that if condition meet execute this
+		  -> we use iterators which use object and for those object iterators execute the lines of code for each object 
+		  -> Ruby uses the keyword end to signify the end of a body 
+		  -> you can use multiple line of codes 
+
+
+HERE'S THE TYPES OF CONTROL STRUCTURE 
+
+
+1.Conditionals : if, else, elsif -> 
+
+	structure of if ->
+
+		1. if boolean 
+			code .....
+
+		   end
+
+		2. if conditional 
+			code....
+		   end
+
+
+	ex - 3.0.1 :038 > x = true 
+	 => true 
+	3.0.1 :039 > if x 
+	3.0.1 :040 >   puts x
+	3.0.1 :041 > end
+	true
+	 => nil 
+	3.0.1 :042 > y = 19
+ 	=> 19 
+	3.0.1 :043 > if y>10
+	3.0.1 :044 >   print "number is #{y}"
+	3.0.1 :045 > end
+	number is 19 => nil 
+	3.0.1 :046 > if y>20
+	3.0.1 :047 >   print "number is #{y}"
+	3.0.1 :048 > end
+	 => nil 
+
+
+
+	2.else -> we use else to execute that line of code if that condition is not meet
+	       ->this is called default code mean if that condition is not meet it execute by default
+
+
+	Structure of else-> 
+
+		if condition
+			code....
+		else
+			code..
+		end
+
+	ex - 3.0.1 :049 > if y>20
+	3.0.1 :050 >   print "number is less"
+	3.0.1 :051 > else
+	3.0.1 :052 >   print "your number is #{y}"
+	3.0.1 :053 > end
+	your number is 19 => nil 
+	3.0.1 :060 > if x == "sam"
+	3.0.1 :061 >   print "hello #{x}"
+	3.0.1 :062 > else
+	3.0.1 :063 >   print "who are you"
+	3.0.1 :064 > end
+	hello sam => nil 
+	3.0.1 :065 > x = "sai"
+ 	=> "sai" 
+	3.0.1 :066 > if x == "sam"
+	3.0.1 :067 >   print "hello #{x}"
+	3.0.1 :068 > else
+	3.0.1 :069 >   print "who are you"
+	3.0.1 :070 > end
+	who are you => nil 
+
+
+	3.elsif -> we use this if we have more than one condition 
+
+	
+	structure of elsif 
+
+		if condition 
+			code....
+		elsif condition
+			code..
+		elsif condition
+			code..
+		else
+			code..
+		end
+
+
+		ex - 3.0.1 :071 > x = "sam" 
+ 	=> "sam" 
+	3.0.1 :072 > y = "sai"
+	 => "sai" 
+	3.0.1 :073 > if x = "sam"
+	3.0.1 :074 >   print "hello #{x}"
+	3.0.1 :075 > elsif x != "sam"
+	3.0.1 :076 >   print "who are you"
+	3.0.1 :077 > else 
+	3.0.1 :078 >   print "bye"
+	3.0.1 :079 > end
+	(irb):73: warning: found `= literal' in conditional, should be ==
+	hello sam => nil 
+	puts "Please enter your name "
+	x = gets.chomp()
+	if x == "sam"
+  	print "Hello #{x} how you"
+	elsif x=="sai"
+  	print "who are you"
+	else
+  	print "Bye"
+	end
+	admin@admins-iMac Ruby % ruby practice.rb
+	Please enter your name
+	sam
+	Hello sam how you%
+
+	admin@admins-iMac Ruby % ruby practice.rb
+	Please enter your name
+	sia
+	Bye%
+	admin@admins-iMac Ruby % ruby practice.rb
+	Please enter your name
+	sai
+	who are you%	
