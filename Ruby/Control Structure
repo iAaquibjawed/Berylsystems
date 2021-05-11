@@ -130,3 +130,154 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	Please enter your name
 	sai
 	who are you%	
+	x = gets.to_i
+	if x <10
+  	print "good"
+	elsif x <20
+  	print "very good"
+	else
+  	print "bad"
+	end
+	admin@admins-iMac Ruby % ruby me.rb
+
+	2
+	good%
+	admin@admins-iMac Ruby % ruby me.rb
+	2
+	good%
+	admin@admins-iMac Ruby % ruby me.rb
+	14
+	very good%
+	admin@admins-iMac Ruby % ruby me.rb
+	21
+	bad%
+	3.0.1 :051 > x = 1
+	 => 1 
+	3.0.1 :052 > if x > 2
+	3.0.1 :053 >    puts "x is greater than 2"
+	3.0.1 :054 > elsif x <= 2 and x!=0
+	3.0.1 :055 >    puts "x is 1"
+	3.0.1 :056 > else
+	3.0.1 :057 >    puts "I can't guess the number"
+	3.0.1 :058 > end
+	x is 1
+ 	=> nil 
+	3.0.1 :076 > a = 15
+ 	=> 15 
+	3.0.1 :077 >    
+	3.0.1 :078 > if a >= 18
+	3.0.1 :079 >   puts "You are eligible to vote."
+	3.0.1 :080 > else
+	3.0.1 :081 >   puts "You are not eligible to vote."
+	3.0.1 :082 > end
+	You are not eligible to vote.
+ 	=> nil 
+	3.0.1 :083 > a = 78  
+ 	=> 78 
+	3.0.1 :084 > if a  < 50   
+	3.0.1 :085 >   puts "Student is failed"  
+	3.0.1 :086 >    
+	3.0.1 :087 > elsif a >= 50 && a <= 60   
+	3.0.1 :088 >   puts "Student gets D grade"  
+	3.0.1 :089 >    
+	3.0.1 :090 > elsif a >= 70 && a <= 80   
+	3.0.1 :091 >   puts "Student gets B grade" 
+	3.0.1 :092 >     
+	3.0.1 :093 > elsif a >= 80 && a <= 90   
+	3.0.1 :094 >   puts "Student gets A grade" 
+	3.0.1 :095 >      
+	3.0.1 :096 > elsif a >= 90 && a <= 100   
+	3.0.1 :097 >   puts "Student gets A+ grade"    
+	3.0.1 :098 > end
+	Student gets B grade
+ 	=> nil 
+	3.0.1 :137 > if animal1 == "cat" && animal2 == "dog"
+	3.0.1 :138 >     puts 2
+	3.0.1 :139 > end
+	2
+ 	=> nil 
+	3.0.1 :140 > 
+	3.0.1 :141 > # Or operators.
+	3.0.1 :142 > if animal1 == "whale" or animal2 == "dog"
+	3.0.1 :143 >     puts 3
+	3.0.1 :144 > end
+	3
+	 => nil 
+	3.0.1 :145 > 
+	3.0.1 :146 > if animal1 == "whale" || animal2 == "dog"
+	3.0.1 :147 >     puts 4
+	3.0.1 :148 > end
+	4
+	 => nil 
+
+2.Conditionals -> unless -> this is opposite of if statements
+			 -> it act in same way putting not operator in if conditions
+
+	structure of unless
+
+	unless condition
+		code...
+	else
+		code..
+	end
+
+
+	ex - 3.0.1 :025 > x = 12
+	 => 12 
+	3.0.1 :026 > unless x<12
+	3.0.1 :027 >   print "hello"
+	3.0.1 :028 > end
+	hello => nil 
+	3.0.1 :029 > i
+	x = 1 
+	3.0.1 :065 > x = 1 
+ 	=> 1 
+	3.0.1 :066 > unless x>=2
+	3.0.1 :067 >    puts "x is less than 2"
+	3.0.1 :068 >  else
+	3.0.1 :069 >    puts "x is greater than 2"
+	3.0.1 :070 > end
+	x is less than 2
+ 	=> nil 
+	3.0.1 :072 > a = 20
+ 	=> 20 
+	3.0.1 :073 > if a >= 18
+	3.0.1 :074 >   puts "You are eligible to vote."
+	3.0.1 :075 > end
+	You are eligible to vote.
+ 	=> nil 
+	3.0.1 :099 > a = 1
+	 => 1 
+	3.0.1 :100 > 
+	3.0.1 :101 > unless a >4 
+	3.0.1 :102 >     puts "Welcome!"
+	3.0.1 :103 >   
+	3.0.1 :104 > else
+	3.0.1 :105 >     puts "Hello!"
+	3.0.1 :106 >       
+	3.0.1 :107 > end
+	Welcome!
+ 	=> nil 
+	3.0.1 :108 > b = 0
+	 => 0 
+	3.0.1 :109 > b += 2 unless b.zero?
+	3.0.1 :110 >     puts(b)
+	0
+	3.0.1 :113 > unless weight < 85
+	3.0.1 :114 >   puts "you are overweight, so you need to go on a diet and have pl
+	enty of exercise"
+	3.0.1 :115 > end
+	you are overweight, so you need to go on a diet and have plenty of exercise
+	 => nil 
+	3.0.1 :121 > i = 4
+	 => 4 
+	3.0.1 :122 > 
+	3.0.1 :123 > # Use an unless-else construct.
+	3.0.1 :124 > unless i == 3
+	3.0.1 :125 >     puts "UNLESS"
+	3.0.1 :126 > else
+	3.0.1 :127 >     puts "ELSE"
+	3.0.1 :128 > end
+	UNLESS
+
+	
