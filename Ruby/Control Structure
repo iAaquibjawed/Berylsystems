@@ -280,4 +280,124 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	3.0.1 :128 > end
 	UNLESS
 
+
+3.Conditional -> case -> we use the case statement to test a sequence of conditions. 
+	      -> this is superficially similar to switch in C.
+	      ->it provides an easy way to forward execution to different parts of code based on the value of the expression.
+
+
+	-> there are three importants keywords we used in case statements
+
+	1.case. it takes the variables that will be used by when keyword	
+	2.when. it is similar to case keyword in another programming languages. it is used to match a single condition.we can use multiple when statements depend upon need with single car statement.
+	3.else. it is similar to the default keyword in another programming languages.it is optional and will execute when nothing matches.
+
+
 	
+	structure of case->
+
+		case expression|boolean
+
+		when expression|boolean 1
+			code....
+
+		when expression|boolean 2
+			code....
+
+		when expression|boolean 3
+			code....
+
+		when expression|boolean 4
+			code...
+
+		else
+			code...
+		end
+
+
+	ex - 3.0.1 :161 > capacity = 24
+ 	=> 24 
+	3.0.1 :162 > case capacity
+	3.0.1 :163 > when 0
+	3.0.1 :164 >   "You ran out of gas."
+	3.0.1 :165 > when 1..20
+	3.0.1 :166 >   "The tank is almost empty. Quickly, find a gas station!"
+	3.0.1 :167 > when 21..70
+	3.0.1 :168 >   "You should be ok for now."
+	3.0.1 :169 > when 71..100
+	3.0.1 :170 >   "The tank is almost full."
+	3.0.1 :171 > else
+	3.0.1 :172 >   "Error: capacity has an invalid value (#{capacity})"
+	3.0.1 :173 > end
+	 => "You should be ok for now." 
+	3.0.1 :174 > capacity = 98
+ 	=> 98 
+	3.0.1 :175 > case capacity
+	3.0.1 :176 > when 0
+	3.0.1 :177 >   "You ran out of gas."
+	3.0.1 :178 > when 1..20
+	3.0.1 :179 >   "The tank is almost empty. Quickly, find a gas station!"
+	3.0.1 :180 > when 21..70
+	3.0.1 :181 >   "You should be ok for now."
+	3.0.1 :182 > when 71..100
+	3.0.1 :183 >   "The tank is almost full."
+	3.0.1 :184 > else
+	3.0.1 :185 >   "Error: capacity has an invalid value (#{capacity})"
+	3.0.1 :186 > end
+ 	=> "The tank is almost full."
+	3.0.1 :187 > serial_code = /\AC/
+ 	=> /\AC/ 
+	3.0.1 :188 > case serial_code
+	3.0.1 :189 > when /\AC/
+	3.0.1 :190 >   "Low risk"
+	3.0.1 :191 > when /\AL/
+	3.0.1 :192 >   "Medium risk"
+	3.0.1 :193 > when /\AX/
+	3.0.1 :194 >   "High risk"
+	3.0.1 :195 > else
+	3.0.1 :196 >   "Unknown risk"
+	3.0.1 :197 > end
+ 	=> "Unknown risk" 
+	3.0.1 :198 > serial_code = /\AX/
+ 	=> /\AX/ 
+	3.0.1 :199 > case serial_code
+	3.0.1 :200 > when /\AC/
+	3.0.1 :201 >   "Low risk"
+	3.0.1 :202 > when /\AL/
+	3.0.1 :203 >   "Medium risk"
+	3.0.1 :204 > when /\AX/
+	3.0.1 :205 >   "High risk"
+	3.0.1 :206 > else
+	3.0.1 :207 >   "Unknown risk"
+	3.0.1 :208 > end
+	3.0.1 :209 > i=8
+	 => 8 
+	3.0.1 :210 > case i
+	3.0.1 :211 > when 1, 2..5
+	3.0.1 :212 > print "1..5\n"
+	3.0.1 :213 >  when 6..10
+	3.0.1 :214 >   print "6..10\n"
+	3.0.1 :215 > end
+	6..10
+ 	=> nil 
+	3.0.1 :216 > print "Enter your day: "   
+	Enter your day:  => nil 
+	3.0.1 :217 > day = gets.chomp   
+	Sunday
+ 	=> "Sunday" 
+	3.0.1 :218 > case day   
+	3.0.1 :219 > when "Tuesday"   
+	3.0.1 :220 >   puts 'Wear Red or Orange'   
+	3.0.1 :221 > when "Wednesday"   
+	3.0.1 :222 >   puts 'Wear Green'   
+	3.0.1 :223 > when "Thursday"   
+	3.0.1 :224 >   puts 'Wear Yellow'   
+	3.0.1 :225 >  when "Friday"   
+	3.0.1 :226 >   puts 'Wear White'   
+	3.0.1 :227 >  when "Saturday"   
+	3.0.1 :228 >   puts 'Wear Black'   
+	3.0.1 :229 > else   
+	3.0.1 :230 >   puts "Wear Any color"   
+	3.0.1 :231 > end  
+	Wear Any color
+ 	=> nil 
