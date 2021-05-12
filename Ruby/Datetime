@@ -1,0 +1,100 @@
+Date and time
+
+->Ruby has mainly three classes related to date and time in its documentation
+
+1.Date 
+
+2.DateTime
+
+3.Time
+
+
+1.Date 
+
+->Ruby provides two classes, date and datetime
+
+FEW TERMINOLOGY IN DATE ADN DATETIME
+
+1.calendar date ->the calendar date is a particular day within a calendar month within a year.
+
+2. Ordinal date-> the ordinal date is a particular day of a calendar year identified by its ordinal number.
+
+3.Week date->the week date is a day identified by calendar week and day numbers.The first calendar week of the year is the one which includes first Thursday of that year.
+
+4.Julian day number -> the julian day number is in elapsed day since noon on January 1, 4713 BCE.
+
+
+OTHER TERMINOLOGY IN DATETIME
+
+
+1.GMT -> stand for Greenwich time
+
+2.UCT -> stand for co-ordinate universal time
+
+3.EPOCH -> January 1st, 1970 
+
+
+-> the date object is created with 
+
+require 'date'
+
+puts Date.new(2021,02,12)
+puts Date.jd(2123423)
+puts Date.ordinal(2021,1
+puts Date.commercial(2021,5,6)
+puts Date.parse('2021-02-12')
+puts Date.strptime('21-02-2021', '%d-%m-%Y')
+puts Time.new(2021,10,8).to_date
+admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/practice.rb 
+2017-04-03
+2000-11-28
+2017-01-03
+2017-02-04
+2017-02-03
+2017-02-03
+2017-10-08
+
+
+METHODS IN DATE 
+
+date.parse -> this method is used to parse any string that look like date.
+
+3.0.1 :002 > require 'date'
+ => true 
+3.0.1 :003 > Date.parse("10/12/2021")
+ => #<Date: 2021-12-10 ((2459559j,0s,0n),+0s,2299161j)> 
+3.0.1 :004 > Date.parse("sep may june 2021")
+ => #<Date: 2021-06-01 ((2459367j,0s,0n),+0s,2299161j)> 
+
+->dateobject.year -> will give you year 
+
+	ex - 3.0.1 :005 > de = Date.parse('12th May 2021')
+	     => #<Date: 2021-05-12 ((2459347j,0s,0n),+0s,2299161j)> 
+	     3.0.1 :007 > de.year
+ 	     => 2021 
+
+->dateobject.mon ->  will give you a month
+
+	ex - 3.0.1 :005 > de = Date.parse('12th May 2021')
+ 	     => #<Date: 2021-05-12 ((2459347j,0s,0n),+0s,2299161j)> 
+	     3.0.1 :008 > de.month
+	     => 5 
+
+->dateobject.mday -> will give you date 
+
+	ex - 3.0.1 :010 > de
+	     => #<Date: 2021-05-12 ((2459347j,0s,0n),+0s,2299161j)> 
+		3.0.1 :009 > de.mday
+ 		=> 12 
+
+->dateobject.wday-> will give you day 
+
+	ex - 3.0.1 :010 > de
+ 	    => #<Date: 2021-05-12 ((2459347j,0s,0n),+0s,2299161j)> 
+	    3.0.1 :013 > de.wday
+ 	    => 3 
+
+
+
+
+
