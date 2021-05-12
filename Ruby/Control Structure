@@ -401,3 +401,110 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	3.0.1 :231 > end  
 	Wear Any color
  	=> nil 
+
+4.Loop -> loop in ruby are used to execute the same block of code a specified number of times. 
+
+
+	SOME KEYWORDS USED IN LOOP
+	1. break -> terminate the whole loop. jump out of the loop
+	2. next -> jump to next loop
+	3. redo -> redo this loop or traverse the loop
+	4. retry -> start the whole loop over
+
+
+	structure of loop -> 
+
+	->loop do 
+		code....
+
+	 end
+
+	this in an obsolete structure in loop
+
+	while statement
+
+	->while boolean
+		code...
+	 end
+
+	or 
+	until statement
+
+	->until boolean
+		code..
+	 end
+
+
+	ex - print "enter the number "
+
+	x = gets.chomp.to_i
+
+	loop do
+  	 break if x>10
+    	  puts x
+    	  x += 1
+  	end
+
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	enter the number 1
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+	arr = ["hello","sam","how","hi"]
+
+
+	loop do
+  	 break if arr.empty?
+    	  puts arr.first
+    	  arr.shift
+  	end
+
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	hello
+	sam
+	how
+	hi
+	arr = ["hello","sam","how","hi"]
+
+
+	while !arr.empty?
+	  puts arr.first
+	  arr.shift
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	hello
+	sam
+	how
+	hi
+	$i = 0
+	$num = 5
+
+	while $i < $num  do
+	   puts("Inside the loop i = #$i" )
+	   $i +=1
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	Inside the loop i = 0
+	Inside the loop i = 1
+	Inside the loop i = 2
+	Inside the loop i = 3
+	Inside the loop i = 4
+
+	x = 4
+
+	while x >= 1 
+	  puts "Hello world"
+	  x = x - 1
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	Hello world
+	Hello world
+	Hello world
+	Hello world
