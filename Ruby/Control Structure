@@ -583,3 +583,225 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	***
 	****
 	*****
+	a = 5
+	while a>0
+	  b = 1
+	  while b<=5
+	    puts "*"*b
+	    b = b+1
+	  end
+	  a = a-1
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	*
+	**
+	***
+	****
+	*****
+	*
+	**
+	***
+	****
+	*****
+	*
+	**
+	***
+	****
+	*****
+	*
+	**
+	***
+	****
+	*****
+	*
+	**
+	***
+	****
+	*****
+
+4. iterate -> iterate means doing one thing multiple times and that is what iterator do.
+	   -> sometimes iterators are termed as the custom loops 
+	   -> it is methods which are supported by collections (string, arrays, hashes)
+	   -> this method is use to perform code each item in a set
+
+	
+
+	-> we use iterators on different class
+
+	1.for string
+	 ->each_line
+	 ->each_char
+	 ->each_byte
+
+	2.for numbers
+	 ->times
+	 ->uptown
+	 ->downto
+	 ->step
+
+	3.for range 
+
+	 ->each
+	 ->step
+
+	4.for array
+	
+	 ->each
+	 ->each_index
+	 ->each_with_index
+
+	5.for hash
+
+	 -> each
+	 ->each_key
+	 ->each_value
+	 ->each_pair
+
+	ex - a= [4, 3, 2, 1, 0]
+	a.each do |variable_name|
+	   puts a
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	4
+	3
+	2
+	1
+	0
+	(0..9).each do |i|
+
+	    puts i
+
+	end
+
+	a = ['H', 'e', 'l', 'l', 'o']
+
+	puts "\n"
+  
+	a.each do|arr|
+
+	    puts arr
+
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	0
+	3
+	4
+	5
+	7
+	8
+	9
+
+	H
+	e
+	l
+	l
+	o
+	a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	b = a.collect{ |y| (5 * y) }
+	puts b
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	5
+	10
+	15
+	20
+	25
+	30
+	35
+	40
+	45
+	50
+	7.times do |i|
+	    puts i
+	end
+	7.times do |i|
+	    puts i
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	0
+	1
+	2
+	3
+	4
+	5
+	6
+	4.upto(7) do |n|
+	  puts n
+	end
+  
+	7.upto(4) do |n|
+	  puts n
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	4
+	5
+	6
+	7
+	7.downto(4) do |n|
+	  puts n
+	end
+
+
+	4.downto(7) do |n|
+	  puts n
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	
+	6
+	5
+	4
+	(0..60).step(10) do|i|
+	    puts i
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	0
+	10
+	20
+	30
+	40
+	50
+	60
+	"Hello\nworld\nsay\nhello".each_line do|i|
+	puts i
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	Hello
+	world
+	say
+	hello
+	(1...5).each do |i|   
+	   puts i   
+	end  
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	1
+	2
+	3
+	4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
