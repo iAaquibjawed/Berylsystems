@@ -508,3 +508,78 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	Hello world
 	Hello world
 	Hello world
+	i = 0
+	loop do
+	  i += 2
+	  if i == 4
+	    next        
+	  end
+	  puts i
+	  if i == 10
+	    break
+	  end
+	end
+
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	2
+	6
+	8
+	10
+	x = gets.chomp.to_i
+
+	while x >= 0
+	  puts x
+	  x = x - 1
+	end
+
+	puts "Done!"
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	6
+	6
+	5
+	4
+	3
+	2
+	1
+	0
+	Done!
+	i = 0
+	while i < 5
+	   puts i
+	   i += 1
+	   break if i == 2
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	0
+	1
+	i = 1
+	while i<=10
+	puts i*14
+	i=i+1
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	14
+	28
+	42
+	56
+	70
+	84
+	98
+	112
+	126
+	140
+	a = 5
+	b = 1
+	while a>0
+	  while b<=5
+	    puts "*"*b
+	    b = b+1
+	    a = a-1
+	  end
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	*
+	**
+	***
+	****
+	*****
