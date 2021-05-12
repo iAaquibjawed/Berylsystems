@@ -776,32 +776,87 @@ HERE'S THE TYPES OF CONTROL STRUCTURE
 	2
 	3
 	4
+	numbers = [1, 2, 3, 4, 5].collect.with_index do |number, index|
+	  number + index
+	end
+	puts numbers
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	1
+	3
+	5
+	7
+	9
+	(1…5).each do |i|
+	puts i
+	end
+	array = ['a', 'b', 'c']
 
+	array.each do |item|
+	  puts item
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	a
+	b
+	c
+	word = ''
 
+	['r', 'u', 'b', 'y'].each do |letter|
+	  word += letter
+	end
+	word = ''
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	['r', 'u', 'b', 'y'].each do |letter|
+	  word += letter
+	end
+	print word
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	ruby% 
+	array = [1, 2, 3, 4, 5]
+	
+	array.map do |item|
+	  item ** 2
+	end
+	print array
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	[1, 2, 3, 4, 5]% 
+	(1..10).select do |item|
+	  item.even?
+	  print item
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	12345678910%      
+	(1..10).any? do |item|
+	  puts item.even?
+	end
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	false
+	true
+	false
+	true
+	false
+	true
+	false
+	true
+	false
+	true
+	5.times do |iterator|
+	  puts "#{iterator}. I repeat this text."
+	end                    
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	0. I repeat this text.
+	1. I repeat this text.
+	2. I repeat this text.
+	3. I repeat this text.
+	4. I repeat this text.
+	arr = [1, 2, 3, 4, 5]
+	arr.each { |a| print a -= 10, " " }
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	-9 -8 -7 -6 -5 % 
+	arr = [1, 2, 3, 4, 5]
+	arr.each_with_index { |val,index| puts "index: #{index},value:#{val}"}
+	admin@admins-iMac ~ % ruby /Users/admin/Desktop/Ruby/me.rb 
+	index: 0,value:1
+	index: 1,value:2
+	index: 2,value:3
+	index: 3,value:4
+	index: 4,value:5
