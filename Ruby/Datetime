@@ -276,3 +276,142 @@ Working with an instance of time
 	3.0.1 :047 > puts Time.new(2021,05,13).between?(te,tm)
 	false
 	 => nil 
+
+
+Timezones and daylight savings time
+
+	-> A Time object can be used to get all the information related to timezones. All 	the information will be displayed respective to current time of our system.
+
+
+	ex - 3.0.1 :048 > time = Time.new
+	 => 2021-05-13 15:54:37.421122 +0530 
+	3.0.1 :049 > puts time.zone
+	IST
+	 => nil 
+	3.0.1 :050 > puts time.utc_offset
+	19800
+	 => nil 
+	3.0.1 :051 > time.zone
+	 => "IST" 
+	3.0.1 :052 > time.isdst
+	 => false 
+	3.0.1 :053 > time.utc?
+	 => false 
+	3.0.1 :055 > puts time.localtime
+	2021-05-13 15:54:37 +0530
+	 => nil 
+	3.0.1 :056 > puts time.gmtime
+	2021-05-13 10:24:37 UTC
+	 => nil 
+	3.0.1 :057 > puts time.getlocal
+	2021-05-13 15:54:37 +0530
+	 => nil 
+	3.0.1 :058 > puts time.getutc
+	2021-05-13 10:24:37 UTC
+	 => nil 
+	
+Ruby time formatting
+ -> Ruby formats time objects in a specific way by default.but you may want somethings else sometimes that adapts to your use case
+
+
+ -> you can use a method to get almost any format you need
+
+
+strftime -> this method mean 'format time.'
+
+ -> it works by passing a string with format specifiers, tases specifiers will be replaced  by a value. if you have ever used the printf method the idea is very similar 
+
+	ex -  => 2021-05-13 16:34:00.342982 +0530 
+	3.0.1 :060 > time.strftime("%d/%m/%Y")
+	 => "13/05/2021" 
+	3.0.1 :062 > time.strftime("%k:%M")
+ 	=> "16:34"
+	3.0.1 :062 > time.strftime("%k:%M")
+	 => "16:34" 
+	3.0.1 :063 > time.strftime("%I:%M %p") 
+	 => "04:34 PM" 
+	3.0.1 :064 > time.strftime("Today is %A") 
+	 => "Today is Thursday" 
+	3.0.1 :065 > time.strftime("%d of %B, %Y")    
+	 => "13 of May, 2021" 
+	3.0.1 :066 > time.strftime("Unix time is %s")
+	 => "Unix time is 1620903840" 
+
+
+strftime format table ->
+	1. %d -> Day of the month (01..31)
+	2. %m -> Month of the year (01..12) Use %-m for (1..12)
+	3, %k -> Hour (0..23)
+	4. %M -> Minutes
+	5. %S -> Seconds (00..60)
+	6. %I -> Hour (1..12)
+	7. %p -> AM/PM
+	8. %Y -> Year
+	10.%A -> Day of the week (name)
+	11.%B -> Month (name)
+
+
+Generating a timestamp
+
+	-> you can generate a time-zone independent timestamp to date specific events.
+
+	ex - 3.0.1 :067 > Time.now.to_i
+ 	=> 1620904372 
+	3.0.1 :068 > Time.now
+ 	=> 2021-05-13 16:42:59.520821 +0530
+
+Time difference (Addition & Substraction) 
+
+	-> Sometimes you don’t want the current time, but a time in the future or the past.
+	-> You can do addition with time objects
+
+	-> Remember that the internal representation for Time is in seconds, so you can do this:
+
+	ex - 3.0.1 :069 > time1 = Time.new + 20
+ 	=> 2021-05-13 16:45:16.748082 +0530
+	-> in this example you get a time object that is set 2 seconds from the current time.
+
+	3.0.1 :070 > Time.new > time1
+	 => true 
+	3.0.1 :071 > Time.now - 68459
+ 	=> 2021-05-12 22:15:38.525552 +0530 
+
+Date & Time parsing
+
+	-> The Date.parse method will try to parse any string that looks like a date.
+
+	-> It uses a simple heuristic algorithm that tries to detect the input format
+
+
+	ex - 3.0.1 :072 > Date.parse("10/12/2021")
+ 	=> #<Date: 2021-12-10 ((2459559j,0s,0n),+0s,2299161j)> 
+	3.0.1 :073 > Date.parse("april 4")
+ 	=> #<Date: 2021-04-04 ((2459309j,0s,0n),+0s,2299161j)> 
+
+
+Date Constants -> The Date class has some constants
+	       -> Months start at index 1 so you can get a direct month number -> month name mapping.
+	      -> The days start with Sunday, but you can use the rotate method to have the week start on Monday.
+
+
+	ex - 3.0.1 :075 > Date::MONTHNAMES
+ 	=> 
+	[nil,
+ 	"January",
+ 	"February",
+ 	"March",
+ 	"April",
+ 	"May",
+ 	"June",
+ 	"July",
+ 	"August",
+ 	"September",
+ 	"October",
+ 	"November",
+	 "December"]
+	3.0.1 :076 > Date::DAYNAMES.rotate(2)
+ 	=> ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday"] 
+	3.0.1 :077 > Date::DAYNAMES.rotate(1)
+ 	=> ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
+	3.0.1 :078 > Date::DAYNAMES.rotate(4)
+ 	=> ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"] 
