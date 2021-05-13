@@ -95,6 +95,184 @@ date.parse -> this method is used to parse any string that look like date.
  	    => 3 
 
 
+DateTime -> Ruby DateTime is a subclass of Date. It easily handles date, hour, minute, second and offset.
+
+	->The DateTime object created with DateTime.new, DateTime.ordinal, DateTime.parse, 	DateTime.jd, DateTime.commercial, DateTime.now, etc.
+
+
+	ex - 3.0.1 :004 > puts DateTime.new(2021,5,13,15,16,34)
+	2021-05-13T15:16:34+00:00
+	 => nil 
+
+Note -> The last element of day, minute, second or hour can be fractional.
 
 
 
+Methods of DateTime
+
+1.datetimeobject.hour -> will give you hour
+
+	ex - 3.0.1 :007 > de = DateTime.new(2021,5,13,15,16,34)
+	 => #<DateTime: 2021-05-13T15:16:34+00:00 ((2459348j,54994s,0n),+0s,229916... 
+	3.0.1 :008 > puts de.hour
+	15
+	 => nil 
+
+2.datetimeobject.min -> will give you hour 
+
+
+	ex - 3.0.1 :010 > de = DateTime.new(2021,5,13,15,16,34)
+	 => #<DateTime: 2021-05-13T15:16:34+00:00 ((2459348j,54994s,0n),+0s,229916... 
+	3.0.1 :011 > puts de.min
+	16
+	 => nil 
+
+3.datetimeobject.sec -> will give you sec 
+
+
+	ex - 3.0.1 :012 > de = DateTime.new(2021,5,13,15,16,34)
+	 => #<DateTime: 2021-05-13T15:16:34+00:00 ((2459348j,54994s,0n),+0s,229916... 
+	3.0.1 :013 > puts de.sec
+	34
+ 	=> nil 
+
+4.datetimeobject.offset ->this method will returns the datetime object offset
+
+
+	ex - 3.0.1 :014 > de = DateTime.new(2021,5,13,15,16,34)
+	 => #<DateTime: 2021-05-13T15:16:34+00:00 ((2459348j,54994s,0n),+0s,229916... 
+	3.0.1 :015 > puts de.offset
+	0/1
+	 => nil 
+
+5.datetimeobject.zone -> this method will give you the time zone
+
+
+	ex - 3.0.1 :016 > de = DateTime.new(2021,5,13,15,16,34)
+	 => #<DateTime: 2021-05-13T15:16:34+00:00 ((2459348j,54994s,0n),+0s,229916... 
+	3.0.1 :017 > puts de.zone
+	+00:00
+	 => nil 
+
+6.datetimeobject.new_offset -> will create new offset
+
+	ex - 3.0.1 :018 > puts de = de.new_offset('+05:00')
+	2021-05-13T20:16:34+05:00
+	 => nil 
+
+7.datetimeobject.strftime('%I:%M:%S %p') ->
+
+
+	ex - 3.0.1 :019 > puts de.strftime('%I:%M:%S %p')  
+	08:16:34 PM
+	 => nil 
+
+8.datetimeobject > other_datetimeobject  -> this method will give you true if your datetime object is greater or after the other_datetimeobject
+
+
+	ex - 3.0.1 :020 > puts de > DateTime.new(2020)
+	true
+	 => nil 
+	3.0.1 :021 > puts de > DateTime.new(2022)
+	false
+	 => nil 
+	3.0.1 :022 > puts de > DateTime.new(2019)
+	true
+	 => nil 
+
+ Time -> Time class is an abstraction of dates and times. It is stored internally as the number of seconds since Epoch time. The Time class treats GMT (Grenwich Mean Time) and UTC (Coordinated Universal Time) equivalent.
+	-> Times may appear equal but on comparison they may be different as all times may have fraction.
+	-> Time implementation uses a signed 63 bit integer, Bignum or Rational. Time works slower when integer is used.
+
+
+
+Creating a new Time Instance 
+
+
+	-> A new Time instance can be created with ::new. This will use your current system's time. Parts of time like year, month, day, hour, minute, etc can also be passed.
+
+
+	-> While creating a new time instance, you need to pass at least a year. If only year is passed, then time will default to January 1 of that year at 00:00:00 with current system time zone.
+
+
+
+create Time object 
+
+1.Time.new
+
+ 
+3.0.1 :023 > puts Time.new
+2021-05-13 14:52:09 +0530
+ => nil 
+3.0.1 :024 > puts Time.new(2021,3)
+2021-03-01 00:00:00 +0530
+ => nil 
+3.0.1 :025 > puts Time.new(2021,3, 4, 6, 5, 5, "+05:00")  
+2021-03-04 06:05:05 +0500
+ => nil 
+
+
+
+Time with gm, utc and local functions
+
+	->Instead of using current system setting, you can also use GMT, local and UTC 		timezones.
+
+
+	ex - 3.0.1 :026 > puts Time.local(2021,2,14)
+	2021-02-14 00:00:00 +0530
+ 	=> nil 
+	3.0.1 :027 > puts Time.utc(2021,2,14)
+	2021-02-14 00:00:00 UTC
+ 	=> nil 
+	3.0.1 :028 > puts Time.gm(2021,2,14)
+	2021-02-14 00:00:00 UTC
+ 	=> nil 
+
+
+Working with an instance of time
+
+
+	-> After creating an instance of time, we can work on that time in following ways.
+
+	ex - 3.0.1 :031 > t = Time.new(221,05,14,15,12,22,"+05:00")
+	 => 0221-05-14 15:12:22 +0500 
+	3.0.1 :033 > puts t.friday?
+	false
+	 => nil 
+	3.0.1 :035 > puts t.sunday?
+	false
+	 => nil 
+	3.0.1 :036 > puts t.tuesday?
+	false
+	 => nil 
+	3.0.1 :037 > puts t.monday?
+	true
+	 => nil
+	3.0.1 :038 > puts t.year
+	221
+	 => nil 
+	3.0.1 :039 > puts t.dst?
+	false
+	 => nil 
+	3.0.1 :040 > puts t.to_i
+	-55181569658
+	 => nil 
+	3.0.1 :041 > te = Time.new(2021)
+	 => 2021-01-01 00:00:00 +0530 
+	3.0.1 :042 > tm = Time.new(2020)
+	 => 2020-01-01 00:00:00 +0530 
+	3.0.1 :043 > puts te == tm
+	false
+	 => nil 
+	3.0.1 :044 > puts te == te 
+	true
+	 => nil 
+	3.0.1 :045 > puts te < tm
+	false
+	 => nil 
+	3.0.1 :046 > puts te > tm
+	true
+	 => nil 
+	3.0.1 :047 > puts Time.new(2021,05,13).between?(te,tm)
+	false
+	 => nil 
