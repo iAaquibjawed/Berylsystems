@@ -1,0 +1,107 @@
+Enumerables - Enumerables is a collection of iteration methods, a Ruby module.
+
+	-> countable items
+	-> Arrays 
+	-> Ranges 
+	-> Hashes
+	-> Strings(sort of) -> because when we iterate over string we have to tell on what we iterate  there's tow way to iterate over strirng
+
+	  1.iterate by using each_byte
+	  2. Iterate by using each_char
+
+
+
+CODE BLOKCS 
+	1.BLOCKS - a block is same thing as a method, except id does not have a name, and does not belong to an object 
+
+	I.e. a block is an anonymous piece of code, it can accept in put in form of arguments (if it needs any), and it will return a value, but it does not have a name.
+
+	-> A lock is a piece of code that accepts arguments, and returns a value.
+	-> A block is always passed to a method call.
+
+
+STRUCTURE OF CODE BLOCKS 
+	
+	1. Do-end format
+
+	5.times do 
+	  code ...
+	end
+
+-> times is a method that is defined on a numbers : 5.times calls the methods times on the numbers 5.
+
+	3.0.1 :001 > 3.times do 
+	3.0.1 :002 >   puts "hello world"
+	3.0.1 :003 > end
+	hello world
+	hello world
+	hello world
+
+When this method is called the only thing is passed is a block. That is the anonymous piece of code between do and end. 
+
+This method times is implemented in such a way that is simply called (executes) the blocks 5 times. 
+
+	-> This method is used when
+	1. Multiline blocks 
+	2. Blocks that perform actions, make changes 
+
+
+Another Structure of code blocks
+
+	2. Curly-braces formate 
+	methods { |var| code...}
+
+	3.0.1 :004 > 5.times { |var| print var}
+	01234 
+	3.0.1 :007 > 5.times {print "hello world "}
+	hello world hello world hello world hello world hello world 
+
+	-> it is used when 
+	1. Single-line blocks
+	2. Blocks that return date, no changes
+
+
+Block variable
+
+	-> to define a variables inside code blocks we use pipe sign
+	|varaibles|
+
+	ex - 
+	3.0.1 :009 > arr = [1,23,98,32]
+	 => [1, 23, 98, 32] 
+	3.0.1 :010 > arr.each do |var| puts var+1 end
+	2
+	24
+	99
+	33
+	 => [1, 23, 98, 32] 
+	3.0.1 :011 > "helloworkd".each_char { |str| print str}
+	helloworkd => "helloworkd" 
+	3.0.1 :012 > "helloworkd".each_char { |str| print str + "m"}
+	hmemlmlmomwmomrmkmdm 
+	3.0.1 :013 > x = { "var" => 1, "hell" => 3, "ji" => 5}
+	 => {"var"=>1, "hell"=>3, "ji"=>5} 
+	3.0.1 :014 > x.each {|key , value| puts " #{key} is #{value+2}" }
+	 var is 3
+	 hell is 5
+	 ji is 7
+
+Note - code variable only available inside the code blocks where as local variable use or available inside code blocks
+
+	ex - 3.0.1 :020 >  n = 1
+ => 1 
+	3.0.1 :021 > 5.times {|n| puts n}
+	0
+	1
+	2
+	3
+	4
+ 	=> 5 
+	3.0.1 :024 > n
+	 => 1 
+	3.0.1 :025 > 5.times {|h| puts n+h}
+	1
+	2
+	3
+	4
+	5
