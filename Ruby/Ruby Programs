@@ -1,0 +1,30 @@
+1. Football_Points -
+
+	def football_points(wins, draws, losses)
+	return wins*3 + draws*1 + losses*0
+	end
+	Test Passed: Value == 5
+	Test Passed: Value == 20
+	Test Passed: Value == 3
+	Test Passed: Value == 7
+	Test Passed: Value == 0
+
+
+2. Sum of Polygon Angles - 
+
+	def sum_polygon(n)
+	return (n-2)*180
+	end
+	Test Passed: Value == 180
+	Test Passed: Value == 360
+	Test Passed: Value == 540
+	Test Passed: Value == 720
+	Test Passed: Value == 900
+	Test Passed: Value == 1080
+	Test Passed: Value == 1260
+	Test Passed: Value == 1440
+	Test Passed: Value == 1620
+
+2. Recursion: String Palindromes - 
+
+	stirng 
