@@ -105,3 +105,121 @@ Note - code variable only available inside the code blocks where as local variab
 	3
 	4
 	5
+
+
+Some helpful methods of Enumerable
+
+	->map
+	->select
+	->inject
+	->find
+	->merge
+	->sort
+
+ 1.find - 
+	-> find / detect
+	-> find_all / select 
+	-> any?, none?
+	-> all?, one?
+	-> delete_if
+ 
+	-> find
+	3.0.1 :027 > (1..10).find do |x| puts x*3 end
+	3
+	6
+	9
+	12
+	15
+	18
+	21
+	24
+	27
+	30
+	3.0.1 :028 > (1...10).find { |x| x ==4}
+	 => 4 
+	3.0.1 :029 > (1...10).find { |x| x %2 == 0}
+	 => 2 
+	3.0.1 :030 > (1...10).find { |x| x %6== 0}
+	 => 6 
+	3.0.1 :031 > (1...10).detect{ |x| x %2 == 0}
+	 => 2 
+	
+Note here find will return only first value to get all the values use find_all or select 
+
+	3.0.1 :032 > (1...10).find_all{ |x| x %2 == 0}
+	 => [2, 4, 6, 8] 
+	3.0.1 :033 > (1...10).select{ |x| x %2 == 0}
+ 	=> [2, 4, 6, 8] 
+	3.0.1 :034 > (1...10).any?{ |x| x %2 == 0}
+	 => true 
+	3.0.1 :035 > (1...10).all?{ |x| x %2 == 0}
+	 => false 
+	3.0.1 :036 > (1...10).none?{ |x| x %2 == 0}
+	 => false 
+	3.0.1 :037 > (1...10).one?{ |x| x %2 == 0}
+	 => false 
+	3.0.1 :001 > arr = [1,2,3,4,6,8,12,3,4,18]
+	 => [1, 2, 3, 4, 6, 8, 12, 3, 4, 18] 
+	3.0.1 :002 > 
+	3.0.1 :003 > arr.delete_if { |x| x%2==0 }
+	 => [1, 3, 3] 
+	3.0.1 :008 > arr.delete_if { |x| x%2 != 0}
+ 	=> [2, 4, 6, 8] 
+	3.0.1 :012 > has = {"hell" => 1, "worl" => 2, "tod" => 3}
+	 => {"hell"=>1, "worl"=>2, "tod"=>3} 
+	3.0.1 :013 > has.delete_if { |key, value| value== 2}
+	 => {"hell"=>1, "tod"=>3} 
+
+
+ 2.map / collect 
+
+	-> map is a ruby method that you can use with arrays, hashes $ ranges.
+	-> the main use of map is to transform data.
+	-> map always gives us back an array
+	-> iterate thorough an enumerable
+	-> execute a code block on each item
+	-> it add the results of the block to a new array
+	-> numbers of items in = number of items out
+
+	3.0.1 :017 > n = 1
+	3.0.1 :018 > (1..8).map {|x| x+n } 
+ 	=> [2, 3, 4, 5, 6, 7, 8, 9] 
+	3.0.1 :019 > (1..10).collect do |x| x+n+1 end 
+	 => [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] 
+	3.0.1 :027 > has
+ 	=> {"hell"=>1, "tod"=>3} 
+	3.0.1 :026 > arr = has.map do |key, value| "#{key.upcase} : #{value +10}" end 
+	 => ["HELL : 11", "TOD : 13"]
+	3.0.1 :036 > m = (1..10).map do |x|
+	3.0.1 :037 >   if x ==2
+	3.0.1 :038 >     x+2
+	3.0.1 :039 >   end
+	3.0.1 :040 > end
+	 => [nil, 4, nil, nil, nil, nil, nil, nil, nil, nil]
+	3.0.1 :051 > m = (1..10).map do |x|
+	3.0.1 :052 >   if x ==2
+	3.0.1 :053 >     x/2
+	3.0.1 :054 >   else 
+	3.0.1 :055 >     x
+	3.0.1 :056 >   end 
+	3.0.1 :057 > end
+	 => [1, 1, 3, 4, 5, 6, 7, 8, 9, 10] 
+	3.0.1 :058 > array = ["my", "world", "helll", "lets"]
+	 => ["my", "world", "helll", "lets"] 
+	3.0.1 :059 > y = array.map do |arr|
+	3.0.1 :060 >   if arr == "helll"
+	3.0.1 :061 >     arr.upcase
+	3.0.1 :062 >   else
+	3.0.1 :063 >     arr
+	3.0.1 :064 >   end
+	3.0.1 :065 > end
+	 => ["my", "world", "HELLL", "lets"] 
+	3.0.1 :066 > z = array.map do |arra| 
+	3.0.1 :067 >   if arra == "helll" 
+	3.0.1 :068 >     arra.upcase
+	3.0.1 :069 >   end
+	3.0.1 :070 > end
+	 => [nil, nil, "HELLL", nil] 
+	
+
+	
