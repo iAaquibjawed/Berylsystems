@@ -220,6 +220,276 @@ Note here find will return only first value to get all the values use find_all o
 	3.0.1 :069 >   end
 	3.0.1 :070 > end
 	 => [nil, nil, "HELLL", nil] 
-	
+   
+  -> map! / collect! 
+	-> the exclamation mark indicates more powerful or destructive version of a method
+
+	-> Works the same but replaces array contents
+
+	3.0.1 :071 > array
+	 => ["my", "world", "helll", "lets"] 
+	3.0.1 :079 > array.map! do |x| 
+	3.0.1 :080 >   if x == "helll"
+	3.0.1 :081 >     x.upcase
+	3.0.1 :082 >   else
+	3.0.1 :083 >     x
+	3.0.1 :084 >   end
+	3.0.1 :085 > end
+	 => ["my", "world", "HELLL", "lets"] 
+	3.0.1 :096 > array
+	 => ["my", "world", "HELLL", "lets"] 
+
+3. Inject / reduce -> it has an accumulator that acts as an enumerable
+		  -> block variable to use for accumulation
+		  -> ruby convention is to called memo but you can called what ever you want
 
 	
+	syntax
+	 inject (value_initial) { |result_memo , object | block }
+
+	-> memo store the result value of the block for next time 
+	-> initially memo is nill
+	
+	3.0.1 :097 > (1..4).inject { |memo, n | memo+n }
+	 => 10 
+	3.0.1 :108 > (1..10).inject do |memo, x|
+	0.1 :109 >   if x%2 == 0 
+	3.0.1 :110 >     memo + x 
+	3.0.1 :111 >   end 
+	3.0.1 :112 > end
+	(irb):110:in `block in <main>': undefined method `+' for nil:NilClass (NoMethodError)
+		3.0.1 :118 > (1..10).inject do |memo, x|
+	3.0.1 :119 >   memo + x 
+	3.0.1 :120 >   x = 0
+	3.0.1 :121 > end
+	 => 0 
+	3.0.1 :123 > fruit = ["apple", "mango", "hello" , "world"]
+	 => ["apple", "mango", "hello", "world"] 
+	3.0.1 :124 > size = fruits.inject do |memo, x|
+	3.0.1 :125 >   memo+x.length
+	3.0.1 :126 > end
+	(irb):124:in `<main>': undefined local variable or method `fruits' for main:Object (NameError)
+	3.0.1 :133 > fruit
+	 => ["apple", "mango", "hello", "world"] 
+	3.0.1 :134 > size = fruit.inject(0) do |memo, x| 
+	3.0.1 :135 >   memo + x.length
+		3.0.1 :136 > end
+	 => 20
+	3.0.1 :133 > fruit
+	 => ["apple", "mango", "hello", "world"] 
+	3.0.1 :134 > size = fruit.inject(0) do |memo, x| 
+	3.0.1 :135 >   memo + x.length
+	3.0.1 :136 > end
+	 => 20 
+	3.0.1 :137 > longest = fruit.inject do |var, x|
+	3.0.1 :138 >   if x.length > var.length
+	3.0.1 :139 >     x
+	3.0.1 :140 >   else
+	3.0.1 :141 >     var
+	3.0.1 :142 >   end
+	3.0.1 :143 > end
+	 => "apple" 
+	3.0.1 :144 > add = fruit.inject ('')do |var, x|
+	3.0.1 :145 >   var<<x[1]
+	3.0.1 :146 > end
+	 => "paeo" 
+	3.0.1 :147 > add = fruit.reduce ('')do |var, x|
+	3.0.1 :148 >   var<<x[1]
+	3.0.1 :149 > end
+	 => "paeo" 
+	3.0.1 :150 > longest = fruit.reduce do |var, x|
+	3.0.1 :151 >   if x.length > var.length
+	3.0.1 :152 >     x
+	3.0.1 :153 >   else
+	3.0.1 :154 >     var
+	3.0.1 :155 >   end
+	3.0.1 :156 > end
+	 => "apple" 
+	3.0.1 :157 > (1..10).inject do |memo,x|
+	3.0.1 :158 >   memo+x 
+	3.0.1 :159 > end
+	 => 55 
+	3.0.1 :163 > (1..10).inject do |memo,x|
+	3.0.1 :164 >   x**memo 
+	3.0.1 :165 > end
+	(irb):164: warning: in a**b, b may be too big
+	 => Infinity 
+	3.0.1 :166 > (1..10).inject do |memo,x|
+	3.0.1 :167 >   x*memo 
+	3.0.1 :168 > end
+	 => 3628800 
+	
+
+4.sort 
+
+	->  sort method use comparison operator to sort
+	-> "<=>"
+	-> it called spaceship operator or comparison operator
+
+	comparison operator
+
+	-> it return value
+	value1 <=> value2
+	-> -1 if value1 is less than value2
+	-> 0 if two value is equal
+	-> 1 if value1 is greater than value2
+
+	3.0.1 :169 > 2<=>1
+	 => 1 
+	3.0.1 :170 > 2<=>2
+	 => 0 
+	3.0.1 :171 > 1<=>2
+	 => -1 
+	
+ -> if -1 it moves to the left
+ -> if 1 it moves to the right
+ -> if 0 It stays the same
+
+	3.0.1 :178 > arr
+ 	=> [23, 34, 543, 11, 232, 532] 
+	3.0.1 :179 > x = arr.sort do 
+	3.0.1 :180 >   |value1, value2|
+	3.0.1 :181 >   value1 <=> value2
+	3.0.1 :182 > end
+	 => [11, 23, 34, 232, 532, 543] 
+	3.0.1 :183 > x = arr.sort do 
+	3.0.1 :184 >   |value1, value2|
+	3.0.1 :185 >   value2 <=> value1
+	3.0.1 :186 > end
+	 => [543, 532, 232, 34, 23, 11] 
+	3.0.1 :187 > arr.sort
+	 => [11, 23, 34, 232, 532, 543] 
+	3.0.1 :188 > arr = ["helo", "arid", "futi" , "fjisti"]
+	 => ["helo", "arid", "futi", "fjisti"] 
+	3.0.1 :189 > x = arr.sort do
+	3.0.1 :190 >   |value1, value2|
+	3.0.1 :191 >   value1.length <=> value2.length
+	3.0.1 :192 > end
+	 => ["helo", "arid", "futi", "fjisti"] 
+	3.0.1 :193 > x = arr.sort do
+	3.0.1 :194 >   |value1, value2|
+	3.0.1 :195 >   value2.length <=> value1.length
+	3.0.1 :196 > end
+	 => ["fjisti", "helo", "arid", "futi"] 
+	3.0.1 :197 > 
+	 => [23, 34, 543, 11, 232, 532] 
+	3.0.1 :179 > x = arr.sort do 
+	3.0.1 :180 >   |value1, value2|
+	3.0.1 :181 >   value1 <=> value2
+	3.0.1 :182 > end
+	 => [11, 23, 34, 232, 532, 543] 
+	3.0.1 :183 > x = arr.sort do 
+	3.0.1 :184 >   |value1, value2|
+	3.0.1 :185 >   value2 <=> value1
+	3.0.1 :186 > end
+ 	=> [543, 532, 232, 34, 23, 11] 
+	3.0.1 :187 > 
+
+ Sort! Or sort by! -> ruby often adds "!" To indicate a more powerful or destructive version of a method
+
+		  -> works the same but replaces arrays contents
+
+	3.0.1 :197 > arr
+	 => ["helo", "arid", "futi", "fjisti"] 
+	3.0.1 :198 > arr.sort do |v1,v2|
+	3.0.1 :199 >   v1 <=> v2
+	3.0.1 :200 > end
+	 => ["arid", "fjisti", "futi", "helo"] 
+	3.0.1 :201 > arr
+	 => ["helo", "arid", "futi", "fjisti"] 
+	3.0.1 :202 > arr.sort! do 
+	3.0.1 :203 >   |v1,v2|
+	3.0.1 :204 >   v1 <=> v2
+	3.0.1 :205 > end
+	 => ["arid", "fjisti", "futi", "helo"] 
+	3.0.1 :206 > arr
+	 => ["arid", "fjisti", "futi", "helo"] 
+
+
+
+5. Merge  -> it used by hash only 
+	 -> merges two hashes together
+	 -> Block can provide rules to use when merging
+
+	3.0.1 :207 > has1 = {:a => 1, :b => 2, :c => 3}
+	 => {:a=>1, :b=>2, :c=>3} 
+	3.0.1 :208 > has2 = {:a => 3, :b => 4, :c => 8}
+	 => {:a=>3, :b=>4, :c=>8} 
+	3.0.1 :209 > has1.merge(has2)
+	 => {:a=>3, :b=>4, :c=>8} 
+	3.0.1 :210 > has2.merge(has1)
+	 => {:a=>1, :b=>2, :c=>3} 
+
+ -> it help full when key conflict occurs 
+	key conflict -> when same key occur in both the hashes
+
+	-> then we use blocks to tell which key value pair should use
+
+	3.0.1 :211 > has1.merge(has2) do
+	3.0.1 :212 >   |k, o, n| 
+	3.0.1 :213 >   o
+	3.0.1 :214 > end
+	 => {:a=>1, :b=>2, :c=>3} 
+	3.0.1 :215 > has1.merge(has2) do
+	3.0.1 :216 >   |k, o, n| 
+	3.0.1 :217 >   n
+	3.0.1 :218 > end
+	 => {:a=>3, :b=>4, :c=>8} 
+	3.0.1 :219 > has1.merge(has2) do
+	3.0.1 :220 >   |k, o, n| 
+	3.0.1 :221 >   o*n
+	3.0.1 :222 > end
+	 => {:a=>3, :b=>8, :c=>24} 
+	3.0.1 :223 > has1.merge(has2) do
+	3.0.1 :224 >   |k, o, n| 
+	3.0.1 :225 >   o+2
+	3.0.1 :226 > end
+	 => {:a=>3, :b=>4, :c=>5} 
+	3.0.1 :227 > has1.merge(has2) do
+	3.0.1 :228 >   |k, o, n| 
+	3.0.1 :229 >   o*n+2
+	3.0.1 :230 > end
+	 => {:a=>5, :b=>10, :c=>26} 
+
+  Note-. This blocks will called only when key conflicts occurs 
+
+
+	there's all merge! 
+
+	3.0.1 :227 > has1.merge(has2) do
+	3.0.1 :228 >   |k, o, n| 
+	3.0.1 :229 >   o*n+2
+	3.0.1 :230 > end
+	 => {:a=>5, :b=>10, :c=>26} 
+	3.0.1 :231 > has1
+	 => {:a=>1, :b=>2, :c=>3} 
+	3.0.1 :232 > has1
+	 => {:a=>1, :b=>2, :c=>3} 
+	3.0.1 :233 > has1.merge!(has2) do 
+	3.0.1 :234 >   |k,o,n|
+	3.0.1 :235 >   o*n
+	3.0.1 :236 > end
+	 => {:a=>3, :b=>8, :c=>24} 
+	3.0.1 :237 > has1
+	 => {:a=>3, :b=>8, :c=>24} 
+
+
+Challenge 
+
+
+	print "Give me a verb "
+	x = gets.chomp
+	print "Give me an adjective: "
+	y = gets.chomp
+	print  "Give me an adjective: "
+	z = gets.chomp
+	print "Give me a noun: "
+	m = gets.chomp
+
+	puts  "i decided to " +x + " a " + y + " party for my " + z+ " teddy " +m
+	sam@Sams-MBP Programs % ruby /Users/sam/Desktop/Programs/ruby.rb
+	Give me a verb eat
+	Give me an adjective: funny
+	Give me an adjective: blue
+	Give me a noun: bear
+	i decided to eat a funny party for my blue teddy bear
