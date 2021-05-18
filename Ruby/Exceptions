@@ -1,0 +1,823 @@
+Exceptions -> it is an event that occur when an error occurred while execution
+	-> the Program stop after getting an error so we have to handle those situations instead of halting program completely 
+	-> exception handling is a process which describes a way to handle the error raised in a program
+	-> error means an unwanted or unexpected event, which occurs during the execution of a program
+	-> in ruby we enclose the code the raise an exceptions in a begin and end block and use rescue to tell ruby the type of exceptions we want to handle.
+
+
+
+	syntax ->
+
+
+	begin
+
+	  code the will raise an error 
+
+	rescue
+
+	  exceptions message 
+
+	resuce 
+	
+	  another exception message 
+
+	end
+
+
+	3.0.1 :165 > def rasie 
+	3.0.1 :166 >   begin 
+	3.0.1 :167 >     puts "enter the number "
+	3.0.1 :168 >     x  = readline.chomp
+	3.0.1 :169 >     puts "enter another number "
+	3.0.1 :170 >     y = readline.chomp
+	3.0.1 :171 >     puts  x+y
+	3.0.1 :172 >   rescue
+	3.0.1 :173 >     puts "any number cannot devided by zero"
+	3.0.1 :174 >   end
+	3.0.1 :175 > end
+	 => :rasie 
+	3.0.1 :176 > rasie
+	enter the number 
+	2
+	enter another number 
+	3
+	23
+	 => nil 
+	3.0.1 :177 > puts 2/3
+	0
+	 => nil 
+	3.0.1 :178 > def rasie 
+	3.0.1 :179 >   begin 
+	3.0.1 :180 >     puts "enter the number "
+	3.0.1 :181 >     x  = readline.chomp.to_i
+	3.0.1 :182 >     puts "enter another number "
+	3.0.1 :183 >     y = readline.chomp.to_i
+	3.0.1 :184 >     puts  x+y
+	3.0.1 :185 >   rescue
+	3.0.1 :186 >     puts "any number cannot devided by zero"
+	3.0.1 :187 >   end
+	3.0.1 :188 > end
+	 => :rasie 
+	3.0.1 :189 > rasie
+	enter the number 
+	4
+	enter another number 
+	2
+	6
+	 => nil 
+	3.0.1 :190 > def rasie 
+	3.0.1 :191 >   begin 
+	3.0.1 :192 >     puts "enter the number "
+	3.0.1 :193 >     x  = readline.chomp.to_i
+	3.0.1 :194 >     puts "enter another number "
+	3.0.1 :195 >     y = readline.chomp.to_i
+	3.0.1 :196 >     puts  x/y
+	3.0.1 :197 >   rescue
+	3.0.1 :198 >     puts "any number cannot devided by zero"
+	3.0.1 :199 >   end
+	3.0.1 :200 > end
+	 => :rasie 
+	3.0.1 :201 > rasie
+	enter the number 
+	9
+	enter another number 
+	3
+	3
+ 	=> nil 
+	3.0.1 :202 > rasie
+	enter the number 
+	9
+	enter another number 
+	0
+	any number cannot devided by zero
+	 => nil 
+	3.0.1 :203 > rasie
+	enter the number 
+	0
+	enter another number 
+	3
+	0
+	 => nil 
+	3.0.1 :204 > rasie
+	enter the number 
+	10
+	enter another number 
+	0
+	any number cannot devided by zero
+	 => nil
+
+
+-> Everything from begin to rescue is protected. If an exception occurs during the execution of this block of code, control is passed to the block between rescue and end.
+
+-> ruby compare every rescue clause with raise exceptions 
+
+-> if it found the match with the exception named as the rescue exceptions named it will passed to that rescue statements 
+
+
+
+	3.0.1 :236 > def re
+	3.0.1 :237 >   begin
+	3.0.1 :238 >     puts "enter the word "
+	3.0.1 :239 >     x = readline.chomp
+	3.0.1 :240 >     puts "enter anoter word "
+	3.0.1 :241 >     y = readline.chomp.to_i
+	3.0.1 :242 >     puts x+y
+	3.0.1 :243 >   rescue "please enter valid word"
+	3.0.1 :244 >   end
+	3.0.1 :245 > end
+	 => :re 
+	3.0.1 :246 > def re
+	3.0.1 :247 >   begin
+	3.0.1 :248 >     puts "enter the word "
+	3.0.1 :249 >     x = readline.chomp
+	3.0.1 :250 >     puts "enter anoter word "
+	3.0.1 :251 >     y = readline.chomp.to_i
+	3.0.1 :252 >     puts x+y
+	3.0.1 :253 >   rescue 
+	3.0.1 :254 >     puts "please enter valid word "
+	3.0.1 :255 >   end
+	3.0.1 :256 > end
+	 => :re 
+	3.0.1 :257 > re
+	enter the word 
+	sam
+	enter anoter word 
+	1
+	please enter valid word 
+	 => nil 
+	3.0.1 :211 > def re
+	3.0.1 :212 >   begin
+	3.0.1 :213 >     puts "enter the word "
+	3.0.1 :214 >     x = readline.chomp
+	3.0.1 :215 >     puts "enter anoter word "
+	3.0.1 :216 >     y = readline.chomp
+	3.0.1 :217 >     puts x+y
+	3.0.1 :218 >   rescue "please enter valid word"
+	3.0.1 :219 >   end
+	3.0.1 :220 > end
+	 => :re 
+	3.0.1 :221 > re
+	enter the word 
+	sam
+	enter anoter word 
+	Malik
+	samMalik
+	 => nil 
+	3.0.1 :222 > re
+	enter the word 
+	sam
+	enter anoter word 
+	1
+	sam1
+	 => nil 
+	3.0.1 :223 > re
+	enter the word 
+	Hello 
+	enter anoter word 
+	world
+	Hello world
+	 => nil 
+	3.0.1 :224 > re
+	enter the word 
+	san
+	enter anoter word 
+	[
+	san[
+	 => nil 
+	3.0.1 :225 > def re
+	3.0.1 :226 >   begin
+	3.0.1 :227 >     puts "enter the word "
+	3.0.1 :228 >     x = readline.chomp
+	3.0.1 :229 >     puts "enter anoter word "
+	3.0.1 :230 >     y = readline.chomp.to_i
+	3.0.1 :231 >     puts x+y
+	3.0.1 :232 >   rescue "please enter valid word"
+	3.0.1 :233 >   end
+	3.0.1 :234 > end
+	 => :re 
+	
+
+
+
+Retry -> by using retry we can except the exception and the use retry statement to execute begin block form the beginning 
+
+
+	syntax
+
+	begin
+
+	  code that will give exceptions
+
+	rescue 
+
+	  code that will except the handle 
+
+	  retry
+
+	end
+
+
+	3.0.1 :280 > def re
+	3.0.1 :281 >   begin
+	3.0.1 :282 >     puts "enter the number "
+	3.0.1 :283 >     x = readline.chomp.to_i
+	3.0.1 :284 >     puts "enter the another number "
+	3.0.1 :285 >     y = readline.chomp.to_i
+	3.0.1 :286 >     puts x/y
+	3.0.1 :287 >   rescue
+	3.0.1 :288 >     puts "enter valid number "
+	3.0.1 :289 >     retry
+	3.0.1 :290 >   end
+	3.0.1 :291 > end
+	 => :re 
+	3.0.1 :292 > re
+	enter the number 
+	4
+	enter the another number 
+	2
+	2
+	 => nil 
+	3.0.1 :293 > re
+	enter the number 
+	3
+	enter the another number 
+	0
+	enter valid number 
+	enter the number 
+	5
+	enter the another number 
+	9
+	0
+	 => nil 
+	3.0.1 :294 > re
+	enter the number 
+	9
+	enter the another number 
+	=
+	enter valid number 
+	enter the number 
+	9
+	enter the another number 
+	g
+	enter valid number 
+	enter the number 
+	3
+	enter the another number 
+	0
+	enter valid number 
+	enter the number 
+	9
+	enter the another number 
+	2
+	4
+	 => nil
+	begin
+	3.0.1 :297 >   file = open("file not exist")
+	3.0.1 :298 >   if file 
+	3.0.1 :299 >     puts "file opened"
+	3.0.1 :300 >   end
+	3.0.1 :301 > rescue
+	3.0.1 :302 >   fname " file not exit"
+	3.0.1 :303 >   retry
+	3.0.1 :304 > end
+
+Note -> if your code is same for all the time then by using retry statement the code will execute infinitely 
+
+
+Raise statement -> Raise statement is used to raise an error inside the code 
+
+	-> the raise method is Called when an exception is occurred an passed to the rescue with that raise message name
+
+	-> the syntax is used to re-raise the current exception. It generally used by the exception handler where an exception is interrupted before passing it on.
+
+	-> the syntax is used to create a RuntimeError exception and it raises up the call stack.
+
+	->the first argument is used to create an exception and the set the message in the second argument 
+
+	-> we can use raise statement to raise our choice error 
+
+
+	Syntax
+
+	raise 
+
+  Or 
+
+	raise "error message"
+
+  Or 
+
+	raise ExceptionType, "Error Message"
+
+  Or 
+
+	raise ExceptionType, "Error Message" condition
+
+  
+	3.0.1 :305 > begin 
+	3.0.1 :306 >   puts "this is exception"
+	3.0.1 :307 >   raise "exceptions created"
+	3.0.1 :308 >   puts "After exceptions"
+	3.0.1 :309 > end
+	this is exception
+	(irb):307:in `<main>': exceptions created (RuntimeError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top 	(required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :310 > begin 
+	3.0.1 :311 >   puts "this is exception"
+	3.0.1 :312 >     raise "exceptions created"
+	3.0.1 :313 >   puts "After exceptions"
+	3.0.1 :314 > end
+	this is exception
+	(irb):312:in `<main>': exceptions created (RuntimeError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top 	(required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :315 > begin 
+	3.0.1 :316 >   puts "this is before exceptions"
+	3.0.1 :317 >   raise "exception created"
+	3.0.1 :318 >   puts "after exceptions"
+	3.0.1 :319 > end
+	this is before exceptions
+(irb):317:in `<main>': exception created (RuntimeError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :320 > begin
+	3.0.1 :321 > 
+	3.0.1 :322 >     puts 'This is Before Exception Arise!'
+	3.0.1 :323 > 
+	3.0.1 :324 >        # using raise to create an exception
+	3.0.1 :325 >        raise 'Exception Created!'
+	3.0.1 :326 > 
+	3.0.1 :327 >     puts 'After Exception'
+	3.0.1 :328 > end
+	This is Before Exception Arise!
+(irb):325:in `<main>': Exception Created! (RuntimeError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :329 > begin
+	3.0.1 :330 > 
+	3.0.1 :331 >     puts 'This is Before Exception Arise!'
+	3.0.1 :332 > 
+	3.0.1 :333 >        # using raise to create an exception
+	3.0.1 :334 >        raise 'Exception Created '
+	3.0.1 :335 >     puts 'After Exception'
+	3.0.1 :336 > end
+	This is Before Exception Arise!
+(irb):334:in `<main>': Exception Created  (RuntimeError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top 		(required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :337 > begin 
+	3.0.1 :338 >   puts "before the exception"
+	3.0.1 :339 >   
+	3.0.1 :340 >   raise RuntimeError "after the exception"
+	3.0.1 :341 >   puts "error after"
+	3.0.1 :342 > end
+	before the exception
+	(irb):340:in `<main>': undefined method `RuntimeError' for main:Object (NoMethodError)
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top 	(required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :343 > 
+
+
+
+->Storing error in variable 
+
+
+	-> we can store the error inside a variable and the print those variable 
+
+
+	3.0.1 :343 > def divide
+	3.0.1 :344 >   puts "enter the number "
+	3.0.1 :345 >   x = readline.chomp.to_i
+	3.0.1 :346 >   puts "enter the another number "
+	3.0.1 :347 >   y = readline.chomp.to_i
+	3.0.1 :348 >   puts x/y
+	3.0.1 :349 > rescue ZeroDivisionError => e
+	3.0.1 :350 >   puts e
+	3.0.1 :351 > rescue TypeError => m
+	3.0.1 :352 >   puts m
+	3.0.1 :353 > end
+	 => :divide 
+	3.0.1 :354 > divide
+	enter the number 
+	12
+	enter the another number 
+	2
+	6
+	 => nil 
+	3.0.1 :355 > divide
+	enter the number 
+	3
+	enter the another number 
+	0
+	divided by 0
+	 => nil 
+	3.0.1 :356 > divide
+	enter the number 
+	3
+	enter the another number 
+	j
+	divided by 0
+	 => nil 
+	3.0.1 :357 > divide
+	enter the number 
+	ds
+	enter the another number 
+	ds
+	divided by 0
+	 => nil 
+	3.0.1 :358 > arr = [1,2,3,4,5]
+	 => [1, 2, 3, 4, 5] 
+	3.0.1 :359 > begin 
+	3.0.1 :360 >   arr["hello"]
+	3.0.1 :361 > rescue TypeError
+	3.0.1 :362 >   puts "wrong index"
+	3.0.1 :363 > end
+	wrong index
+	 => nil 
+	3.0.1 :364 > begin 
+	3.0.1 :365 >   arr["hello"]
+	3.0.1 :366 > rescue TypeError => e
+	3.0.1 :367 >   puts e
+	3.0.1 :368 > end
+	no implicit conversion of String into Integer
+	 => nil
+	3.0.1 :399 > def funk() 
+	3.0.1 :400 >   puts "enter the string "
+	3.0.1 :401 >   x = readline.chomp
+	3.0.1 :402 >   if x.class!= String
+	3.0.1 :403 >     raise StandardError
+	3.0.1 :404 >   end
+	3.0.1 :405 >   return x 
+	3.0.1 :406 > end
+	 => :funk 
+	3.0.1 :407 > funk
+	enter the string 
+	hello
+	 => "hello" 
+	3.0.1 :408 > funk
+	enter the string 
+	7
+	 => "7" 
+	3.0.1 :409 > def funk() 
+	3.0.1 :410 >   puts "enter the string "
+	3.0.1 :411 >   x = readline.chomp3.0.1 :412 >   if x!= "String"
+	3.0.1 :413 >     raise StandardError
+		3.0.1 :414 >   end
+	3.0.1 :415 >   return x 
+	3.0.1 :416 > end
+	 => :funk 
+	3.0.1 :417 > funk
+	enter the string 
+	String
+	 => "String" 
+	3.0.1 :418 > funk
+	enter the string 
+	hello
+(irb):413:in `funk': StandardError (StandardError)
+	from (irb):418:in `<main>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	3.0.1 :429 > def funk() 
+	3.0.1 :430 >   puts "enter the string "
+	3.0.1 :431 >   x = readline.chomp
+	3.0.1 :432 >   if x!= "String"
+	3.0.1 :433 >     raise StandardError , "error occured"
+	3.0.1 :434 >   end
+	3.0.1 :435 >   return x 
+	3.0.1 :436 > end
+	 => :funk 
+	3.0.1 :437 > funk
+	enter the string 
+	String
+	 => "String" 
+	3.0.1 :438 > funk
+	enter the string 
+	hello
+(irb):433:in `funk': error occured (StandardError)
+	from (irb):438:in `<main>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	from /Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	def file
+   	begin
+    	puts "enter the string "
+     	x = readline.chomp
+   	if x != "string"
+       	raise StandardError,  "error occured"
+     	end
+  	rescue
+    	puts "after exception"
+  		end
+	end
+	file
+	sam@Sams-MBP Programs % ruby /Users/sam/Desktop/untitled\ folder/Programs/ruby.rb
+	enter the string
+	hello
+	after exception
+	sam@Sams-MBP Programs % ruby /Users/sam/Desktop/untitled\ folder/Programs/ruby.rb
+	enter the string
+	string
+	sam@Sams-MBP Programs % ruby /Users/sam/Desktop/untitled\ folder/Programs/ruby.rb
+	enter the string
+	world
+	after exception
+	
+
+
+Ensure -> This statement ensures that required instructions will execute at the end of the code, whether the exception raise or raised exception is rescued, or the program terminates due to an uncaught exception. This block always gives output. 
+
+	-> this block is placed over the rescue block.
+
+	->ensure goes after the last rescue clause and contains a code that will always be executed as the block terminates. 
+
+	-> it doesn't matter if the block exits normally, if it raises and rescues an exception.
+
+
+	syntax
+
+	begin 
+
+	  code.. that give an exception
+
+	rescue
+
+	  code that execute after exception occurred
+
+	ensure 
+
+	  code will execute whatever happened
+
+	end
+
+
+	.0.1 :489 > def ki 
+	3.0.1 :490 >   begin 
+	3.0.1 :491 >     puts "enter "
+	3.0.1 :492 >     x = readline.chomp.to_i
+	3.0.1 :493 >     puts x+10
+	3.0.1 :494 >   rescue => e 
+	3.0.1 :495 >     puts "enter valid number"
+	3.0.1 :496 >     puts e.message
+	3.0.1 :497 >     puts e.backtrace
+	3.0.1 :498 >   ensure 
+	3.0.1 :499 >     puts "i will always execute"
+	3.0.1 :500 >   end
+	3.0.1 :501 > end
+	 => :ki 
+	3.0.1 :502 > ki
+	enter 
+	4
+	14
+	i will always execute
+	 => nil 
+	3.0.1 :503 > ki
+	enter 
+	kji
+	10
+	i will always execute
+	 => nil 
+	3.0.1 :504 > def ki 
+	3.0.1 :505 >   begin 
+	3.0.1 :506 >     puts "enter "
+	3.0.1 :507 >     x = readline.chomp.to_i
+	3.0.1 :508 >     puts 10/x
+	3.0.1 :509 >   rescue => e 
+	3.0.1 :510 >     puts "enter valid number"
+	3.0.1 :511 >     puts e.message
+	3.0.1 :512 >     puts e.backtrace
+3.0.1 :513 >   ensure 
+	3.0.1 :514 >     puts "i will always execute"
+	3.0.1 :515 >   end
+	3.0.1 :516 > end
+ 	=> :ki 
+	3.0.1 :517 > 4
+	 => 4 
+		3.0.1 :518 > ki
+	enter 
+	0
+	enter valid number
+	divided by 0
+	(irb):508:in `/'
+	(irb):508:in `ki'
+	(irb):518:in `<main>'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/workspace.rb:116:in `eval'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/workspace.rb:116:in `evaluate'/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/context.rb:450:in `evaluate'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:567:in `block (2 levels) in eval_input'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:751:in `signal_status'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:548:in `block in eval_input'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/ruby-lex.rb:251:in `block (2 levels) in each_top_level_statement'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/ruby-lex.rb:233:in `loop'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/ruby-lex.rb:233:in `block in 	each_top_level_statement'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/ruby-lex.rb:232:in `catch'
+		/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb/ruby-lex.rb:232:in `each_top_level_statement'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:547:in `eval_input'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:481:in `block in run'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:480:in `catch'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:480:in `run'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/irb.rb:409:in `start'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/lib/ruby/gems/3.0.0/gems/irb-1.3.5/exe/irb:11:in `<top (required)>'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `load'
+	/Users/sam/.rvm/rubies/ruby-3.0.1/bin/irb:23:in `<main>'
+	i will always execute
+	 => nil 
+
+
+Using else statement 
+
+	-> this statement is present in between the rescue block and ensure block.
+
+	-> this block olnly executes when no exception is raised.
+
+	
+
+	syntax 
+
+
+	begin 
+
+	  code .. that raise error
+
+	rescue
+
+	  code ..for handle rescue
+
+
+	else
+	
+	  code .. executes only if raise will not execute
+
+	ensure
+
+	  code .. I will always execute 
+
+	end
+
+	
+	3.0.1 :519 > begin 
+	3.0.1 :520 >   puts "no exception"
+	3.0.1 :521 > rescue 
+	3.0.1 :522 >   pus "finally saved"
+	3.0.1 :523 > else 
+	3.0.1 :524 >   puts " else block executes"
+	3.0.1 :525 > ensure 
+	3.0.1 :526 >   puts " i will always executes"
+	3.0.1 :527 > end
+	no exception
+ 	else block executes
+	 i will always executes
+ 	=> nil 
+
+
+
+Catch and through 
+
+	-> in ruby catch and through blocks are the lightweight mechanism for error for error handling and use d to jump form the exception when there is no additional work is available in the program
+
+	-> The catch block is used to jump out form the nested block and the block is labelled with a name.
+
+	-> This block works normally until it encounters with the throw block.
+
+	-> catch and throw method will work faster than raise and rescue method
+
+	-> When the throw statement is encountered, Ruby will check the call stack for the catch statement with the related symbol
+
+	-> The throw statement never executes and always return nil
+
+
+
+	syntax
+
+	throw :label_name
+
+	  code.. this will never execute 
+
+	catch :label_name do 
+
+	  code .. matching catch will be executed when the through block encounter
+
+	end
+
+
+  Or 
+
+
+	throw : lablename condition
+
+	  code this will never execute 
+
+	catch : lablename do 
+
+	  code matching catch will be executed after a throw is encountered.
+
+	end
+
+
+
+	3.0.1 :528 > def promptAndGet(prompt)
+	3.0.1 :529 >    print prompt
+	3.0.1 :530 >    res = readline.chomp
+	3.0.1 :531 >    throw :quitRequested if res == "!"
+	3.0.1 :532 >    return res
+	3.0.1 :533 > end
+	 => :promptAndGet 
+	3.0.1 :534 > 
+	3.0.1 :535 > catch :quitRequested do
+	3.0.1 :536 >    name = promptAndGet("Name: ")
+	3.0.1 :537 >    age = promptAndGet("Age: ")
+	3.0.1 :538 >    sex = promptAndGet("Sex: ")
+	3.0.1 :539 > end
+	3.0.1 :540 > promptAndGet("Name:")
+	Name: hello
+	Age: 21
+	Sex: male
+	Name:helo
+	 => "helo" 
+	3.0.1 :541 > catch :quitRequested do
+	3.0.1 :542 >    name = promptAndGet("Name: ")
+	3.0.1 :543 >    age = promptAndGet("Age: ")
+	3.0.1 :544 >    sex = promptAndGet("Sex: ")
+	3.0.1 :545 > end
+	3.0.1 :546 > promptAndGet("Name:")
+	Name: !
+	Name:helo
+	 => "helo"
+	3.0.1 :547 > floor = [["blank", "blank", "blank"],
+	3.0.1 :548 >          ["gummy", "blank", "blank"],
+	3.0.1 :549 >          ["blank", "blank", "blank"]]
+	 => 
+	[["blank", "blank", "blank"],
+		... 
+	3.0.1 :550 > 
+	3.0.1 :551 > candy = nil
+	 => nil 
+	3.0.1 :552 > attempts = 0
+	 => 0 
+	3.0.1 :553 > floor.each do |row|
+	3.0.1 :554 >   row.each do |tile|
+	3.0.1 :555 >     attempts += 1
+	3.0.1 :556 >     candy = tile if tile == "jawbreaker" || tile == "gummy"
+	3.0.1 :557 >   end
+	3.0.1 :558 > end
+	 => 
+	[["blank", "blank", "blank"],
+	 ["gummy", "blank", "blank"],
+	 ["blank", "blank", "blank"]] 
+	3.0.1 :559 > puts candy
+	3.0.1 :560 > puts attempts
+	gummy
+	9
+	 => nil 
+	3.0.1 :614 > arr
+ 	=> [1, 2, 3, 4, 5] 
+	3.0.1 :615 > catch(:found) do
+	3.0.1 :616 >   for i in (0...5)
+	3.0.1 :617 >     print arr[i]
+	3.0.1 :618 >     if i > 3
+	3.0.1 :619 >       throw :found
+	3.0.1 :620 >     end
+	3.0.1 :621 >   end
+	3.0.1 :622 > end
+	12345 => nil 
+	3.0.1 :623 > floor = [["blank", "blank", "blank"],
+	3.0.1 :624 >          ["gummy", "blank", "blank"],
+	3.0.1 :625 >          ["blank", "blank", "blank"]]
+	 => 
+	[["blank", "blank", "blank"],
+	... 
+	3.0.1 :626 > 
+	3.0.1 :627 > attempts = 0
+	 => 0 
+	3.0.1 :628 > candy = catch(:found) do
+	3.0.1 :629 > floor.each do |row|
+	3.0.1 :630 >   row.each do |tile|
+	3.0.1 :631 >       attempts += 1
+	3.0.1 :632 >     throw(:found, tile) if tile == "jawbreaker" || tile == "gummy"
+	3.0.1 :633 >   end
+	3.0.1 :634 > end
+	3.0.1 :635 > end
+	 => "gummy" 
+	3.0.1 :636 > puts candy
+	3.0.1 :637 > puts attempts
+	gummy
+	4
+	3.0.1 :638 > def noNegativeNumbers (number)
+	3.0.1 :639 >     throw :negativeNumberError if number < 0
+	3.0.1 :640 >     puts "Your number is positive!"
+	3.0.1 :641 > end
+	 => :noNegativeNumbers 
+	3.0.1 :642 > 
+	3.0.1 :643 > catch :negativeNumberError do
+	3.0.1 :644 >     noNegativeNumbers(5)
+	3.0.1 :645 >     noNegativeNumbers(-5) 
+	3.0.1 :646 >     noNegativeNumbers(3)
+	3.0.1 :647 > end
+	Your number is positive!
+ 	=> nil 
