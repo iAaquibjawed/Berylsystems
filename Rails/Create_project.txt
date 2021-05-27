@@ -1,0 +1,47 @@
+  How to create Rails project 
+
+	rails new project_name
+
+  by default rails use sqlite database
+
+
+	to use different database you need to specify the database and tell them to configure you project with this database 
+
+
+	rails new project_name -d postgresql
+
+
+	to use mysql
+
+	rails new project_name -d mysql
+
+	-> we don't have a database with the name that rails give us
+	-> we need to configure our database
+	
+
+	By default psql not gives us users to create 
+
+
+	this will create a user with sam name in postgresql
+	
+	CREATE ROLE Joe LOGIN PASSWORD 'password' NOINHERIT CREATEDB;
+
+	login with that user 
+
+	psql -d database -u Joe
+
+
+  Access Project 
+
+
+	To run the project open terminal and run
+
+	rails s 
+	
+	or
+
+	rails server
+
+
+	to stop the server type ctrl + c
+	
