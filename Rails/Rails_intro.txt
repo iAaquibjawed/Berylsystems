@@ -1,0 +1,26 @@
+Rails -> Rails is a web application development framework written in ruby programming language. 
+
+	-> it is designed to make programming web applications easier.
+
+	-> it is an open source Ruby framework for developing database-backed web applications.
+
+	-> No compilation phase required
+
+
+
+  It follow two major guiding principles:
+
+	1. Don't Repeat yourself -> Dry is a principle of software development , if same piece of code will not repeat again and again, code will be more maintainable, extensible and less buggy.
+
+
+	2. Convention over Configuration -> (it's also know as coding by convention) used by software frameworks that attempts to decrease the number of decisions that a developer using the framework is required to make without necessarily losing flexibility.
+
+
+
+ Rails gives you three default environments:
+
+	1.Development
+	2.testing
+	3.Production
+
+	-> each behaves slightly differently, making you entire software development cycle easier.

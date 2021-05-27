@@ -1,0 +1,89 @@
+Before installing Rails make sure your system has the proper prerequisite installed. 
+These include.
+
+	1.Ruby
+	2.database
+	3.node.js
+	4.yarn
+
+	you can check their versions if your system have by using this commands
+
+	1. Ruby -> ruby --version 
+	sam@Sams-MBP ~ % ruby --version
+	ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [x86_64-darwin20]
+
+
+	-> rails require ruby version 2.5.0 or later. If the person number returned is less than that number you will need to update your ruby
+
+	-> To update ruby use this commands
+
+	rvm install 3.0.1
+
+	it install ruby of version 3.0.1
+
+	-> To use the newly installed ruby use this command
+
+	rvm use 3.0.1
+
+	-> You can set a version of ruby to use as the default for new shells. This will overrides the systems ruby.
+
+	rvm use 3.0.1 --default 
+
+
+	2. Database -> check your database version by this commands
+
+	postgres --version
+	postgres (PostgreSQL) 13.3
+
+	
+	3. Node.js -> to check you node version use command
+
+	sam@Sams-MBP ~ % node --version
+	v16.1.0
+
+	if not instal it with home-brew
+
+	brew install node
+
+
+	4. Yarn -> to check yarn version use this command
+
+	sam@Sams-MBP ~ % yarn --version
+	1.22.10
+
+	if not use brew to instal yarn
+
+	brew install yarn
+
+
+
+ After this install rails 
+
+	for this u need to have gem 
+	gem-> it's a package manager for ruby
+	To check you gem version use
+
+	sam@Sams-MBP ~ % gem --version
+	3.2.15
+
+
+	use gem to install rails 
+
+	gem install rails 
+	
+	you can specify you rails version to install if you not specify gem will install the latest version of rails on your machine.
+
+	To update rails use
+	
+	gem update rails
+
+
+ After installing all this you need database adapter to use it with your rails project 
+
+	I am using PostgreSQL data base to install PostgreSQL adapter
+
+	gem install postgresql
+
+	for mysql use
+
+	gem install mysql2
