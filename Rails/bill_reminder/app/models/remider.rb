@@ -1,2 +1,0 @@
-class Remider < ApplicationRecord
-end
